@@ -62,7 +62,7 @@ Thank you very much for taking the time to view our web-app! We hope you are abl
 
 - Zach Drummond - https://github.com/zachdrummond
 - Calving Griffin - https://github.com/cgriffin332
-- Diana Maina - 
+- Diana Maina - https://github.com/dianamaina
 
 ## License
 
