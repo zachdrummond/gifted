@@ -1,0 +1,6 @@
+DROP DATABASE IF EXISTS (dbName);
+CREATE DATABASE (dbName);
+USE (dbName);
+
+CREATE TABLE (tName) 
+((colName) (DATATYPE));
