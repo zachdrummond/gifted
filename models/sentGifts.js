@@ -1,18 +1,18 @@
 module.exports = function(sequelize, DataTypes){
-    const Receive = sequelize.define("Receive", {
+    const Sent = sequelize.define("Sent", {
         user_id: {
             type: DataTypes.int,
             allowNull: false,
         },
-        senderName: {
+        receiverName: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        senderAddress: {
+        receiverAddress: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        giftReceived: {
+        giftSent: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -20,13 +20,10 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.STRING,
             allowNull: false,
         },
-        dateReceived: {
+        dateSent: {
             type: DataTypes.STRING,
             allowNull: false,
-        },
-        thankYouCard: {
-            type: DataTypes.BOOLEAN,
         }
     });
-    return Receive;
+    return Sent;
 };
