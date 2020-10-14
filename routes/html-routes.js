@@ -28,6 +28,10 @@ module.exports = function(app) {
   });
   // index route loads add received gifts page
   app.get("/add/received", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/addReceived.handlebars"));
+  });
+  // index route loads add sent gifts page
+  app.get("/add/sent", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/addSent.handlebars"));
   });
 };
