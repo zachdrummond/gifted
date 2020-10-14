@@ -59,4 +59,16 @@ module.exports = function (app) {
       res.json(allSent);
     });
   });
+  // PUT route for updating received gifts
+  app.put("/api/edit/received", (req, res) =>{
+    db.Received.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then((received) =>{
+      res.json(received);
+    });
+  });
 };
