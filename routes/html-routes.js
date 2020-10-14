@@ -22,4 +22,8 @@ module.exports = function(app) {
   app.get("/received", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/receivedGifts.handlebars"));
   });
+  // index route loads sent gifts page
+  app.get("/sent", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/sentGifts.handlebars"));
+  });
 };
