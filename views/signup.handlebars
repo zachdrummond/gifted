@@ -25,18 +25,21 @@
 </form>
 
 <script>
-    $("#createAccountBtn").on("click", function (event) {
-        event.preventDefault();
+    $(document).ready(function () {
 
-        const newUser = {
-            name: $("#userName").val().trim(),
-            email: $("#userEmail").val().trim()
-        }
+        $("#createAccountBtn").on("click", function (event) {
+            event.preventDefault();
 
-        $.post("/api/add/user", newUser).then(function (response) {
-            console.log(response);
-        }).catch(function (error) {
-            console.log(error);
+            const newUser = {
+                name: $("#userName").val().trim(),
+                email: $("#userEmail").val().trim()
+            }
+
+            $.post("/api/add/user", newUser).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error);
+            });
         });
     });
 </script>
