@@ -27,6 +27,7 @@ app.engine(
 app.set("view engine", "handlebars");
 app.use(controller);
 
+// db.sequelize.sync({ force: true }).then(function () {
 db.sequelize.sync().then(function () {
   app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);
@@ -34,10 +35,10 @@ db.sequelize.sync().then(function () {
 });
 
 // ROUTES
-app.get("/", (request, response) => {
-  response.render("index");
-});
+// app.get("/", (request, response) => {
+//   response.render("index");
+// });
 
-app.get("/api/config", (request, response) => {
-  response.json({ success: true });
-});
+// app.get("/api/config", (request, response) => {
+//   response.json({ success: true });
+// });
