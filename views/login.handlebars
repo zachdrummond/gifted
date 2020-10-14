@@ -22,3 +22,24 @@
 <a id="giftsYouReceivedBtn" href="" class="button">Gifts You Received</a>
 <a id="giftsYouSentBtn" href="" class="button">Gifts You Sent</a>
 {{!-- Use disabled class with aria-disabled to ensure the user enters email --}}
+
+<script>
+    $(document).ready(function(){
+    
+    $("#loginBtn").on("click", function(event){
+        event.preventDefault();
+        console.log($("#email").val());
+    });
+
+    $("#giftsYouReceivedBtn").on("click", function(event){
+        event.preventDefault();
+        console.log("giftsYouReceivedBtn");
+    });
+
+    $("#giftsYouSentBtn").on("click", function(event){
+        event.preventDefault();
+        console.log("giftsYouSentBtn");
+    });
+
+});
+</script>
