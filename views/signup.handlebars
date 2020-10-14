@@ -18,8 +18,25 @@
         </div>
         <div class="grid-x grid-padding-x align-center">
             <div class="medium-4 cell text-center">
-                <button id="loginBtn" type="button" class="button expanded">Create Account</button>
+                <button id="createAccountBtn" type="button" class="button expanded">Create Account</button>
             </div>
         </div>
     </div>
 </form>
+
+<script>
+    $("#createAccountBtn").on("click", function (event) {
+        event.preventDefault();
+
+        const newUser = {
+            name: $("#userName").val().trim(),
+            email: $("#userEmail").val().trim()
+        }
+
+        $.post("/api/add/user", newUser).then(function (response) {
+            console.log(response);
+        }).catch(function (error) {
+            console.log(error);
+        });
+    });
+</script>

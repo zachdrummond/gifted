@@ -30,17 +30,17 @@
 
         $("#loginBtn").on("click", function (event) {
             event.preventDefault();
-            const userEmail = $("#userEmail").val();
-            $.get("/api/user/" + userEmail, {
-                type: "GET",
-            }).then(function (response) {
+
+            const userEmail = $("#userEmail").val().trim();
+
+            $.get("/api/user/" + userEmail).then(function (response) {
                 console.log(response);
             }).catch(function (error) {
                 console.log(error);
             });
         });
-        
-        $("#signUpBtn").on("click", function(event) {
+
+        $("#signUpBtn").on("click", function (event) {
             event.preventDefault();
             window.location.href = "/signup";
         })
