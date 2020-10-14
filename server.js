@@ -39,6 +39,12 @@ db.sequelize.sync().then(function () {
 //   response.render("index");
 // });
 
-// app.get("/api/config", (request, response) => {
-//   response.json({ success: true });
-// });
+app.get("/api/config", (request, response) => {
+  response.json({ success: true });
+});
+
+app.post("/api/add/user", (req, res) => {
+  db.User.create(req.body).then((newUser) => {
+    res.json(newUser);
+  });
+});
