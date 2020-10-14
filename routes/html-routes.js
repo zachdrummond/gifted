@@ -26,4 +26,8 @@ module.exports = function(app) {
   app.get("/sent", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/sentGifts.handlebars"));
   });
+  // index route loads add received gifts page
+  app.get("/add/received", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/addSent.handlebars"));
+  });
 };
