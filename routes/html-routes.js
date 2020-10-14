@@ -14,5 +14,9 @@ module.exports = function(app) {
   app.get("/signup", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/signup.handlebars"));
   });
-
+  // index route loads login page
+  app.get("/logout", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/login.handlebars"));
+  });
+  
 };
