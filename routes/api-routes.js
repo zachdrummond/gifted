@@ -83,4 +83,14 @@ module.exports = function (app) {
       res.json(sent);
     });
   });
+  // DELETE route for deleting received gifts
+  app.delete("/api/received/:id", function(req, res) {
+    db.Received.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(deleted) {
+      res.json(deleted);
+    });
+  });
 };
