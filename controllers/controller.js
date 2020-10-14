@@ -25,10 +25,11 @@ router.get("/things/:id/edit", (request, response) => {
 
 router.post("/api/thing", (request, response) => {
     db.Sample.create(request.body).then((newTHing) =>{
+        if (err) 
         response.json({
             error: true,
             data: null,
-            message: "Unable to create new thing."
+            message: "Unable to create new User."
         });
     });
 });
