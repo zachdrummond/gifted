@@ -1,5 +1,5 @@
-### Schema
 
+drop database if exists gifts_db;
 CREATE DATABASE gifts_db;
 
 USE gifts_db;
@@ -7,35 +7,41 @@ USE gifts_db;
 CREATE TABLE users
 (
 	id int NOT NULL AUTO_INCREMENT,
-    users_name varchar(255) NOT NULL,
+    name varchar(255) NOT NULL,
+    email VARCHAR (255) NOT NULL,
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE recievedGifts
-(
+INSERT INTO  users (name, email) VALUES ('Name', 'email');
+
+CREATE TABLE receivedGifts (
 	id int NOT NULL AUTO_INCREMENT,
 	users_id INT (255) NOT NULL,
 	senderName VARCHAR(255) NOT NULL,
-	senderAddress VARCHAR NOT NULL,
-	giftReceived VARCHAR NOT NULL,
-    occassion VARCHAR NOT NULL,
-    dateRecieved DATE,
-    thankYouCard boolean,
+	senderAddress VARCHAR(255) NOT NULL,
+	gift VARCHAR (255)NOT NULL,
+    occasion VARCHAR(255) NOT NULL,
+    date DATE,
+    thankYou boolean default false ,
 	PRIMARY KEY (id),
-	FOREIGN KEY (client_id) REFERENCES clients(id)
+	FOREIGN KEY (users_id) REFERENCES users(id)
 );
+INSERT INTO receivedGifts (users_id, senderName, senderAddress,  gift, occasion, date, thankYou) 
+VALUES (1, 'name', 'address' , 'Car', 'push gift', 12/26/2014 ,1);
 
-CREATE TABLE sendGifts
+
+CREATE TABLE sentGifts
 (
 	id int NOT NULL AUTO_INCREMENT,
 	users_id INT (255) NOT NULL,
 	receiverName VARCHAR(255) NOT NULL,
-	receiverAddress VARCHAR NOT NULL,
-	giftsent VARCHAR NOT NULL,
-    cost VARCHAR NOT NULL,
-    occasions VARCHAR,
-    datesSent DATE,
+	receiverAddress VARCHAR (255)NOT NULL,
+	gift VARCHAR (255) NOT NULL,
+    cost decimal (10,2) NOT NULL,
+    occasion VARCHAR (255) NOT NULL,
+    date DATE, 
 	PRIMARY KEY (id),
-	FOREIGN KEY (sender_id) REFERENCES recievedGifts(id)
+	FOREIGN KEY (users_id) REFERENCES users(id)
 );
+
 
