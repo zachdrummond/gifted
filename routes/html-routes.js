@@ -7,30 +7,30 @@ module.exports = function (app) {
 
   // index route loads login page
   app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "../views/login.handlebars"));
+    res.render("login");
   });
   // signup route loads signup page
   app.get("/signup", function (req, res) {
-    res.sendFile(path.join(__dirname, "../views/signup.handlebars"));
+    res.render("signup");
   });
   // index route loads login page
   app.get("/logout", function (req, res) {
-    res.sendFile(path.join(__dirname, "../views/login.handlebars"));
+    res.render("logout");
   });
   // index route loads received gifts page
   app.get("/received", function (req, res) {
-    res.sendFile(path.join(__dirname, "../views/receivedGifts.handlebars"));
+    res.render("receivedGift");
   });
   // index route loads sent gifts page
   app.get("/sent", function (req, res) {
-    res.sendFile(path.join(__dirname, "../views/sentGifts.handlebars"));
+    res.render("sentGift")
   });
   // index route loads add received gifts page
   app.get("/add/received", function (req, res) {
-    res.sendFile(path.join(__dirname, "../views/addReceived.handlebars"));
+    res.render("addReceived")
   });
   // index route loads add sent gifts page
   app.get("/add/sent", function (req, res) {
-    res.sendFile(path.join(__dirname, "../views/addSent.handlebars"));
+    res.render("addSent")
   });
 };

@@ -24,7 +24,7 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
-app.use(controller);
+// app.use(controller);
 
 // Routes
 //
