@@ -34,28 +34,28 @@ module.exports = function (app) {
   // route to add a new received gifts
   app.post("/api/add/received", (req, res) => {
     db.Received.create(req.body).then((newReceived) => {
-        if (err) throw err;
+        // if (err) throw err;
         res.json(newReceived)
     });
   });
   // route to add a new sent gifts
   app.post("/api/add/sent", (req, res) => {
     db.Sent.create(req.body).then((newSent) => {
-        if (err) throw err;
+        // if (err) throw err;
         res.json(newSent)
     });
   });
   // get all received gifts
   app.get("/api/received", (req, res) =>{
     db.Received.findAll().then((allReceived) =>{
-        if (err) throw err;
+        // if (err) throw err;
       res.json(allReceived);
     });
   });
   // get all sent gifts
   app.get("/api/sent", (req, res) =>{
     db.Sent.findAll().then((allSent) =>{
-        if (err) throw err;
+        // if (err) throw err;
       res.json(allSent);
     });
   });
