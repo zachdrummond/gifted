@@ -38,6 +38,7 @@
             // AJAX Call - Checks to see if the user's account is valid
             $.get("/api/user/" + userEmail).then(function (response) {
                 console.log(response);
+                boolean = true;
             }).catch(function (error) {
                 console.log(error);
             });
@@ -50,7 +51,7 @@
             // Sends the User to the Sign Up Page
             window.location.href = "/signup";
         })
-
+        
         // Gifts You Received Button Event Listener
         $("#giftsYouReceivedBtn").on("click", function (event) {
             event.preventDefault();
