@@ -90,14 +90,28 @@ module.exports = function (app) {
     db.Received.findAll().then((allReceived) => {
       // if (err) throw err;
       res.json(allReceived);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to get received gifts.",
+        });
+      });
   });
   // get all sent gifts
   app.get("/api/sent", (req, res) => {
     db.Sent.findAll().then((allSent) => {
       // if (err) throw err;
       res.json(allSent);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to get sent gifts.",
+        });
+      });
   });
   // PUT route for updating received gifts
   app.put("/api/edit/received", (req, res) => {
