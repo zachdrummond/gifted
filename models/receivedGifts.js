@@ -24,7 +24,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    thankYouCard: {
+    thankYou: {
       type: DataTypes.BOOLEAN,
     },
   });
