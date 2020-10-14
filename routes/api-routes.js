@@ -121,7 +121,14 @@ module.exports = function (app) {
       },
     }).then((received) => {
       res.json(received);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to edit received gifts.",
+        });
+      });
   });
   // PUT route for updating sent gifts
   app.put("/api/edit/sent", (req, res) => {
@@ -131,7 +138,14 @@ module.exports = function (app) {
       },
     }).then((sent) => {
       res.json(sent);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to edit sent gifts.",
+        });
+      });
   });
   // DELETE route for deleting received gifts
   app.delete("/api/received/:id", function (req, res) {
