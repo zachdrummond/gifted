@@ -15,15 +15,15 @@ module.exports = function (app) {
   });
   // index route loads login page
   app.get("/logout", function (req, res) {
-    res.render("logout");
+    res.render("login");
   });
   // index route loads received gifts page
   app.get("/received", function (req, res) {
-    res.render("receivedGift");
+    res.render("receivedGifts");
   });
   // index route loads sent gifts page
   app.get("/sent", function (req, res) {
-    res.render("sentGift")
+    res.render("sentGifts")
   });
   // index route loads add received gifts page
   app.get("/add/received", function (req, res) {
