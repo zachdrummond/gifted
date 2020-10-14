@@ -43,16 +43,23 @@
             });
         });
 
+        // Sign Up Button Event Listener
         $("#signUpBtn").on("click", function (event) {
             event.preventDefault();
+            
+            
             window.location.href = "/signup";
         })
 
+        // Gifts You Received Button Event Listener
         $("#giftsYouReceivedBtn").on("click", function (event) {
             event.preventDefault();
+            
+
             window.location.href = "/received";
         });
 
+        // Gifts You Sent Button Event Listener
         $("#giftsYouSentBtn").on("click", function (event) {
             event.preventDefault();
             window.location.href = "/sent";
