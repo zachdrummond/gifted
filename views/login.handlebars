@@ -28,9 +28,10 @@
     
     $("#loginBtn").on("click", function(event){
         event.preventDefault();
-        $("#email").val();
+        const userEmail = $("#email").val();
     });
 
+    
     $("#giftsYouReceivedBtn").on("click", function(event){
         event.preventDefault();
         window.location.href = "/received"
