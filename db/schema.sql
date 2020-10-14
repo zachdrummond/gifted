@@ -32,10 +32,10 @@ CREATE TABLE sentGifts
 	user_id INT (255) NOT NULL,
 	receiverName VARCHAR(255) NOT NULL,
 	receiverAddress VARCHAR (255)NOT NULL,
-	gift VARCHAR (255) NOT NULL,
+	giftSent VARCHAR (255) NOT NULL,
     cost decimal (10,2) NOT NULL,
     occasion VARCHAR (255) NOT NULL,
-    date DATE, 
+    dateSent DATE, 
 	PRIMARY KEY (id),
 	FOREIGN KEY (users_id) REFERENCES users(id)
 );
