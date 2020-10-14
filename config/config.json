@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "Chui@gt2020",
-=======
-    "password": "mysql",
->>>>>>> 8286c69d2fadc1d8f4d3aaec7f2203d3542c73a0
     "database": "gifts_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
