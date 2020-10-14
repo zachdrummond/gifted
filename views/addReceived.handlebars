@@ -13,7 +13,7 @@
             </div>
             <div class="medium-4 cell">
                 <label>Date Received
-                    <input id="dateReceived" type="text" placeholder=".medium-4.cell">
+                    <input id="dateReceived" type="date" placeholder=".medium-4.cell">
                 </label>
             </div>
             <div class="medium-4 cell">
@@ -32,13 +32,32 @@
                 </label>
             </div>
             <div class="medium-4 cell">
-                <legend>Thank You Card Sent?</legend>
+                <legend>Thank You Sent?</legend>
                 <input type="radio" name="thankYou" value="true" id="sent" required><label for="Sent">Sent</label>
                 <input type="radio" name="thankYou" value="false" id="notSent"><label for="Not Sent">Not Sent</label>
             </div>
             <div class="medium-4 cell">
-                <button id="submit" class="submit button">Add Gift</button>
+                <button id="submitAddReceived" class="submit button">Add Gift</button>
             </div>
         </div>
     </div>
 </form>
+
+<script>
+    $(document).ready(function(){
+        userId = 1;
+    $("#submitAddReceived").on("click", function(event){
+        event.preventDefault();
+        let newGift = {
+            user_id: userId,
+            senderName: $("#senderName").val(),
+            senderAddress: $("#senderAddress").val(),
+            giftReceived: $("#giftReceived").val(),
+            occasion: $("#occasionReceived").val(),
+            dateReceived: $("#dateReceived").val(),
+            thankYou: $('input[name="thankYou"]:checked').val(),
+        };
+        console.log(newGift)
+    });
+});
+</script>
