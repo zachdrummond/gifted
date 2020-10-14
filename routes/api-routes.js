@@ -7,9 +7,11 @@ module.exports = function (app) {
 
   // route to add a new user
   app.post("/api/add/user", (req, res) => {
-    db.User.create(req.body).then((newUser) => {
-      res.json(newUser);
-    }).catch((err) => {
+    db.User.create(req.body)
+      .then((newUser) => {
+        res.json(newUser);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -20,9 +22,11 @@ module.exports = function (app) {
   });
   // get all users
   app.get("/api/user", (req, res) => {
-    db.User.findAll().then((allUsers) => {
-      res.json(allUsers);
-    }).catch((err) => {
+    db.User.findAll()
+      .then((allUsers) => {
+        res.json(allUsers);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -37,9 +41,11 @@ module.exports = function (app) {
       where: {
         email: req.params.email,
       },
-    }).then((user) => {
-      res.json(user);
-    }).catch((err) => {
+    })
+      .then((user) => {
+        res.json(user);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -56,28 +62,56 @@ module.exports = function (app) {
     db.Received.create(req.body).then((newReceived) => {
       // if (err) throw err;
       res.json(newReceived);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to add new received gift.",
+        });
+      });
   });
   // route to add a new sent gifts
   app.post("/api/add/sent", (req, res) => {
     db.Sent.create(req.body).then((newSent) => {
       // if (err) throw err;
       res.json(newSent);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to add new sent gift.",
+        });
+      });
   });
   // get all received gifts
   app.get("/api/received", (req, res) => {
     db.Received.findAll().then((allReceived) => {
       // if (err) throw err;
       res.json(allReceived);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to get received gifts.",
+        });
+      });
   });
   // get all sent gifts
   app.get("/api/sent", (req, res) => {
     db.Sent.findAll().then((allSent) => {
       // if (err) throw err;
       res.json(allSent);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to get sent gifts.",
+        });
+      });
   });
   // PUT route for updating received gifts
   app.put("/api/edit/received", (req, res) => {
@@ -87,7 +121,14 @@ module.exports = function (app) {
       },
     }).then((received) => {
       res.json(received);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to edit received gift.",
+        });
+      });
   });
   // PUT route for updating sent gifts
   app.put("/api/edit/sent", (req, res) => {
@@ -97,7 +138,14 @@ module.exports = function (app) {
       },
     }).then((sent) => {
       res.json(sent);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to edit sent gift.",
+        });
+      });
   });
   // DELETE route for deleting received gifts
   app.delete("/api/received/:id", function (req, res) {
@@ -107,7 +155,14 @@ module.exports = function (app) {
       },
     }).then(function (deleted) {
       res.json(deleted);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to delete received gift.",
+        });
+      });
   });
   // DELETE route for deleting sent gifts
   app.delete("/api/sent/:id", function (req, res) {
@@ -117,6 +172,13 @@ module.exports = function (app) {
       },
     }).then(function (deleted) {
       res.json(deleted);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to delete sent gift.",
+        });
+      });
   });
 };
