@@ -17,9 +17,9 @@ CREATE TABLE receivedGifts (
 	user_id INT (255) NOT NULL,
 	senderName VARCHAR(255) NOT NULL,
 	senderAddress VARCHAR(255) NOT NULL,
-	gift VARCHAR (255)NOT NULL,
+	giftReceived VARCHAR (255)NOT NULL,
     occasion VARCHAR(255) NOT NULL,
-    date DATE,
+    dateReceived DATE,
     thankYou boolean default false ,
 	PRIMARY KEY (id),
 	FOREIGN KEY (users_id) REFERENCES users(id)
