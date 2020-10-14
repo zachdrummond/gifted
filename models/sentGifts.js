@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes){
             allowNull: false,
         },
         giftSent: {
-            type: DataTypes.STRING,
+            type: DataTypes.DATE,
             allowNull: false,
         },
         occasion: {

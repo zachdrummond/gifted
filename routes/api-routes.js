@@ -3,6 +3,9 @@ var db = require("../models");
 // Routes
 
 module.exports = function (app) {
+
+// USER ROUTES
+
   // route to add a new user
   app.post("/api/add/user", (req, res) => {
     db.User.create(req.body).then((newUser) => {
@@ -26,4 +29,12 @@ module.exports = function (app) {
     });
   });
 
+// GIFT ROUTES
+
+  // get all users
+  app.get("/api/received", (req, res) =>{
+    db.Received.findAll().then((allReceived) =>{
+      res.json(allReceived);
+    });
+  });
 };

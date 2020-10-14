@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes){
             allowNull: false,
         },
         dateReceived: {
-            type: DataTypes.STRING,
+            type: DataTypes.DATE,
             allowNull: false,
         },
         thankYouCard: {
