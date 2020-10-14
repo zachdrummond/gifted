@@ -9,13 +9,27 @@ module.exports = function (app) {
   app.post("/api/add/user", (req, res) => {
     db.User.create(req.body).then((newUser) => {
       res.json(newUser);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to create new user.",
+        });
+      });
   });
   // get all users
   app.get("/api/user", (req, res) => {
     db.User.findAll().then((allUsers) => {
       res.json(allUsers);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to get all users.",
+        });
+      });
   });
   // get user by email
   app.get("/api/user/:email", function (req, res) {
@@ -25,7 +39,14 @@ module.exports = function (app) {
       },
     }).then((user) => {
       res.json(user);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to get user by email.",
+        });
+      });
   });
 
   // GIFT ROUTES
