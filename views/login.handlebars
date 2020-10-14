@@ -19,28 +19,37 @@
 
 <hr>
 
+<img
+    data-interchange="[assets/img/interchange/small.jpg, small], [assets/img/interchange/medium.jpg, medium], [assets/img/interchange/large.jpg, large]">
 <a id="giftsYouReceivedBtn" href="" class="button">Gifts You Received</a>
 <a id="giftsYouSentBtn" href="" class="button">Gifts You Sent</a>
 {{!-- Use disabled class with aria-disabled to ensure the user enters email --}}
 
 <script>
-    $(document).ready(function(){
-    
-    $("#loginBtn").on("click", function(event){
-        event.preventDefault();
-        const userEmail = $("#email").val();
-    });
+    $(document).ready(function () {
 
-    
-    $("#giftsYouReceivedBtn").on("click", function(event){
-        event.preventDefault();
-        window.location.href = "/received"
-    });
+        $("#loginBtn").on("click", function (event) {
+            event.preventDefault();
+            const userEmail = $("#email").val();
+            $.get("/api/user/" + userEmail, {
+                type: "GET",
+            }).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error);
+            });
+        });
 
-    $("#giftsYouSentBtn").on("click", function(event){
-        event.preventDefault();
-        window.location.href = "/sent"
-    });
 
-});
+        $("#giftsYouReceivedBtn").on("click", function (event) {
+            event.preventDefault();
+            window.location.href = "/received"
+        });
+
+        $("#giftsYouSentBtn").on("click", function (event) {
+            event.preventDefault();
+            window.location.href = "/sent"
+        });
+
+    });
 </script>

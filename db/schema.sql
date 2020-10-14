@@ -22,7 +22,7 @@ CREATE TABLE receivedGifts (
     dateReceived DATE,
     thankYou boolean default false ,
 	PRIMARY KEY (id),
-	FOREIGN KEY (users_id) REFERENCES users(id)
+	FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 
@@ -37,7 +37,7 @@ CREATE TABLE sentGifts
     occasion VARCHAR (255) NOT NULL,
     dateSent DATE, 
 	PRIMARY KEY (id),
-	FOREIGN KEY (users_id) REFERENCES users(id)
+	FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 
