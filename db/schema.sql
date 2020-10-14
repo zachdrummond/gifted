@@ -12,8 +12,6 @@ CREATE TABLE users
 	PRIMARY KEY (id)
 );
 
-INSERT INTO  users (name, email) VALUES ('Name', 'email');
-
 CREATE TABLE receivedGifts (
 	id int NOT NULL AUTO_INCREMENT,
 	users_id INT (255) NOT NULL,
@@ -26,8 +24,6 @@ CREATE TABLE receivedGifts (
 	PRIMARY KEY (id),
 	FOREIGN KEY (users_id) REFERENCES users(id)
 );
-INSERT INTO receivedGifts (users_id, senderName, senderAddress,  gift, occasion, date, thankYou) 
-VALUES (1, 'name', 'address' , 'Car', 'push gift', 12/26/2014 ,1);
 
 
 CREATE TABLE sentGifts
