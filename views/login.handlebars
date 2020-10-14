@@ -28,11 +28,14 @@
 <script>
     $(document).ready(function () {
 
+        // Login Button Event Listener
         $("#loginBtn").on("click", function (event) {
             event.preventDefault();
 
+            // Retrieves the User's entered Email
             const userEmail = $("#userEmail").val().trim();
 
+            // AJAX Call - Checks to see if the user's account is valid
             $.get("/api/user/" + userEmail).then(function (response) {
                 console.log(response);
             }).catch(function (error) {
