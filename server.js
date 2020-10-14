@@ -27,6 +27,12 @@ app.engine(
 app.set("view engine", "handlebars");
 app.use(controller);
 
+// Routes
+//
+require("./routes/api-routes")(app);
+require("./routes/html-routes")(app);
+
+
 // db.sequelize.sync({ force: true }).then(function () {
 db.sequelize.sync().then(function () {
   app.listen(PORT, () => {
@@ -39,12 +45,7 @@ db.sequelize.sync().then(function () {
 //   response.render("index");
 // });
 
-app.get("/api/config", (request, response) => {
-  response.json({ success: true });
-});
+// app.get("/api/config", (request, response) => {
+//   response.json({ success: true });
+// });
 
-app.post("/api/add/user", (req, res) => {
-  db.User.create(req.body).then((newUser) => {
-    res.json(newUser);
-  });
-});
