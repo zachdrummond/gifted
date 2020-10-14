@@ -7,9 +7,11 @@ module.exports = function (app) {
 
   // route to add a new user
   app.post("/api/add/user", (req, res) => {
-    db.User.create(req.body).then((newUser) => {
-      res.json(newUser);
-    }).catch((err) => {
+    db.User.create(req.body)
+      .then((newUser) => {
+        res.json(newUser);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -20,9 +22,11 @@ module.exports = function (app) {
   });
   // get all users
   app.get("/api/user", (req, res) => {
-    db.User.findAll().then((allUsers) => {
-      res.json(allUsers);
-    }).catch((err) => {
+    db.User.findAll()
+      .then((allUsers) => {
+        res.json(allUsers);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -37,9 +41,11 @@ module.exports = function (app) {
       where: {
         email: req.params.email,
       },
-    }).then((user) => {
-      res.json(user);
-    }).catch((err) => {
+    })
+      .then((user) => {
+        res.json(user);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -56,14 +62,28 @@ module.exports = function (app) {
     db.Received.create(req.body).then((newReceived) => {
       // if (err) throw err;
       res.json(newReceived);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to add new received gift.",
+        });
+      });
   });
   // route to add a new sent gifts
   app.post("/api/add/sent", (req, res) => {
     db.Sent.create(req.body).then((newSent) => {
       // if (err) throw err;
       res.json(newSent);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to add new sent gift.",
+        });
+      });
   });
   // get all received gifts
   app.get("/api/received", (req, res) => {
