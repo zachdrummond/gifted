@@ -12,7 +12,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    giftReceived: {
+    gift: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -20,11 +20,11 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    dateReceived: {
+    date: {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    thankYouCard: {
+    thankYou: {
       type: DataTypes.BOOLEAN,
     },
   });
