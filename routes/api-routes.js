@@ -126,7 +126,7 @@ module.exports = function (app) {
         res.status(500).json({
           error: true,
           data: null,
-          message: "Unable to edit received gifts.",
+          message: "Unable to edit received gift.",
         });
       });
   });
@@ -143,7 +143,7 @@ module.exports = function (app) {
         res.status(500).json({
           error: true,
           data: null,
-          message: "Unable to edit sent gifts.",
+          message: "Unable to edit sent gift.",
         });
       });
   });
@@ -155,7 +155,14 @@ module.exports = function (app) {
       },
     }).then(function (deleted) {
       res.json(deleted);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to delete received gift.",
+        });
+      });
   });
   // DELETE route for deleting sent gifts
   app.delete("/api/sent/:id", function (req, res) {
@@ -165,6 +172,13 @@ module.exports = function (app) {
       },
     }).then(function (deleted) {
       res.json(deleted);
-    });
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to delete sent gift.",
+        });
+      });
   });
 };
