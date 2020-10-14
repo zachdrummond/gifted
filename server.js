@@ -6,7 +6,6 @@ const handlebars = require("handlebars");
 //   allowInsecurePrototypeAccess
 // } = require("@handlebars/allow-prototype-access");
 const db = require("./models");
-const controller = require("./controllers/controller.js");
 
 const app = express();
 
@@ -25,7 +24,7 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
-app.use(controller);
+// app.use(controller);
 
 // Routes
 //
