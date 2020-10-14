@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes){
     const Sent = sequelize.define("Sent", {
         user_id: {
-            type: DataTypes.int,
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
         receiverName: {
