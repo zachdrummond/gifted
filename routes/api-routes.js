@@ -93,4 +93,14 @@ module.exports = function (app) {
       res.json(deleted);
     });
   });
+  // DELETE route for deleting sent gifts
+  app.delete("/api/sent/:id", function(req, res) {
+    db.Sent.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(deleted) {
+      res.json(deleted);
+    });
+  });
 };
