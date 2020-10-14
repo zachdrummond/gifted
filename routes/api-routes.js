@@ -31,10 +31,16 @@ module.exports = function (app) {
 
 // GIFT ROUTES
 
-  // get all users
+  // get all received gifts
   app.get("/api/received", (req, res) =>{
     db.Received.findAll().then((allReceived) =>{
       res.json(allReceived);
+    });
+  });
+  // get all sent gifts
+  app.get("/api/sent", (req, res) =>{
+    db.Sent.findAll().then((allSent) =>{
+      res.json(allSent);
     });
   });
 };
