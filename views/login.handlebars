@@ -28,17 +28,17 @@
     
     $("#loginBtn").on("click", function(event){
         event.preventDefault();
-        console.log($("#email").val());
+        $("#email").val();
     });
 
     $("#giftsYouReceivedBtn").on("click", function(event){
         event.preventDefault();
-        console.log("giftsYouReceivedBtn");
+        window.location.href = "/received"
     });
 
     $("#giftsYouSentBtn").on("click", function(event){
         event.preventDefault();
-        console.log("giftsYouSentBtn");
+        window.location.href = "/sent"
     });
 
 });
