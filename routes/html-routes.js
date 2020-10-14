@@ -10,5 +10,9 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/login.handlebars"));
   });
+  // signup route loads signup page
+  app.get("/signup", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/signup.handlebars"));
+  });
 
 };
