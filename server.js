@@ -1,7 +1,7 @@
 // DEPENDENCIES
 const express = require("express");
 const exphbs = require("express-handlebars");
-const handlebars = require("handlebars");
+// const handlebars = require("handlebars");
 // const {
 //   allowInsecurePrototypeAccess
 // } = require("@handlebars/allow-prototype-access");
@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 8080;
 // MIDDLEWARE
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 app.engine(
   "handlebars",
   exphbs({
