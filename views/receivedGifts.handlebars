@@ -62,5 +62,17 @@
   $(document).ready(function () {
 
     $(document).foundation();
+
+    $(".deletebtn").on("click", function (event) {
+      
+      const id = $(this).data("id");
+
+      $.ajax("/api/received/" + id, {
+        type: "DELETE",
+      }).then(() => {
+        location.reload();
+      });
+    });
+
   });
 </script>
