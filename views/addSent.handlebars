@@ -1,55 +1,54 @@
-<main class="grid-container">
+<header class="grid-container">
     {{!-- Website Name --}}
-    <header class="grid-x grid-padding-x align-center">
+    <div class="grid-x grid-padding-x align-center">
         <h1>Gifted</h1>
-    </header>
+    </div>
     {{!-- Page Title --}}
     <div class="grid-x grid-padding-x align-center">
-        <div class="cell small-12">
-            <h2 class="text-center">Add a Gift You Sent</h2>
-        </div>
+        <h2 class="text-center">Add a Gift You Sent</h2>
     </div>
-    {{!-- Add Gift Form --}}
-    <form id="#addSentForm">
-        <div class="grid-container">
-            <div class="grid-x grid-padding-x align-center">
-                <div class="medium-4 cell">
-                    <label>Gift
-                        <input id="giftSent" type="text" placeholder="Gift">
-                    </label>
-                </div>
-                <div class="medium-4 cell">
-                    <label>Date Sent
-                        <input id="dateSent" type="date" placeholder="Date Sent">
-                    </label>
-                </div>
-                <div class="medium-4 cell">
-                    <label>Occasion
-                        <input id="occasionSent" type="text" placeholder="Occasion">
-                    </label>
-                </div>
-                <div class="medium-4 cell">
-                    <label>Receiver's Name
-                        <input id="receiverName" type="text" placeholder="Receiver Name">
-                    </label>
-                </div>
-                <div class="medium-4 cell">
-                    <label>Receiver's Address
-                        <input id="receiverAddress" type="text" placeholder="Receiver Address">
-                    </label>
-                </div>
-                <div class="medium-4 cell">
-                    <label>Cost
-                        <input id="cost" type="text" placeholder="Cost">
-                    </label>
-                </div>
-                <div class="medium-4 cell">
-                    <button id="submitAddSent" class="submit button expanded">Add Gift</button>
-                </div>
+</header>
+
+{{!-- Add Gift Form --}}
+<form id="#addSentForm">
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x align-center">
+            <div class="medium-4 cell">
+                <label>Gift
+                    <input id="giftSent" type="text" placeholder="Gift">
+                </label>
+            </div>
+            <div class="medium-4 cell">
+                <label>Date Sent
+                    <input id="dateSent" type="date" placeholder="Date Sent">
+                </label>
+            </div>
+            <div class="medium-4 cell">
+                <label>Occasion
+                    <input id="occasionSent" type="text" placeholder="Occasion">
+                </label>
+            </div>
+            <div class="medium-4 cell">
+                <label>Receiver's Name
+                    <input id="receiverName" type="text" placeholder="Receiver Name">
+                </label>
+            </div>
+            <div class="medium-4 cell">
+                <label>Receiver's Address
+                    <input id="receiverAddress" type="text" placeholder="Receiver Address">
+                </label>
+            </div>
+            <div class="medium-4 cell">
+                <label>Cost
+                    <input id="cost" type="text" placeholder="Cost">
+                </label>
+            </div>
+            <div class="medium-4 cell">
+                <button id="submitAddSent" class="submit button expanded">Add Gift</button>
             </div>
         </div>
-    </form>
-</main>
+    </div>
+</form>
 
 <script>
     $(document).ready(function () {
