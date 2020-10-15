@@ -36,14 +36,26 @@ module.exports = function (app) {
   });
   // index route loads sent gifts page
   app.get("/sent", function (req, res) {
-    res.render("sentGifts")
+    db.SentGifts.findAll()
+      .then((allSentGifts) => {
+        // if (err) throw err;
+        res.json(allSentGifts);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to get sent gifts.",
+        });
+      });
   });
   // index route loads add received gifts page
   app.get("/add/received", function (req, res) {
-    res.render("addReceived")
+    res.render("addReceived");
   });
   // index route loads add sent gifts page
   app.get("/add/sent", function (req, res) {
-    res.render("addSent")
+    res.render("addSent");
   });
 };
