@@ -80,16 +80,19 @@
 <script>
   $(document).ready(function () {
 
+    // Sets up Foundation JavaScript
     $(document).foundation();
 
     $(".thankYouBtn").on("click", function (event) {
       console.log("Button worked");
     });
 
+    // Delete Button Event Listener
     $(".deletebtn").on("click", function (event) {
 
       const id = $(this).data("id");
 
+      // AJAX Call - Delete Table Row
       $.ajax("/api/received/" + id, {
         type: "DELETE",
       }).then(() => {
