@@ -70,6 +70,7 @@
                 giftSent: $("#giftSent").val(),
                 occasion: $("#occasionSent").val(),
                 dateSent: $("#dateSent").val(),
+                cost: $("#cost").val(),
             };
             $.post("/api/add/sent", newGift).then($("#addSentForm").each(function () {
                 this.reset();
