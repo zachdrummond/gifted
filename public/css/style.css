@@ -1,7 +1,12 @@
+nav {
+  margin-bottom: 2rem;
+}
+
 body {
   font-family: "Lora", serif;
 }
 
+/* Adds the Background Image after the body */
 body::after {
   content: "";
   background-image: url(../images/background.jpg);
