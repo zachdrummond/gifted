@@ -41,12 +41,11 @@
   <tbody>
     {{#each gifts}}
     <tr>
-
-      <td>{{#if thankYou}}<input type="text" value="{{giftReceived}}">{{else}}{{giftReceived}}{{/if}}</td>
-      <td>{{#if thankYou}}<input type="text" value="{{dateReceived}}">{{else}}{{dateReceived}}{{/if}}</td>
-      <td>{{#if thankYou}}<input type="text" value="{{occasion}}">{{else}}{{occasion}}{{/if}}</td>
-      <td>{{#if thankYou}}<input type="text" value="{{senderName}}">{{else}}{{senderName}}{{/if}}</td>
-      <td>{{#if thankYou}}<input type="text" value="{{senderAddress}}">{{else}}{{senderAddress}}{{/if}}</td>
+      <td>{{giftReceived}}</td>
+      <td>{{dateReceived}}</td>
+      <td>{{occasion}}</td>
+      <td>{{senderName}}</td>
+      <td>{{senderAddress}}</td>
       <td>
         <ul class="dropdown menu" data-dropdown-menu>
           <li>
@@ -86,3 +85,9 @@
 
   });
 </script>
+
+      {{!-- <td>{{#if boolean}}<input type="text" value="{{giftReceived}}">{{else}}{{giftReceived}}{{/if}}</td>
+      <td>{{#if boolean}}<input type="text" value="{{dateReceived}}">{{else}}{{dateReceived}}{{/if}}</td>
+      <td>{{#if boolean}}<input type="text" value="{{occasion}}">{{else}}{{occasion}}{{/if}}</td>
+      <td>{{#if boolean}}<input type="text" value="{{senderName}}">{{else}}{{senderName}}{{/if}}</td>
+      <td>{{#if boolean}}<input type="text" value="{{senderAddress}}">{{else}}{{senderAddress}}{{/if}}</td> --}}
