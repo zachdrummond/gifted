@@ -1,9 +1,25 @@
-<div class="grid-x grid-padding-x align-center">
-    <div class="cell small-12">
-        <h3 class="text-center">Add a Received Gift!</h3>
+
+<div class="top-bar" id="example-menu">
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li><a href="/">Logout</a></li>
+            <li class="menu-text">Giftanizer</li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+            <li><a href="/sent">View Gifts Sent</a></li>
+            <li><a href="/received">View Gifts Received</a></li>
+            <li><a href="/add/sent">Add Sent Gift</a></li> 
+        </ul>
     </div>
 </div>
-<form>
+<div class="grid-x grid-padding-x align-center">
+    <div class="cell small-12">
+        <h2 class="text-center">Add a Received Gift</h2>
+    </div>
+</div>
+<form id="addReceivedForm">
     <div class="grid-container">
         <div class="grid-x grid-padding-x align-center">
             <div class="medium-4 cell">
@@ -13,7 +29,7 @@
             </div>
             <div class="medium-4 cell">
                 <label>Date Received
-                    <input id="dateReceived" type="text" placeholder=".medium-4.cell">
+                    <input id="dateReceived" type="date" placeholder=".medium-4.cell">
                 </label>
             </div>
             <div class="medium-4 cell">
@@ -32,13 +48,34 @@
                 </label>
             </div>
             <div class="medium-4 cell">
-                <legend>Thank You Card Sent?</legend>
-                <input type="radio" name="thankYou" value="true" id="sent" required><label for="Sent">Sent</label>
-                <input type="radio" name="thankYou" value="false" id="notSent"><label for="Not Sent">Not Sent</label>
+                <legend>Thank You Sent?</legend>
+                <input type="radio" name="thankYou" value=true id="sent" required><label for="Sent">Sent</label>
+                <input type="radio" name="thankYou" value=false id="notSent"><label for="Not Sent">Not Sent</label>
             </div>
             <div class="medium-4 cell">
-                <button id="submit" class="submit button">Add Gift</button>
+                <button id="submitAddReceived" class="submit button">Add Gift</button>
             </div>
         </div>
     </div>
 </form>
+
+<script>
+    $(document).ready(function () {
+        userId = 1;
+        $("#submitAddReceived").on("click", function (event) {
+            event.preventDefault();
+            let newGift = {
+                user_id: userId,
+                senderName: $("#senderName").val(),
+                senderAddress: $("#senderAddress").val(),
+                giftReceived: $("#giftReceived").val(),
+                occasion: $("#occasionReceived").val(),
+                dateReceived: $("#dateReceived").val(),
+                thankYou: $('input[name="thankYou"]:checked').val(),
+            };
+            $.post("/api/add/received", newGift).then($("#addReceivedForm").each(function () {
+                this.reset();
+            }))
+        });
+    });
+</script>
