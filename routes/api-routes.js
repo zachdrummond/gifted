@@ -57,11 +57,11 @@ module.exports = function (app) {
 
   // GIFT ROUTES
 
-  // route to add a new received gifts
+  // route to add a new received gift
   app.post("/api/add/received", (req, res) => {
-    db.Received.create(req.body).then((newReceived) => {
+    db.ReceivedGifts.create(req.body).then((newReceivedGift) => {
       // if (err) throw err;
-      res.json(newReceived);
+      res.json(newReceivedGift);
     }).catch((err) => {
         console.log(err);
         res.status(500).json({
@@ -71,11 +71,11 @@ module.exports = function (app) {
         });
       });
   });
-  // route to add a new sent gifts
+  // route to add a new sent gift
   app.post("/api/add/sent", (req, res) => {
-    db.Sent.create(req.body).then((newSent) => {
+    db.SentGifts.create(req.body).then((newSentGift) => {
       // if (err) throw err;
-      res.json(newSent);
+      res.json(newSentGift);
     }).catch((err) => {
         console.log(err);
         res.status(500).json({
@@ -87,9 +87,10 @@ module.exports = function (app) {
   });
   // get all received gifts
   app.get("/api/received", (req, res) => {
-    db.Received.findAll().then((allReceived) => {
+    db.ReceivedGifts.findAll().then((allReceivedGifts) => {
       // if (err) throw err;
-      res.json(allReceived);
+      console.log(allReceivedGifts);
+      res.render("receivedGifts", { gifts: allReceivedGifts })
     }).catch((err) => {
         console.log(err);
         res.status(500).json({
@@ -101,9 +102,9 @@ module.exports = function (app) {
   });
   // get all sent gifts
   app.get("/api/sent", (req, res) => {
-    db.Sent.findAll().then((allSent) => {
+    db.SentGifts.findAll().then((allSentGifts) => {
       // if (err) throw err;
-      res.json(allSent);
+      res.json(allSentGifts);
     }).catch((err) => {
         console.log(err);
         res.status(500).json({
@@ -115,12 +116,12 @@ module.exports = function (app) {
   });
   // PUT route for updating received gifts
   app.put("/api/edit/received", (req, res) => {
-    db.Received.update(req.body, {
+    db.ReceivedGifts.update(req.body, {
       where: {
         id: req.body.id,
       },
-    }).then((received) => {
-      res.json(received);
+    }).then((receivedGift) => {
+      res.json(receivedGift);
     }).catch((err) => {
         console.log(err);
         res.status(500).json({
@@ -132,12 +133,12 @@ module.exports = function (app) {
   });
   // PUT route for updating sent gifts
   app.put("/api/edit/sent", (req, res) => {
-    db.Sent.update(req.body, {
+    db.SentGifts.update(req.body, {
       where: {
         id: req.body.id,
       },
-    }).then((sent) => {
-      res.json(sent);
+    }).then((sentGifts) => {
+      res.json(sentGifts);
     }).catch((err) => {
         console.log(err);
         res.status(500).json({
@@ -149,12 +150,12 @@ module.exports = function (app) {
   });
   // DELETE route for deleting received gifts
   app.delete("/api/received/:id", function (req, res) {
-    db.Received.destroy({
+    db.ReceivedGifts.destroy({
       where: {
         id: req.params.id,
       },
-    }).then(function (deleted) {
-      res.json(deleted);
+    }).then(function (deletedReceivedGift) {
+      res.json(deletedReceivedGift);
     }).catch((err) => {
         console.log(err);
         res.status(500).json({
@@ -166,12 +167,12 @@ module.exports = function (app) {
   });
   // DELETE route for deleting sent gifts
   app.delete("/api/sent/:id", function (req, res) {
-    db.Sent.destroy({
+    db.SentGifts.destroy({
       where: {
         id: req.params.id,
       },
-    }).then(function (deleted) {
-      res.json(deleted);
+    }).then(function (deletedSentGift) {
+      res.json(deletedSentGift);
     }).catch((err) => {
         console.log(err);
         res.status(500).json({
