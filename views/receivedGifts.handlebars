@@ -1,34 +1,71 @@
+<h1 class="text-center">Gifted</h1>
 
-
-<h1>Received Gifts</h1>
-
-<hr>
-
-<form>
-  <div class="grid-container">
-    <div class="grid-x grid-padding-x">
-      <div class="medium-4 cell">
-        <label>Received Gifts
-          <input type="Gift Received" placeholder="type of gift" aria-describedby="typeOfgift">
-        </label>
-      </div>
-    </div>
-  </div>
-</form>
+<button id="logoutBtn" type="button" class="button">Logout</button>
+<button id="giftsYouSentBtn" type="button" class="button">Gifts You Sent</button>
 
 <hr>
 
-<a href="" class="button">add Gifts Received</a>
+<h2 class="text-center">Gifts You Received</h2>
+
+<button id="addNewGiftBtn" type="button" class="button">Add a New Gift</button>
+
+<table>
+  <thead>
+    <tr>
+      <th width="150">Gift You Received</th>
+      <th width="150">Date Received</th>
+      <th width="150">Occasion</th>
+      <th width="150">Sender's Name</th>
+      <th width="150">Sender's Address</th>
+      <th width="150">Thank You</th>
+      <th width="150">Edit/Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+    </tr>
+    <tr>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+    </tr>
+    <tr>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+    </tr>
+  </tbody>
+</table>
 
 <script>
-    $(document).ready(function(){
-    
-  
-    $("#addgiftsBtn").on("click", function(event){
-        event.preventDefault();
-        console.log("addgiftsBtn");
+  $(document).ready(function() {
+
+    $("#logoutBtn").on("click", function(){
+      window.location.href = "/";
     });
 
-  
-});
+    $("#giftsYouSentBtn").on("click", function(){
+      window.location.href = "/sent";
+    });
+
+    $("#addNewGiftBtn").on("click", function(){
+      window.location.href = "/add/received";
+    });
+
+  });
 </script>
