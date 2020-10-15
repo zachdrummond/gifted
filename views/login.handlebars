@@ -46,7 +46,7 @@
 
         // Sign Up Button Event Listener
         $("#signUpBtn").on("click", function (event) {
-            
+            event.preventDefault();
             // Sends the User to the Sign Up Page
             window.location.href = "/signup";
         })
