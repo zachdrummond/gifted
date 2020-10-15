@@ -27,11 +27,19 @@
 </head>
 
 <body>
+	{{> navbar }}
 	{{{ body }}}
 </body>
 
-<footer class="title-bar align-center sticky" data-sticky data-stick-to="bottom">
-	<span>&#169; Zach Drummond, Calvin Griffin, Diana Maina - 2020</span>
-</footer>
+{{> footer }}
+
+<script>
+	$(document).ready(function () {
+
+		// Sets up Foundation JavaScript
+		$(document).foundation();
+
+	});
+</script>
 
 </html>
