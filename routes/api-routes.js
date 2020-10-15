@@ -1,4 +1,4 @@
-var db = require("../models");
+const db = require("../models");
 
 // Routes
 
@@ -57,12 +57,14 @@ module.exports = function (app) {
 
   // GIFT ROUTES
 
-  // route to add a new received gifts
+  // route to add a new received gift
   app.post("/api/add/received", (req, res) => {
-    db.Received.create(req.body).then((newReceived) => {
-      // if (err) throw err;
-      res.json(newReceived);
-    }).catch((err) => {
+    db.ReceivedGifts.create(req.body)
+      .then((newReceivedGift) => {
+        // if (err) throw err;
+        res.json(newReceivedGift);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -71,12 +73,14 @@ module.exports = function (app) {
         });
       });
   });
-  // route to add a new sent gifts
+  // route to add a new sent gift
   app.post("/api/add/sent", (req, res) => {
-    db.Sent.create(req.body).then((newSent) => {
-      // if (err) throw err;
-      res.json(newSent);
-    }).catch((err) => {
+    db.SentGifts.create(req.body)
+      .then((newSentGift) => {
+        // if (err) throw err;
+        res.json(newSentGift);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -87,10 +91,11 @@ module.exports = function (app) {
   });
   // get all received gifts
   app.get("/api/received", (req, res) => {
-    db.Received.findAll().then((allReceived) => {
-      // if (err) throw err;
-      res.json(allReceived);
-    }).catch((err) => {
+    db.ReceivedGifts.findAll()
+      .then((allReceivedGifts) => {
+        res.render("receivedGifts", { gifts: allReceivedGifts });
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -101,10 +106,11 @@ module.exports = function (app) {
   });
   // get all sent gifts
   app.get("/api/sent", (req, res) => {
-    db.Sent.findAll().then((allSent) => {
-      // if (err) throw err;
-      res.json(allSent);
-    }).catch((err) => {
+    db.SentGifts.findAll()
+      .then((allSentGifts) => {
+        res.json(allSentGifts);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -115,13 +121,15 @@ module.exports = function (app) {
   });
   // PUT route for updating received gifts
   app.put("/api/edit/received", (req, res) => {
-    db.Received.update(req.body, {
+    db.ReceivedGifts.update(req.body, {
       where: {
         id: req.body.id,
       },
-    }).then((received) => {
-      res.json(received);
-    }).catch((err) => {
+    })
+      .then((receivedGift) => {
+        res.json(receivedGift);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -132,13 +140,15 @@ module.exports = function (app) {
   });
   // PUT route for updating sent gifts
   app.put("/api/edit/sent", (req, res) => {
-    db.Sent.update(req.body, {
+    db.SentGifts.update(req.body, {
       where: {
         id: req.body.id,
       },
-    }).then((sent) => {
-      res.json(sent);
-    }).catch((err) => {
+    })
+      .then((sentGifts) => {
+        res.json(sentGifts);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -149,13 +159,15 @@ module.exports = function (app) {
   });
   // DELETE route for deleting received gifts
   app.delete("/api/received/:id", function (req, res) {
-    db.Received.destroy({
+    db.ReceivedGifts.destroy({
       where: {
         id: req.params.id,
       },
-    }).then(function (deleted) {
-      res.json(deleted);
-    }).catch((err) => {
+    })
+      .then(function (deletedReceivedGift) {
+        res.json(deletedReceivedGift);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -166,13 +178,15 @@ module.exports = function (app) {
   });
   // DELETE route for deleting sent gifts
   app.delete("/api/sent/:id", function (req, res) {
-    db.Sent.destroy({
+    db.SentGifts.destroy({
       where: {
         id: req.params.id,
       },
-    }).then(function (deleted) {
-      res.json(deleted);
-    }).catch((err) => {
+    })
+      .then(function (deletedSentGift) {
+        res.json(deletedSentGift);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,

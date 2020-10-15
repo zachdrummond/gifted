@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class ="grid-y center grid frame">
     <div class ="cell shrink header">
         <h1>Sent gifts</h1>
@@ -11,11 +12,62 @@
 
 </div>
                 <button id="submit" class="submit button">Add Gifts Sent</button>
+=======
+<h1 class="text-center">Gifted</h1>
+
+<button id="logoutBtn" type="button" class="button">Logout</button>
+<button id="giftsYouReceivedBtn" type="button" class="button">Gifts You Received</button>
+
+<hr>
+
+<h2 class="text-center">Gifts You Sent</h2>
+
+<button id="addNewGiftBtn" type="button" class="button">Add a New Gift</button>
+
+
+<table>
+  <thead>
+    <tr>
+      <th width="150">Gift You Sent</th>
+      <th width="150">Date Sent</th>
+      <th width="150">Occasion</th>
+      <th width="150">Cost</th>
+      <th width="150">Receiver's Name</th>
+      <th width="150">Receiver's Address</th>
+      <th width="150">Edit/Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each gifts}}
+    <tr>
+      <td>{{giftSent}}</td>
+      <td>{{dateSent}}</td>
+      <td>{{occasion}}</td>
+      <td>{{cost}}</td>
+      <td>{{receiverName}}</td>
+      <td>{{receiverAddress}}</td>
+      <td><button type="button" class="editbtn small button success">edit</button>
+      <button type="button" class="deletebtn small button alert">delete</button></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
 
 <script>
+  $(document).ready(function() {
 
-    $("#giftsYouSentBtn").on("click", function(event){
-        event.preventDefault();
-        console.log("giftsYouSentBtn");
+    $("#logoutBtn").on("click", function(){
+      window.location.href = "/";
+    });
+>>>>>>> 80dbf241c130b11dbff6d9d85885d8bf2eef5be5
 
+    $("#giftsYouReceivedBtn").on("click", function(){
+      window.location.href = "/received";
+    });
+
+    $("#addNewGiftBtn").on("click", function(){
+      window.location.href = "/add/sent";
+    });
+
+  });
 </script>

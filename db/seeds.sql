@@ -1,4 +1,4 @@
-INSERT INTO  users (name, email) VALUES ('Name', 'email');
+INSERT INTO  users (name, email) VALUES ('Name', 'email@email.com');
 
 INSERT INTO receivedGifts (user_id, senderName, senderAddress,  giftReceived, occasion, dateReceived, thankYou) 
 VALUES (1, 'name', 'address' , 'Car', 'push gift', 12/26/2014 ,1);
