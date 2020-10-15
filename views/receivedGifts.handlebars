@@ -15,16 +15,13 @@
 </div>
 <h1 class="text-center">Gifted</h1>
 
-<button id="logoutBtn" type="button" class="button">Logout</button>
-<button id="giftsYouSentBtn" type="button" class="button">Gifts You Sent</button>
-
 <hr>
 
 <h2 class="text-center">Gifts You Received</h2>
 
-<button id="addNewGiftBtn" type="button" class="button">Add a New Gift</button>
+<a href="/add/received" class="button">Add a New Gift</a>
 
-<table>
+<table class="hover">
   <thead>
     <tr>
       <th width="150">Gift You Received</th>
@@ -36,7 +33,7 @@
       <th width="150">Edit/Delete</th>
     </tr>
   </thead>
-<tbody>
+  <tbody>
     {{#each gifts}}
     <tr>
       <td>{{giftReceived}}</td>
@@ -44,28 +41,25 @@
       <td>{{occasion}}</td>
       <td>{{senderName}}</td>
       <td>{{senderAddress}}</td>
-      <td>{{#if thankYou}}Sent {{else}}Not Sent{{/if}}</td>
+      {{!-- <td>{{#if thankYou}}Sent{{else}}Not Sent{{/if}}</td> --}}
+      <td>
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li><a href="#">Item 1</a></li>
+          <li><a href="#">Item 2</a></li>
+          <li><a href="#">Item 3</a></li>
+          <li><a href="#">Item 4</a></li>
+        </ul>
+      </td>
       <td><button type="button" class="editbtn small button success">edit</button>
-      <button type="button" class="deletebtn small button alert">delete</button></td>
+        <button type="button" class="deletebtn small button alert">delete</button></td>
     </tr>
     {{/each}}
   </tbody>
 </table>
 
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
 
-    $("#logoutBtn").on("click", function(){
-      window.location.href = "/";
-    });
-
-    $("#giftsYouSentBtn").on("click", function(){
-      window.location.href = "/sent";
-    });
-
-    $("#addNewGiftBtn").on("click", function(){
-      window.location.href = "/add/received";
-    });
 
   });
 </script>
