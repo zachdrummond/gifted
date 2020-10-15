@@ -56,7 +56,7 @@
                 </label>
             </div>
             <div class="medium-4 cell">
-                <button id="submitSent" class="submit button">Add Gift</button>
+                <button id="submitAddSent" class="submit button">Add Gift</button>
             </div>
         </div>
     </div>
@@ -65,18 +65,17 @@
 <script>
     $(document).ready(function () {
         userId = 1;
-        $("#submitAddReceived").on("click", function (event) {
+        $("#submitAddSent").on("click", function (event) {
             event.preventDefault();
             let newGift = {
                 user_id: userId,
-                senderName: $("#senderName").val(),
-                senderAddress: $("#senderAddress").val(),
-                giftReceived: $("#giftReceived").val(),
+                receiverName: $("#senderName").val(),
+                receiverAddress: $("#senderAddress").val(),
+                giftSent: $("#giftReceived").val(),
                 occasion: $("#occasionReceived").val(),
-                dateReceived: $("#dateReceived").val(),
-                thankYou: $('input[name="thankYou"]:checked').val(),
+                dateSent: $("#dateReceived").val(),
             };
-            $.post("/api/add/received", newGift).then($("#addReceivedForm").each(function () {
+            $.post("/api/add/sent", newGift).then($("#addReceivedForm").each(function () {
                 this.reset();
             }))
         });
