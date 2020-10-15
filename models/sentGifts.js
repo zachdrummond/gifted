@@ -21,7 +21,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
     },
     dateSent: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     cost: {
