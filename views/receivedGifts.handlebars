@@ -43,12 +43,11 @@
     <tr>
 
       <td>{{#if thankYou}}<input type="text" value="{{giftReceived}}">{{else}}{{giftReceived}}{{/if}}</td>
-      <td><input type="text" value="{{dateReceived}}"></td>
-      <td><input type="text" value="{{occasion}}"></td>
-      <td><input type="text" value="{{senderName}}"></td>
-      <td><input type="text" value="{{senderAddress}}"></td>
-
-
+      <td>{{#if thankYou}}<input type="text" value="{{dateReceived}}">{{else}}{{dateReceived}}{{/if}}</td>
+      <td>{{#if thankYou}}<input type="text" value="{{occasion}}">{{else}}{{occasion}}{{/if}}</td>
+      <td>{{#if thankYou}}<input type="text" value="{{senderName}}">{{else}}{{senderName}}{{/if}}</td>
+      <td>{{#if thankYou}}<input type="text" value="{{senderAddress}}">{{else}}{{senderAddress}}{{/if}}</td>
+      <td>
         <ul class="dropdown menu" data-dropdown-menu>
           <li>
             <a>{{#if thankYou}}Sent{{else}}Not Sent{{/if}}</a>
