@@ -1,4 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
+  var moment = require('moment');
   const SentGifts = sequelize.define("SentGifts", {
     user_id: {
       type: DataTypes.INTEGER,
@@ -22,6 +23,9 @@ module.exports = function (sequelize, DataTypes) {
     },
     dateSent: {
       type: DataTypes.DATEONLY,
+      get: function() {
+        return moment(this.getDataValue('DateTime')).format('DD.MM.YYYY')
+     },
       allowNull: false,
     },
     cost: {
