@@ -1,0 +1,23 @@
+{{!-- Navigation Bar --}}
+<nav class="top-bar margin-3" id="example-menu">
+  {{!-- Logout Button --}}
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li><a href="/">Logout</a></li>
+    </ul>
+  </div>
+  {{!-- Dropdown Menu --}}
+  <div class="top-bar-right">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="has-submenu">
+        <a>Navigate</a>
+        <ul class="submenu menu vertical" data-submenu>
+          <li><a href="/received">All Received Gifts</a></li>
+          <li><a href="/add/received">Add Received Gift</a></li>
+          <li><a href="/sent">All Sent Gifts</a></li>
+          <li><a href="/add/sent">Add Sent Gift</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

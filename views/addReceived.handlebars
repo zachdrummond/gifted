@@ -1,28 +1,15 @@
-<div class="top-bar" id="example-menu">
-    <div class="top-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
-            <li><a href="/">Logout</a></li>
-        </ul>
+<header class="grid-container">
+    {{!-- Website Name --}}
+    <div class="grid-x grid-padding-x align-center">
+        <h1>Gifted</h1>
     </div>
-    <div class="top-bar-right">
-        <ul class="dropdown menu" data-dropdown-menu>
-            <li class="has-submenu">
-                <a>Navigate</a>
-                <ul class="submenu menu vertical" data-submenu>
-                    <li><a href="/received">All Received Gifts</a></li>
-                    <li><a href="/add/received">Add Received Gift</a></li>
-                    <li><a href="/sent">All Sent Gifts</a></li>
-                    <li><a href="/add/sent">Add Sent Gift</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div>
-<div class="grid-x grid-padding-x align-center">
-    <div class="cell small-12">
+    {{!-- Page Title --}}
+    <div class="grid-x grid-padding-x align-center">
         <h2 class="text-center">Add a Gift You Received</h2>
     </div>
-</div>
+</header>
+
+{{!-- Add Gift Form --}}
 <form id="addReceivedForm">
     <div class="grid-container">
         <div class="grid-x grid-padding-x align-center">

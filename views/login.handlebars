@@ -1,7 +1,11 @@
-<h1 class="text-center">Gifted</h1>
+{{!-- Website Name --}}
+<header class="grid-x grid-padding-x align-center">
+    <h1>Gifted</h1>
+</header>
 
 <hr>
 
+{{!-- Log In Form --}}
 <form>
     <div class="grid-container">
         <div class="grid-x grid-padding-x align-center">
@@ -18,10 +22,13 @@
 </form>
 
 <hr>
+{{!-- Gifts Buttons --}}
 <div class="grid-container">
     <div class="grid-x grid-padding-x align-center">
-        <a href="/received" class="button">Gifts You Received</a>
-        <a href="/sent" class="button">Gifts You Sent</a>
+        <img data-interchange="[/images/background.jpg, small], [/images/background.jpg, medium], [/images/background.jpg, large]">
+        <img data-interchange="[/images/gift1.jpg, small], [/images/gift1.jpg, medium], [/images/gift1.jpg, large]">
+        {{!-- <a href="/received" class="button">Gifts You Received</a>
+        <a href="/sent" class="button">Gifts You Sent</a> --}}
     </div>
 </div>
 {{!-- Use disabled class with aria-disabled to ensure the user enters email --}}
