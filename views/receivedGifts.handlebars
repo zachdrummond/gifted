@@ -15,56 +15,27 @@
 </div>
 <h1 class="text-center">Gifted</h1>
 
-<<<<<<< HEAD
-<button id="logoutBtn" type="button" class="button">Logout</button>
-<button id="giftsYouSentBtn" type="button" class="button">Gifts You Sent</button>
-
-=======
->>>>>>> 071b9295de008402c72d4456dcab58e0a59ad79d
 <hr>
 
 <h2 class="text-center">Gifts You Received</h2>
 
-<<<<<<< HEAD
-<button id="addNewGiftBtn" type="button" class="button">Add a New Gift</button>
-
-
-<table>
-=======
 <a href="/add/received" class="button">Add a New Gift</a>
 
 <table class="hover">
->>>>>>> 071b9295de008402c72d4456dcab58e0a59ad79d
   <thead>
     <tr>
       <th width="150">Gift You Received</th>
       <th width="150">Date Received</th>
       <th width="150">Occasion</th>
-<<<<<<< HEAD
-      <th width="150">Cost</th>
-      <th width="150">Sender's Name</th>
-      <th width="150">Sender's Address</th>
-=======
       <th width="150">Sender's Name</th>
       <th width="150">Sender's Address</th>
       <th width="150">Thank You</th>
->>>>>>> 071b9295de008402c72d4456dcab58e0a59ad79d
       <th width="150">Edit/Delete</th>
     </tr>
   </thead>
   <tbody>
     {{#each gifts}}
     <tr>
-<<<<<<< HEAD
-      <td>{{giftSent}}</td>
-      <td>{{dateSent}}</td>
-      <td>{{occasion}}</td>
-      <td>{{cost}}</td>
-      <td>{{receiverName}}</td>
-      <td>{{receiverAddress}}</td>
-      <td><button type="button" class="editbtn small button success">edit</button>
-      <button type="button" class="deletebtn small button alert">delete</button></td>
-=======
       <td>{{giftReceived}}</td>
       <td>{{dateReceived}}</td>
       <td>{{occasion}}</td>
@@ -81,30 +52,13 @@
       </td>
       <td><button type="button" class="editbtn small button success">edit</button>
         <button type="button" class="deletebtn small button alert">delete</button></td>
->>>>>>> 071b9295de008402c72d4456dcab58e0a59ad79d
     </tr>
     {{/each}}
   </tbody>
 </table>
 
 <script>
-<<<<<<< HEAD
-  $(document).ready(function() {
-
-    $("#logoutBtn").on("click", function(){
-      window.location.href = "/";
-    });
-
-    $("#giftsYouReceivedBtn").on("click", function(){
-      window.location.href = "/received";
-    });
-
-    $("#addNewGiftBtn").on("click", function(){
-      window.location.href = "/add/sent";
-    });
-=======
   $(document).ready(function () {
->>>>>>> 071b9295de008402c72d4456dcab58e0a59ad79d
 
   });
 </script>
