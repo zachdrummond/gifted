@@ -1,6 +1,9 @@
 body {
   font-family: "Lora", serif;
   margin: 3rem;
+  background-image: url(../images/background.jpg);
+  background-position: center;
+  background-color: rgb(245, 243, 247);
 }
 
 h1,
