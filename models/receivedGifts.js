@@ -25,7 +25,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
     },
     thankYou: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.BOOLEAN
     },
   });
   return Received;
