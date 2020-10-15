@@ -59,10 +59,12 @@ module.exports = function (app) {
 
   // route to add a new received gift
   app.post("/api/add/received", (req, res) => {
-    db.ReceivedGifts.create(req.body).then((newReceivedGift) => {
-      // if (err) throw err;
-      res.json(newReceivedGift);
-    }).catch((err) => {
+    db.ReceivedGifts.create(req.body)
+      .then((newReceivedGift) => {
+        // if (err) throw err;
+        res.json(newReceivedGift);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -73,10 +75,12 @@ module.exports = function (app) {
   });
   // route to add a new sent gift
   app.post("/api/add/sent", (req, res) => {
-    db.SentGifts.create(req.body).then((newSentGift) => {
-      // if (err) throw err;
-      res.json(newSentGift);
-    }).catch((err) => {
+    db.SentGifts.create(req.body)
+      .then((newSentGift) => {
+        // if (err) throw err;
+        res.json(newSentGift);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -87,11 +91,13 @@ module.exports = function (app) {
   });
   // get all received gifts
   app.get("/api/received", (req, res) => {
-    db.ReceivedGifts.findAll().then((allReceivedGifts) => {
-      // if (err) throw err;
-      console.log(allReceivedGifts);
-      res.render("receivedGifts", { gifts: allReceivedGifts })
-    }).catch((err) => {
+    db.ReceivedGifts.findAll()
+      .then((allReceivedGifts) => {
+        // if (err) throw err;
+        console.log(allReceivedGifts);
+        res.render("receivedGifts", { gifts: allReceivedGifts });
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -102,10 +108,12 @@ module.exports = function (app) {
   });
   // get all sent gifts
   app.get("/api/sent", (req, res) => {
-    db.SentGifts.findAll().then((allSentGifts) => {
-      // if (err) throw err;
-      res.json(allSentGifts);
-    }).catch((err) => {
+    db.SentGifts.findAll()
+      .then((allSentGifts) => {
+        // if (err) throw err;
+        res.json(allSentGifts);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -120,9 +128,11 @@ module.exports = function (app) {
       where: {
         id: req.body.id,
       },
-    }).then((receivedGift) => {
-      res.json(receivedGift);
-    }).catch((err) => {
+    })
+      .then((receivedGift) => {
+        res.json(receivedGift);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -137,9 +147,11 @@ module.exports = function (app) {
       where: {
         id: req.body.id,
       },
-    }).then((sentGifts) => {
-      res.json(sentGifts);
-    }).catch((err) => {
+    })
+      .then((sentGifts) => {
+        res.json(sentGifts);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -154,9 +166,11 @@ module.exports = function (app) {
       where: {
         id: req.params.id,
       },
-    }).then(function (deletedReceivedGift) {
-      res.json(deletedReceivedGift);
-    }).catch((err) => {
+    })
+      .then(function (deletedReceivedGift) {
+        res.json(deletedReceivedGift);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
@@ -171,9 +185,11 @@ module.exports = function (app) {
       where: {
         id: req.params.id,
       },
-    }).then(function (deletedSentGift) {
-      res.json(deletedSentGift);
-    }).catch((err) => {
+    })
+      .then(function (deletedSentGift) {
+        res.json(deletedSentGift);
+      })
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: true,
