@@ -41,13 +41,12 @@
       <td>{{occasion}}</td>
       <td>{{senderName}}</td>
       <td>{{senderAddress}}</td>
-      {{!-- <td>{{#if thankYou}}Sent{{else}}Not Sent{{/if}}</td> --}}
       <td>
         <ul class="dropdown menu" data-dropdown-menu>
           <li>
-            <a href="#">Item 1</a>
+            <a>{{#if thankYou}}Sent{{else}}Not Sent{{/if}}</a>
             <ul class="menu">
-              <li><a href="#">Item 1A</a></li>
+              <li><a>{{#unless thankYou}}Sent{{else}}Not Sent{{/unless}}</a></li>
             </ul>
           </li>
         </ul>
