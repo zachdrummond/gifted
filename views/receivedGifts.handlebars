@@ -52,7 +52,7 @@
         </ul>
       </td>
       <td><button type="button" class="editbtn small button success">edit</button>
-        <button type="button" class="deletebtn small button alert">delete</button></td>
+        <button data-id="{{id}}" type="button" class="deletebtn small button alert">delete</button></td>
     </tr>
     {{/each}}
   </tbody>
@@ -62,6 +62,5 @@
   $(document).ready(function () {
 
     $(document).foundation();
-
   });
 </script>

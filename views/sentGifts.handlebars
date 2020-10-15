@@ -53,14 +53,14 @@
   $(document).ready(function () {
 
     $(".deletebtn").on("click", function (event) {
-      let id = $(this).data("id");
-      console.log(id);
+      
+      const id = $(this).data("id");
+
       $.ajax("/api/sent/" + id, {
         type: "DELETE",
       }).then(() => {
-        console.log("gift deleted");
         location.reload();
       });
-    })
+    });
   });
 </script>
