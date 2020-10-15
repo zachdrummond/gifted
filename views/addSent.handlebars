@@ -69,7 +69,7 @@
         userId = 1;
         $("#submitAddSent").on("click", function (event) {
             event.preventDefault();
-            let newGift = {
+            const newGift = {
                 user_id: userId,
                 receiverName: $("#receiverName").val(),
                 receiverAddress: $("#receiverAddress").val(),

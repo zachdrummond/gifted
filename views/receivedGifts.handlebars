@@ -41,17 +41,17 @@
   <tbody>
     {{#each gifts}}
     <tr>
-      <td>{{giftReceived}}</td>
-      <td>{{dateReceived}}</td>
-      <td>{{occasion}}</td>
-      <td>{{senderName}}</td>
-      <td>{{senderAddress}}</td>
+      <td><input type="text" value="{{giftReceived}}"></td>
+      <td><input type="text" value="{{dateReceived}}"></td>
+      <td><input type="text" value="{{occasion}}"></td>
+      <td><input type="text" value="{{senderName}}"></td>
+      <td><input type="text" value="{{senderAddress}}"></td>
       <td>
         <ul class="dropdown menu" data-dropdown-menu>
           <li>
             <a>{{#if thankYou}}Sent{{else}}Not Sent{{/if}}</a>
             <ul class="menu">
-              <li><a>{{#unless thankYou}}Sent{{else}}Not Sent{{/unless}}</a></li>
+              <li><a data-id="{{id}}" class="thankYouBtn">{{#unless thankYou}}Sent{{else}}Not Sent{{/unless}}</a></li>
             </ul>
           </li>
         </ul>
@@ -68,8 +68,12 @@
 
     $(document).foundation();
 
+    $(".thankYouBtn").on("click", function (event) {
+      console.log("Button worked");
+    });
+
     $(".deletebtn").on("click", function (event) {
-      
+
       const id = $(this).data("id");
 
       $.ajax("/api/received/" + id, {
