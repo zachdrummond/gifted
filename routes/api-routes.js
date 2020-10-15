@@ -108,7 +108,8 @@ module.exports = function (app) {
   app.get("/api/sent", (req, res) => {
     db.SentGifts.findAll()
       .then((allSentGifts) => {
-        res.json(allSentGifts);
+        // res.json(allSentGifts);
+        res.render("sentGifts", {gifts: allSentGifts});
       })
       .catch((err) => {
         console.log(err);

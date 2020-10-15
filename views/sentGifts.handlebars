@@ -1,16 +1,27 @@
+<div class="top-bar" id="example-menu">
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li><a href="/">Logout</a></li>
+            <li class="menu-text">Giftanizer</li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+            <li><a href="/received">All Received Gifts</a></li>
+            <li><a href="/add/received">Add Received Gift</a></li>
+            <li><a href="/add/sent">Add Sent Gift</a></li> 
+        </ul>
+    </div>
+</div>
 <h1 class="text-center">Gifted</h1>
-
-<button id="logoutBtn" type="button" class="button">Logout</button>
-<button id="giftsYouReceivedBtn" type="button" class="button">Gifts You Received</button>
 
 <hr>
 
 <h2 class="text-center">Gifts You Sent</h2>
 
-<button id="addNewGiftBtn" type="button" class="button">Add a New Gift</button>
+<a href="/add/sent" class="button">Add a New Gift</a>
 
-
-<table>
+<table class="hover">
   <thead>
     <tr>
       <th width="150">Gift You Sent</th>
@@ -28,7 +39,7 @@
       <td>{{giftSent}}</td>
       <td>{{dateSent}}</td>
       <td>{{occasion}}</td>
-      <td>{{cost}}</td>
+      <td>${{cost}}</td>
       <td>{{receiverName}}</td>
       <td>{{receiverAddress}}</td>
       <td><button type="button" class="editbtn small button success">edit</button>
@@ -40,18 +51,6 @@
 
 <script>
   $(document).ready(function() {
-
-    $("#logoutBtn").on("click", function(){
-      window.location.href = "/";
-    });
-
-    $("#giftsYouReceivedBtn").on("click", function(){
-      window.location.href = "/received";
-    });
-
-    $("#addNewGiftBtn").on("click", function(){
-      window.location.href = "/add/sent";
-    });
 
   });
 </script>
