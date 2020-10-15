@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const Sent = sequelize.define("Sent", {
+  const SentGifts = sequelize.define("SentGifts", {
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -25,5 +25,5 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
     },
   });
-  return Sent;
+  return SentGifts;
 };
