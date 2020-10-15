@@ -93,8 +93,6 @@ module.exports = function (app) {
   app.get("/api/received", (req, res) => {
     db.ReceivedGifts.findAll()
       .then((allReceivedGifts) => {
-        // if (err) throw err;
-        console.log(allReceivedGifts);
         res.render("receivedGifts", { gifts: allReceivedGifts });
       })
       .catch((err) => {
@@ -110,7 +108,6 @@ module.exports = function (app) {
   app.get("/api/sent", (req, res) => {
     db.SentGifts.findAll()
       .then((allSentGifts) => {
-        // if (err) throw err;
         res.json(allSentGifts);
       })
       .catch((err) => {

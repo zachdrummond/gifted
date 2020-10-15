@@ -21,7 +21,6 @@ module.exports = function (app) {
   app.get("/received", function (req, res) {
     db.ReceivedGifts.findAll()
       .then((allReceivedGifts) => {
-        // if (err) throw err;
         console.log(allReceivedGifts);
         res.render("receivedGifts", { gifts: allReceivedGifts });
       })
@@ -38,7 +37,6 @@ module.exports = function (app) {
   app.get("/sent", function (req, res) {
     db.SentGifts.findAll()
       .then((allSentGifts) => {
-        // if (err) throw err;
         res.json(allSentGifts);
       })
       .catch((err) => {
