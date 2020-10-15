@@ -1,21 +1,45 @@
-$brandColor: darkorchid;
+
+<style>
+  $brandColor: darkorchid;
+
+body {
+  font-family: system-ui;
+  background: linear-gradient(to bottom,
+    $brandColor,
+    darken($brandColor, 15%)
+  );
+  color: white;
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+</style>
+
 
 <h1>Recieved gifts</h1>
 <form>
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="large-12 cell">
-        <label>Input Label
-          <input type="text" placeholder="large-12 cell">
+        <label>Recieved gifts
+          <input type="text" placeholder="medium-6 cell">
         </label>
       </div>
-      <div class="medium-12 cell">
+      <div class="medium-6 cell">
       </div>
     </div>
   </div>
 </form>
+<!-- use a tag for links to other locations -->
+<a class="button button-rounded-hover">Add Recieved Gifts </a>
+
+<!-- use button tag for on page actions -->
+<button class="button button-rounded-hover">Add New Gifts</button>
+
 
 <script>
+
     $(document).ready(function(){
     
   
