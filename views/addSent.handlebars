@@ -1,19 +1,15 @@
 <div class="top-bar" id="example-menu">
     <div class="top-bar-left">
         <ul class="menu">
+            <li><a href="/">Logout</a></li>
             <li class="menu-text">Giftanizer</li>
         </ul>
     </div>
     <div class="top-bar-right">
-        <ul class="dropdown menu" data-dropdown-menu>
-            <li class="has-submenu">
-                <a href="/sent">View Sent Gifts</a>
-                <ul class="submenu menu vertical" data-submenu>
-                    <li><a href="/received">View Received Gifts</a></li>
-                    <li><a href="/add/received">Add Received Gift</a></li>
-                    <li><a href="/">Logout</a></li>
-                </ul>
-            </li>
+        <ul class=" menu" data-submenu>
+            <a href="/sent">View Sent Gifts</a>
+            <li><a href="/received">View Received Gifts</a></li>
+            <li><a href="/add/received">Add Received Gift</a></li>
         </ul>
     </div>
 </div>
@@ -32,7 +28,7 @@
             </div>
             <div class="medium-4 cell">
                 <label>Date Sent
-                    <input id="dateSent" type="text" placeholder=".medium-4.cell">
+                    <input id="dateSent" type="date" placeholder=".medium-4.cell">
                 </label>
             </div>
             <div class="medium-4 cell">
