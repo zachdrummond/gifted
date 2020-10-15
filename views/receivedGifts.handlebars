@@ -51,7 +51,7 @@
           <li>
             <a>{{#if thankYou}}Sent{{else}}Not Sent{{/if}}</a>
             <ul class="menu">
-              <li><a class="thankYouBtn">{{#unless thankYou}}Sent{{else}}Not Sent{{/unless}}</a></li>
+              <li><a data-id="{{id}}" class="thankYouBtn">{{#unless thankYou}}Sent{{else}}Not Sent{{/unless}}</a></li>
             </ul>
           </li>
         </ul>
@@ -68,12 +68,12 @@
 
     $(document).foundation();
 
-    $(".thankYouBtn").on("click", function(event){
+    $(".thankYouBtn").on("click", function (event) {
       console.log("Button worked");
     });
 
     $(".deletebtn").on("click", function (event) {
-      
+
       const id = $(this).data("id");
 
       $.ajax("/api/received/" + id, {
