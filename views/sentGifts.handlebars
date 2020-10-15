@@ -43,7 +43,7 @@
       <td>{{receiverName}}</td>
       <td>{{receiverAddress}}</td>
       <td><button type="button" class="editbtn small button success">edit</button>
-      <button type="button" class="deletebtn small button alert">delete</button></td>
+      <button data-id="{{id}}" type="button" class="deletebtn small button alert">delete</button></td>
     </tr>
     {{/each}}
   </tbody>
@@ -51,6 +51,10 @@
 
 <script>
   $(document).ready(function() {
-
+    
+    $(".deletebtn").on("click", function(event){
+      let id = $(this).data("id");
+      console.log(id);
+    })
   });
 </script>
