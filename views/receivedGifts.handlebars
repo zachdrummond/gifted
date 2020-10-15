@@ -1,9 +1,12 @@
+{{!-- Navigation Bar --}}
 <nav class="top-bar" id="example-menu">
+  {{!-- Logout Button --}}
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
       <li><a href="/">Logout</a></li>
     </ul>
   </div>
+  {{!-- Dropdown Menu --}}
   <div class="top-bar-right">
     <ul class="dropdown menu" data-dropdown-menu>
       <li class="has-submenu">
@@ -20,15 +23,19 @@
 </nav>
 
 <main class="grid-container">
+  {{!-- Website Name --}}
   <header class="grid-x grid-padding-x align-center">
     <h1>Gifted</h1>
   </header>
+  {{!-- Page Title --}}
   <div class="grid-x grid-padding-x align-center">
     <h2 class="text-center">Gifts You Received</h2>
   </div>
+  {{!-- Add Button --}}
   <div class="grid-x grid-padding-x align-center">
     <a href="/add/received" class="button">Add a New Gift</a>
   </div>
+  {{!-- Table --}}
   <section class="grid-x grid-padding-x align-center">
     <table class="hover">
       <thead>
