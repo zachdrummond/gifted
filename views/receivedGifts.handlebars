@@ -15,9 +15,6 @@
 </div>
 <h1 class="text-center">Gifted</h1>
 
-<button id="logoutBtn" type="button" class="button">Logout</button>
-<button id="giftsYouSentBtn" type="button" class="button">Gifts You Sent</button>
-
 <hr>
 
 <h2 class="text-center">Gifts You Received</h2>
@@ -62,14 +59,6 @@
 
 <script>
   $(document).ready(function () {
-
-    $("#logoutBtn").on("click", function () {
-      window.location.href = "/";
-    });
-
-    $("#giftsYouSentBtn").on("click", function () {
-      window.location.href = "/sent";
-    });
 
     $("#addNewGiftBtn").on("click", function () {
       window.location.href = "/add/received";
