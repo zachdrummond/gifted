@@ -9,10 +9,6 @@
 
 <button id="addNewGiftBtn" type="button" class="button">Add a New Gift</button>
 
-{{#each gifts}}
-<h1>{{}}</h1>
-{{/each}}
-
 <table>
   <thead>
     <tr>
@@ -25,34 +21,19 @@
       <th width="150">Edit/Delete</th>
     </tr>
   </thead>
-  <tbody>
+<tbody>
+    {{#each gifts}}
     <tr>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
+      <td>{{giftReceived}}</td>
+      <td>{{dateReceived}}</td>
+      <td>{{occasion}}</td>
+      <td>{{senderName}}</td>
+      <td>{{senderAddress}}</td>
+      <td>{{thankYou}}</td>
+      <td><button type="button" class="editbtn small button success">edit</button>
+      <button type="button" class="deletebtn small button alert">delete</button></td>
     </tr>
-    <tr>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-    </tr>
-    <tr>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-    </tr>
+    {{/each}}
   </tbody>
 </table>
 

@@ -15,9 +15,6 @@ module.exports = function (sequelize, DataTypes) {
     },
     giftReceived: {
       type: DataTypes.STRING,
-      get: function() {
-        return moment(this.getDataValue('DateTime')).format('DD.MM.YYYY')
-     },
       allowNull: false,
     },
     occasion: {
@@ -26,6 +23,9 @@ module.exports = function (sequelize, DataTypes) {
     },
     dateReceived: {
       type: DataTypes.DATEONLY,
+      get: function() {
+        return moment(this.getDataValue('dateReceived')).format('MM/DD/YYYY')
+     },
       allowNull: false,
     },
     thankYou: {

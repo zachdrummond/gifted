@@ -24,7 +24,7 @@ module.exports = function (sequelize, DataTypes) {
     dateSent: {
       type: DataTypes.DATEONLY,
       get: function() {
-        return moment(this.getDataValue('DateTime')).format('DD.MM.YYYY')
+        return moment(this.getDataValue('dateSent')).format('MM/DD/YYYY')
      },
       allowNull: false,
     },
