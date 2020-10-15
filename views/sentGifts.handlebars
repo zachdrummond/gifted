@@ -19,7 +19,7 @@
 
 <h2 class="text-center">Gifts You Sent</h2>
 
-<button id="addNewGiftBtn" type="button" class="button">Add a New Gift</button>
+<a href="/add/sent" class="button">Add a New Gift</a>
 
 <table class="hover">
   <thead>
@@ -51,10 +51,6 @@
 
 <script>
   $(document).ready(function() {
-
-    $("#addNewGiftBtn").on("click", function(){
-      window.location.href = "/add/sent";
-    });
 
   });
 </script>
