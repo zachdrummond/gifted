@@ -1,7 +1,7 @@
 <h1 class="text-center">Gifted</h1>
 
 <button id="logoutBtn" type="button" class="button">Logout</button>
-<button id="giftsYouSentBtn" type="button" class="button">Gifts You Received</button>
+<button id="giftsYouReceivedBtn" type="button" class="button">Gifts You Received</button>
 
 <hr>
 
@@ -51,3 +51,21 @@
     </tr>
   </tbody>
 </table>
+
+<script>
+  $(document).ready(function() {
+
+    $("#logoutBtn").on("click", function(){
+      window.location.href = "/";
+    });
+
+    $("#giftsYouReceivedBtn").on("click", function(){
+      window.location.href = "/received";
+    });
+
+    $("#addNewGiftBtn").on("click", function(){
+      window.location.href = "/add/sent";
+    });
+
+  });
+</script>
