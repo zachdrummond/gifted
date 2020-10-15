@@ -1,17 +1,17 @@
 <div class="top-bar" id="example-menu">
-    <div class="top-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
-            <li><a href="/">Logout</a></li>
-            <li class="menu-text">Giftanizer</li>
-        </ul>
-    </div>
-    <div class="top-bar-right">
-        <ul class="menu">
-            <li><a href="/sent">All Sent Gifts</a></li>
-            <li><a href="/add/received">Add Received Gift</a></li>
-            <li><a href="/add/sent">Add Sent Gift</a></li> 
-        </ul>
-    </div>
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li><a href="/">Logout</a></li>
+      <li class="menu-text">Giftanizer</li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><a href="/sent">All Sent Gifts</a></li>
+      <li><a href="/add/received">Add Received Gift</a></li>
+      <li><a href="/add/sent">Add Sent Gift</a></li>
+    </ul>
+  </div>
 </div>
 <h1 class="text-center">Gifted</h1>
 
@@ -44,10 +44,12 @@
       {{!-- <td>{{#if thankYou}}Sent{{else}}Not Sent{{/if}}</td> --}}
       <td>
         <ul class="dropdown menu" data-dropdown-menu>
-          <li><a href="#">Item 1</a></li>
-          <li><a href="#">Item 2</a></li>
-          <li><a href="#">Item 3</a></li>
-          <li><a href="#">Item 4</a></li>
+          <li>
+            <a href="#">Item 1</a>
+            <ul class="menu">
+              <li><a href="#">Item 1A</a></li>
+            </ul>
+          </li>
         </ul>
       </td>
       <td><button type="button" class="editbtn small button success">edit</button>
@@ -60,6 +62,7 @@
 <script>
   $(document).ready(function () {
 
+    $(document).foundation();
 
   });
 </script>
