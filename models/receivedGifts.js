@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const Received = sequelize.define("Received", {
+  const ReceivedGifts = sequelize.define("ReceivedGifts", {
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -28,5 +28,5 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.BOOLEAN
     },
   });
-  return Received;
+  return ReceivedGifts;
 };

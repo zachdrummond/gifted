@@ -1,4 +1,4 @@
-const path = require("path");
+const db = require("../models");
 
 // Routes
 
@@ -19,7 +19,20 @@ module.exports = function (app) {
   });
   // index route loads received gifts page
   app.get("/received", function (req, res) {
-    res.render("receivedGifts");
+    db.ReceivedGifts.findAll()
+      .then((allReceivedGifts) => {
+        // if (err) throw err;
+        console.log(allReceivedGifts);
+        res.render("receivedGifts", { gifts: allReceivedGifts });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to get received gifts.",
+        });
+      });
   });
   // index route loads sent gifts page
   app.get("/sent", function (req, res) {
