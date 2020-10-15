@@ -8,7 +8,7 @@ body::after {
   background-image: url(../images/background.jpg);
   background-position: center;
   background-color: rgb(245, 243, 247);
-  opacity: 0.4;
+  opacity: 0.4; /* 0 = Full Invisible & 1 = Fully Visibile */
   top: 0;
   left: 0;
   bottom: 0;
