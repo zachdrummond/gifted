@@ -24,6 +24,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: false,
     },
+    cost: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
   });
   return SentGifts;
 };
