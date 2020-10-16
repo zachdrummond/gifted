@@ -28,12 +28,19 @@
       <tbody>
         {{#each gifts}}
         <tr>
-          <td>{{giftSent}}</td>
-          <td>{{dateSent}}</td>
-          <td>{{occasion}}</td>
-          <td>${{cost}}</td>
-          <td>{{receiverName}}</td>
-          <td>{{receiverAddress}}</td>
+          <td><span>{{giftSent}}</span><input id="editedGift{{id}}" type="text" value="{{giftSent}}"
+              class="displayNone"></td>
+          <td><span>{{dateSent}}</span><input id="editedDate{{id}}" type="text" value={{dateSent}}
+              class="displayNone"></td>
+          <td><span>{{occasion}}</span><input id="editedOccasion{{id}}" type="text" value="{{occasion}}"
+              class="displayNone">
+          </td>
+          <td><span>${{cost}}</span><input id="editedCost{{id}}" type="text" value="{{cost}}"
+              class="displayNone"></td>
+          <td><span>{{receiverName}}</span><input id="editedReceiver{{id}}" type="text" value="{{receiverName}}"
+              class="displayNone"></td>
+          <td><span>{{receiverAddress}}</span><input id="editedAddress{{id}}" type="text" value="{{receiverAddress}}"
+              class="displayNone"></td>
           <td><button data-id="{{id}}" type="button" class="editbtn small button success">edit</button>
             <button data-id="{{id}}" type="button" class="deletebtn small button alert">delete</button></td>
         </tr>
@@ -58,9 +65,35 @@
     });
 // targets values when clicked, still need to figure out how to edit it
     $(".editbtn").on("click", function (event) {
-      let id = $(this).data("id");
-      console.log(id)
-      $.ajax("/api/sent/" + id,)
-    })
+
+      if ($(this).text() === "edit") {
+        $(this).text("submit");
+
+        const tableRow = $(this).parent().siblings();
+// update visible state
+        for (let i = 0; i < tableRow.length; i++) {
+          tableRow[i].children[0].setAttribute("class", "displayNone");
+          tableRow[i].children[1].removeAttribute("class");
+        }
+      } else if ($(this).text() === "submit") {
+        $(this).text("edit");
+
+        const id = $(this).data("id");
+        const userId = 1;
+
+        const editedGift = {
+          id: id,
+          user_id: userId,
+          receiverName: $("#editedReceiver" + id).val(),
+          receiverAddress: $("#editedAddress" + id).val(),
+          giftSent: $("#editedGift" + id).val(),
+          occasion: $("#editedOccasion" + id).val(),
+          dateSent: $("#editedDate" + id).val(),
+          cost: $("#editedCost" + id).val(),
+        };
+        console.log(editedGift)
+        $.ajax("/api/edit/sent", { type: "PUT", data: editedGift }).then(() => { location.reload() });
+      }
+    });
   });
 </script>
