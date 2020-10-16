@@ -28,11 +28,11 @@
       <tbody>
         {{#each gifts}}
         <tr>
-          <td>{{giftReceived}}</td>
-          <td>{{dateReceived}}</td>
-          <td>{{occasion}}</td>
-          <td>{{senderName}}</td>
-          <td>{{senderAddress}}</td>
+          <td><span>{{giftReceived}}</span><input type="text" value="{{giftReceived}}" class="displayNone"></td>
+          <td><span>{{dateReceived}}</span><input type="text" value="{{dateReceived}}" class="displayNone"></td>
+          <td><span>{{occasion}}</span><input type="text" value="{{occasion}}" class="displayNone"></td>
+          <td><span>{{senderName}}</span><input type="text" value="{{senderName}}" class="displayNone"></td>
+          <td><span>{{senderAddress}}</span><input type="text" value="{{senderAddress}}" class="displayNone"></td>
           <td>
             <ul class="dropdown menu" data-dropdown-menu>
               <li>
@@ -67,9 +67,9 @@
     $(".editbtn").on("click", function (event) {
 
       const id = $(this).data("id");
-      const array = $(this).parent().parent();
-      array.empty();
-      console.log(array);
+      const array = $(this).parent().siblings();
+      array[0].children[0].setAttribute("class", "displayNone");
+      array[0].children[1].removeAttribute("class");
 
     });
 
@@ -88,9 +88,3 @@
 
   });
 </script>
-
-      {{!-- <td><input type="text" value="{{giftReceived}}"></td>
-      <td><input type="text" value="{{dateReceived}}"></td>
-      <td><input type="text" value="{{occasion}}"></td>
-      <td><input type="text" value="{{senderName}}"></td>
-      <td><input type="text" value="{{senderAddress}}"></td> --}}
