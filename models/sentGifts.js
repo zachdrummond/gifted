@@ -31,7 +31,7 @@ module.exports = function (sequelize, DataTypes) {
     cost: {
       type: DataTypes.DECIMAL(10,2),
       allowNull: false,
-    },
+    }
   });
   return SentGifts;
 };

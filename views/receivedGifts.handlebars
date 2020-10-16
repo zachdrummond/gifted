@@ -44,7 +44,7 @@
               </li>
             </ul>
           </td>
-          <td><button type="button" class="editbtn small button success">edit</button>
+          <td><button data-id="{{id}}" type="button" class="editbtn small button success">edit</button>
             <button data-id="{{id}}" type="button" class="deletebtn small button alert">delete</button></td>
         </tr>
         {{/each}}
@@ -64,6 +64,16 @@
     });
 
     // Delete Button Event Listener
+    $(".editbtn").on("click", function (event) {
+
+      const id = $(this).data("id");
+      const array = $(this).parent().parent();
+      array.empty();
+      console.log(array);
+
+    });
+
+    // Delete Button Event Listener
     $(".deletebtn").on("click", function (event) {
 
       const id = $(this).data("id");
@@ -79,8 +89,8 @@
   });
 </script>
 
-      {{!-- <td>{{#if boolean}}<input type="text" value="{{giftReceived}}">{{else}}{{giftReceived}}{{/if}}</td>
-      <td>{{#if boolean}}<input type="text" value="{{dateReceived}}">{{else}}{{dateReceived}}{{/if}}</td>
-      <td>{{#if boolean}}<input type="text" value="{{occasion}}">{{else}}{{occasion}}{{/if}}</td>
-      <td>{{#if boolean}}<input type="text" value="{{senderName}}">{{else}}{{senderName}}{{/if}}</td>
-      <td>{{#if boolean}}<input type="text" value="{{senderAddress}}">{{else}}{{senderAddress}}{{/if}}</td> --}}
+      {{!-- <td><input type="text" value="{{giftReceived}}"></td>
+      <td><input type="text" value="{{dateReceived}}"></td>
+      <td><input type="text" value="{{occasion}}"></td>
+      <td><input type="text" value="{{senderName}}"></td>
+      <td><input type="text" value="{{senderAddress}}"></td> --}}
