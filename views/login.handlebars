@@ -26,17 +26,17 @@
 <div class="grid-container">
     <div class="grid-x grid-padding-x text-center">
         <div class="small-6 cell imgBoxContainer">
-            <img class="giftsYouReceivedImg"
+            <img class="giftsReceivedImg"
                 data-interchange="[/images/gift.png, small], [/images/gift.png, medium], [/images/gift.png, large]">
-            <div class="imgBox giftsYouReceivedImg">
+            <div class="imgBox giftsReceivedImg">
                 <div class="imgText">Received Gifts</div>
             </div>
         </div>
         <hr>
         <div class="small-6 cell imgBoxContainer">
-            <img class="giftsYouSentImg"
+            <img class="giftsSentImg"
                 data-interchange="[/images/hand.webp, small], [/images/hand.webp, medium], [/images/hand.webp, large]">
-            <div class="imgBox giftsYouSentImg">
+            <div class="imgBox giftsSentImg">
                 <div class="imgText">Sent Gifts</div>
             </div>
         </div>
@@ -48,12 +48,12 @@
     $(document).ready(function () {
 
         // Received Gifts Button
-        $(".giftsYouReceivedImg").on("click", function (event) {
+        $(".giftsReceivedImg").on("click", function (event) {
             window.location.href = "/received";
         });
 
         // Sent Gifts Button
-        $(".giftsYouSentImg").on("click", function (event) {
+        $(".giftsSentImg").on("click", function (event) {
             window.location.href = "/sent";
         });
 

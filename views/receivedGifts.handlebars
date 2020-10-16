@@ -5,7 +5,7 @@
   </header>
   {{!-- Page Title --}}
   <div class="grid-x grid-padding-x align-center">
-    <h2 class="text-center">Gifts You Received</h2>
+    <h2 class="text-center">Gifts Received</h2>
   </div>
   {{!-- Add Button --}}
   <div class="grid-x grid-padding-x align-center">
@@ -16,7 +16,7 @@
     <table class="hover">
       <thead>
         <tr>
-          <th width="150">Gift You Received</th>
+          <th width="150">Gift</th>
           <th width="150">Date Received</th>
           <th width="150">Occasion</th>
           <th width="150">Sender's Name</th>
@@ -72,7 +72,7 @@
         $(this).text("submit");
 
         const tableRow = $(this).parent().siblings();
-// update visible state
+        // update visible state
         for (let i = 0; i < tableRow.length - 1; i++) {
           tableRow[i].children[0].setAttribute("class", "displayNone");
           tableRow[i].children[1].removeAttribute("class");
@@ -117,4 +117,3 @@
 
   });
 </script>
-
