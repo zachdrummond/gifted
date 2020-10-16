@@ -67,7 +67,7 @@
     $(".editbtn").on("click", function (event) {
 
       if ($(this).text() === "edit") {
-        $(this).text("Submit");
+        $(this).text("submit");
 
         const tableRow = $(this).parent().siblings();
 
@@ -77,9 +77,7 @@
         }
 
       } else if ($(this).text() === "submit") {
-        $(this).text("Edit");
-
-        console.log("Submit Button Worked");
+        $(this).text("edit");
 
         const id = $(this).data("id");
         const userId = 1;
@@ -93,7 +91,7 @@
           dateReceived: $("#dateReceived").val(),
           thankYou: $('input[name="thankYou"]:checked').val(),
         };
-        $.ajax("/api/edit/received", { type: "PUT", data: newGift }).then($("#addReceivedForm").each(function () {
+        $.ajax("/api/edit/received", { type: "PUT", data: editedGift }).then($("#addReceivedForm").each(function () {
 
         }));
       }
