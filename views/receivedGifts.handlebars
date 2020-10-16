@@ -28,11 +28,11 @@
       <tbody>
         {{#each gifts}}
         <tr>
-          <td>{{giftReceived}}</td>
-          <td>{{dateReceived}}</td>
-          <td>{{occasion}}</td>
-          <td>{{senderName}}</td>
-          <td>{{senderAddress}}</td>
+          <td><span>{{giftReceived}}</span><input type="text" value="{{giftReceived}}" class="displayNone"></td>
+          <td><span>{{dateReceived}}</span><input type="text" value="{{dateReceived}}" class="displayNone"></td>
+          <td><span>{{occasion}}</span><input type="text" value="{{occasion}}" class="displayNone"></td>
+          <td><span>{{senderName}}</span><input type="text" value="{{senderName}}" class="displayNone"></td>
+          <td><span>{{senderAddress}}</span><input type="text" value="{{senderAddress}}" class="displayNone"></td>
           <td>
             <ul class="dropdown menu" data-dropdown-menu>
               <li>
@@ -44,7 +44,7 @@
               </li>
             </ul>
           </td>
-          <td><button type="button" class="editbtn small button success">edit</button>
+          <td><button data-id="{{id}}" type="button" class="editbtn small button success">edit</button>
             <button data-id="{{id}}" type="button" class="deletebtn small button alert">delete</button></td>
         </tr>
         {{/each}}
@@ -63,6 +63,43 @@
       console.log("Button worked");
     });
 
+    // Edit Button Event Listener
+    $(".editbtn").on("click", function (event) {
+
+      if ($(this).text() === "edit") {
+        $(this).text("Submit");
+
+        const tableRow = $(this).parent().siblings();
+
+        for (let i = 0; i < tableRow.length - 1; i++) {
+          tableRow[i].children[0].setAttribute("class", "displayNone");
+          tableRow[i].children[1].removeAttribute("class");
+        }
+
+      } else if ($(this).text() === "submit") {
+        $(this).text("Edit");
+
+        console.log("Submit Button Worked");
+
+        const id = $(this).data("id");
+        const userId = 1;
+
+        const editedGift = {
+          user_id: userId,
+          senderName: $("#senderName").val(),
+          senderAddress: $("#senderAddress").val(),
+          giftReceived: $("#giftReceived").val(),
+          occasion: $("#occasionReceived").val(),
+          dateReceived: $("#dateReceived").val(),
+          thankYou: $('input[name="thankYou"]:checked').val(),
+        };
+        $.ajax("/api/edit/received", { type: "PUT", data: newGift }).then($("#addReceivedForm").each(function () {
+
+        }));
+      }
+
+    });
+
     // Delete Button Event Listener
     $(".deletebtn").on("click", function (event) {
 
@@ -78,9 +115,3 @@
 
   });
 </script>
-
-      {{!-- <td>{{#if boolean}}<input type="text" value="{{giftReceived}}">{{else}}{{giftReceived}}{{/if}}</td>
-      <td>{{#if boolean}}<input type="text" value="{{dateReceived}}">{{else}}{{dateReceived}}{{/if}}</td>
-      <td>{{#if boolean}}<input type="text" value="{{occasion}}">{{else}}{{occasion}}{{/if}}</td>
-      <td>{{#if boolean}}<input type="text" value="{{senderName}}">{{else}}{{senderName}}{{/if}}</td>
-      <td>{{#if boolean}}<input type="text" value="{{senderAddress}}">{{else}}{{senderAddress}}{{/if}}</td> --}}

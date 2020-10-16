@@ -4,7 +4,6 @@ nav {
 
 body {
   font-family: "Lora", serif;
-  /* font-family: 'Amatic SC', cursive; */
 }
 
 /* Adds the Background Image after the body */
@@ -22,7 +21,11 @@ body::after {
   z-index: -1;
 }
 
-h1,
+h1 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 100px;
+}
+
 h2 {
   font-family: "Lora", serif;
 }
@@ -31,6 +34,10 @@ img {
   border: 3px solid black;
   border-radius: 50%;
   padding: 5px;
+}
+
+.displayNone {
+  display: none;
 }
 
 /* .middle {

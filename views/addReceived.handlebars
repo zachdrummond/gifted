@@ -67,7 +67,7 @@
             };
             $.post("/api/add/received", newGift).then($("#addReceivedForm").each(function () {
                 this.reset();
-            }))
+            }));
         });
     });
 </script>
