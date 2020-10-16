@@ -35,11 +35,11 @@
           <td><span>{{occasion}}</span><input id="editedOccasion{{id}}" type="text" value="{{occasion}}"
               class="displayNone">
           </td>
+          <td><span>${{cost}}</span><input id="editedCost{{id}}" type="text" value="{{cost}}"
+              class="displayNone"></td>
           <td><span>{{receiverName}}</span><input id="editedReceiver{{id}}" type="text" value="{{receiverName}}"
               class="displayNone"></td>
           <td><span>{{receiverAddress}}</span><input id="editedAddress{{id}}" type="text" value="{{receiverAddress}}"
-              class="displayNone"></td>
-          <td><span>{{cost}}</span><input id="editedCost{{id}}" type="text" value="{{cost}}"
               class="displayNone"></td>
           <td><button data-id="{{id}}" type="button" class="editbtn small button success">edit</button>
             <button data-id="{{id}}" type="button" class="deletebtn small button alert">delete</button></td>
@@ -92,7 +92,7 @@
           cost: $("#editedCost" + id).val(),
         };
         console.log(editedGift)
-        $.ajax("/api/edit/received", { type: "PUT", data: editedGift }).then(() => { location.reload() });
+        $.ajax("/api/edit/sent", { type: "PUT", data: editedGift }).then(() => { location.reload() });
       }
     });
   });
