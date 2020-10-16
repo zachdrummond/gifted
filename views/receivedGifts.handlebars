@@ -5,11 +5,12 @@
   </header>
   {{!-- Page Title --}}
   <div class="grid-x grid-padding-x align-center">
+    {{!-- <img data-interchange="[/images/banner1.png, small], [/images/banner1.png, medium], [/images/banner1.png, large]"> --}}
     <h2 class="text-center">Gifts Received</h2>
   </div>
   {{!-- Add Button --}}
   <div class="grid-x grid-padding-x align-center">
-    <a href="/add/received" class="button">Add a New Gift</a>
+    <a href="/add/received" class="button btnBlue">Add a New Gift</a>
   </div>
   {{!-- Table --}}
   <section class="grid-x grid-padding-x align-center">
@@ -46,8 +47,8 @@
               for="Not Sent">N</label>
 
           </td>
-          <td><button data-id="{{id}}" type="button" class="editbtn small button success">edit</button>
-            <button data-id="{{id}}" type="button" class="deletebtn small button alert">delete</button></td>
+          <td><button data-id="{{id}}" type="button" class="editbtn small button btnGreen">edit</button>
+            <button data-id="{{id}}" type="button" class="deletebtn small button btnRed">delete</button></td>
         </tr>
         {{/each}}
       </tbody>
