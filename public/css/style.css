@@ -4,6 +4,7 @@ nav {
 
 body {
   font-family: "Lora", serif;
+  /* font-family: 'Amatic SC', cursive; */
 }
 
 /* Adds the Background Image after the body */
@@ -27,6 +28,34 @@ h2 {
 }
 img {
   max-width: 25%;
+  border: 3px solid black;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
 }
 
 footer {
