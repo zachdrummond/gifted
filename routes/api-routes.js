@@ -120,6 +120,27 @@ module.exports = function (app) {
         });
       });
   });
+
+  // get one sent gifts
+  app.get("/api/sent/:id", (req, res) => {
+    db.SentGifts.findOne({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then((sentGift) => {
+        // res.json(allSentGifts);
+        console.log(sentGift)
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to get sent gifts.",
+        });
+      });
+  });
   // PUT route for updating received gifts
   app.put("/api/edit/received", (req, res) => {
     db.ReceivedGifts.update(req.body, {

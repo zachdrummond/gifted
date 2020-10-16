@@ -32,3 +32,6 @@ img {
 footer {
   margin-bottom: 0 !important;
 }
+.button {
+  border-radius: 7px !important;
+}
