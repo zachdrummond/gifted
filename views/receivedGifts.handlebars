@@ -83,7 +83,6 @@
         }
       } else if ($(this).text() === "submit") {
         $(this).text("edit");
-        console.log("Submit Button Worked");
 
         const id = $(this).data("id");
         const userId = 1;
@@ -119,13 +118,3 @@
   });
 </script>
 
-
-{{!-- <ul class="dropdown menu" data-dropdown-menu>
-              <li>
-                <a>{{#if thankYou}}Sent{{else}}Not Sent{{/if}}</a>
-                <ul class="menu">
-                  <li><a data-id="{{id}}" class="thankYouBtn">{{#unless thankYou}}Sent{{else}}Not Sent{{/unless}}</a>
-                  </li>
-                </ul>
-              </li>
-            </ul> --}}
