@@ -143,6 +143,7 @@ module.exports = function (app) {
   });
   // PUT route for updating received gifts
   app.put("/api/edit/received", (req, res) => {
+    console.log(req.body)
     db.ReceivedGifts.update(req.body, {
       where: {
         id: req.body.id,
