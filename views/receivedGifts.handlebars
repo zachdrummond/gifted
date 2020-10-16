@@ -63,13 +63,40 @@
       console.log("Button worked");
     });
 
-    // Delete Button Event Listener
+    // Edit Button Event Listener
     $(".editbtn").on("click", function (event) {
 
-      const id = $(this).data("id");
-      const array = $(this).parent().siblings();
-      array[0].children[0].setAttribute("class", "displayNone");
-      array[0].children[1].removeAttribute("class");
+      if ($(this).text() === "edit") {
+        $(this).text("Submit");
+
+        const tableRow = $(this).parent().siblings();
+
+        for (let i = 0; i < tableRow.length - 1; i++) {
+          tableRow[i].children[0].setAttribute("class", "displayNone");
+          tableRow[i].children[1].removeAttribute("class");
+        }
+
+      } else if ($(this).text() === "submit") {
+        $(this).text("Edit");
+
+        console.log("Submit Button Worked");
+
+        const id = $(this).data("id");
+        const userId = 1;
+
+        const editedGift = {
+          user_id: userId,
+          senderName: $("#senderName").val(),
+          senderAddress: $("#senderAddress").val(),
+          giftReceived: $("#giftReceived").val(),
+          occasion: $("#occasionReceived").val(),
+          dateReceived: $("#dateReceived").val(),
+          thankYou: $('input[name="thankYou"]:checked').val(),
+        };
+        $.ajax("/api/edit/received", { type: "PUT", data: newGift }).then($("#addReceivedForm").each(function () {
+
+        }));
+      }
 
     });
 
