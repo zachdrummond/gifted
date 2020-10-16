@@ -24,10 +24,18 @@
 <hr>
 {{!-- Gifts Buttons --}}
 <div class="grid-container">
-    <div class="grid-x grid-padding-x align-center">
-        <img id="giftsYouReceivedImg" data-interchange="[/images/hands.jpg, small], [/images/hands.jpg, medium], [/images/hand.webp, large]">
+    <div class="grid-x grid-padding-x text-center">
+        <div class="small-6 cell align-center">
+            <img class="imagebtn giftsYouReceivedImg" 
+                data-interchange="[/images/hands.jpg, medium], [/images/hand.webp, large]">
+            <div class="center giftsYouReceivedImg">Received Gifts</div>
+        </div>
         <hr>
-        <img id="giftsYouSentImg" data-interchange="[/images/gift.png, small], [/images/gift.png, medium], [/images/gift.png, large]">
+        <div class="small-6 cell text-center">
+            <img class="imagebtn giftsYouSentImg"
+                data-interchange="[/images/gift.png, small], [/images/gift.png, medium], [/images/gift.png, large]">
+            <div class="center giftsYouSentImg">Sent Gifts</div>
+        </div>
     </div>
 </div>
 {{!-- Use disabled class with aria-disabled to ensure the user enters email --}}
@@ -35,11 +43,11 @@
 <script>
     $(document).ready(function () {
 
-        $("#giftsYouReceivedImg").on("click", function(event){
+        $(".giftsYouReceivedImg").on("click", function (event) {
             window.location.href = "/received";
         });
 
-        $("#giftsYouSentImg").on("click", function(event){
+        $(".giftsYouSentImg").on("click", function (event) {
             window.location.href = "/sent";
         });
 
