@@ -25,16 +25,21 @@
 {{!-- Gifts Buttons --}}
 <div class="grid-container">
     <div class="grid-x grid-padding-x align-center">
-        <img data-interchange="[/images/background.jpg, small], [/images/background.jpg, medium], [/images/background.jpg, large]">
-        <img data-interchange="[/images/gift1.jpg, small], [/images/gift1.jpg, medium], [/images/gift1.jpg, large]">
-        {{!-- <a href="/received" class="button">Gifts You Received</a>
-        <a href="/sent" class="button">Gifts You Sent</a> --}}
+        <img id="giftsYouReceivedImg" data-interchange="[/images/hands.jpg, small], [/images/hands.jpg, medium], [/images/hand.webp, large]">
+        {{!-- <a href="/received" class="button">Gifts You Received</a> --}}
+        <hr>
+        <img id="giftsYouSentImg" data-interchange="[/images/gift.png, small], [/images/gift.png, medium], [/images/gift.png, large]">
+        {{!-- <a href="/sent" class="button">Gifts You Sent</a> --}}
     </div>
 </div>
 {{!-- Use disabled class with aria-disabled to ensure the user enters email --}}
 
 <script>
     $(document).ready(function () {
+
+        $("#giftsYouReceivedImg").on("click", function(event){
+            window.location.redirect("/received");
+        });
 
         // Login Button Event Listener
         $("#loginBtn").on("click", function (event) {
