@@ -2,7 +2,7 @@
 <div class="reveal text-center" id="exampleModal1" data-reveal>
   <h1>Success!</h1>
   <p class="lead">Your gift was deleted!</p>
-  <button class="close-button" data-close aria-label="Close modal" type="button">
+  <button id="modalClose" class="close-button" data-close aria-label="Close modal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
@@ -119,9 +119,13 @@
       $.ajax("/api/received/" + id, {
         type: "DELETE",
       }).then(() => {
-        location.reload();
+        console.log("deleted")
       });
     });
 
+    //reload page on closing of modal
+    $("#modalClose").on("click", function (event){
+      location.reload();
+    })
   });
 </script>
