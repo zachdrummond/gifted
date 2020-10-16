@@ -72,7 +72,7 @@
         $(this).text("submit");
 
         const tableRow = $(this).parent().siblings();
-
+// update visible state
         for (let i = 0; i < tableRow.length - 1; i++) {
           tableRow[i].children[0].setAttribute("class", "displayNone");
           tableRow[i].children[1].removeAttribute("class");
