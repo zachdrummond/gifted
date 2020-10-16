@@ -8,7 +8,15 @@
         <h2 class="text-center">Add a Sent Gift</h2>
     </div>
 </header>
-
+{{!-- Add modal --}}
+<div class="reveal" id="exampleModal1" data-reveal>
+  <h1>Awesome. I Have It.</h1>
+  <p class="lead">Your couch. It is mine.</p>
+  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 {{!-- Add Gift Form --}}
 <form id="addSentForm">
     <div class="grid-container">
@@ -44,7 +52,7 @@
                 </label>
             </div>
             <div class="medium-4 cell">
-                <button id="submitAddSent" class="submit button expanded">Add Gift</button>
+                <button id="submitAddSent" data-open="exampleModal1" class="submit button expanded">Add Gift</button>
             </div>
         </div>
     </div>
