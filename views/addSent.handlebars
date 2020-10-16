@@ -10,7 +10,7 @@
 </header>
 
 {{!-- Add Gift Form --}}
-<form id="#addSentForm">
+<form id="addSentForm">
     <div class="grid-container">
         <div class="grid-x grid-padding-x align-center">
             <div class="medium-4 cell">
@@ -52,8 +52,10 @@
 
 <script>
     $(document).ready(function () {
+        //code to make foundation jQuery work
         $(document).foundation();
         userId = 1;
+        //Click event to add new gift
         $("#submitAddSent").on("click", function (event) {
             event.preventDefault();
             const newGift = {
@@ -65,7 +67,8 @@
                 dateSent: $("#dateSent").val(),
                 cost: $("#cost").val(),
             };
-            $.post("/api/add/sent", newGift).then($('#addSentForm').each(function () {
+            // post new object and clear out form
+            $.post("/api/add/sent", newGift).then($("#addSentForm").each(function () {
                 this.reset();
             }))
         });
