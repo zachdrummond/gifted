@@ -32,22 +32,19 @@
               class="displayNone"></td>
           <td><span>{{dateReceived}}</span><input id="editedDate{{id}}" type="text" value="{{dateReceived}}"
               class="displayNone"></td>
-          <td><span>{{occasion}}</span><input id="editedOccasion{{id}}" type="text" value="{{occasion}}" class="displayNone">
+          <td><span>{{occasion}}</span><input id="editedOccasion{{id}}" type="text" value="{{occasion}}"
+              class="displayNone">
           </td>
           <td><span>{{senderName}}</span><input id="editedSender{{id}}" type="text" value="{{senderName}}"
               class="displayNone"></td>
           <td><span>{{senderAddress}}</span><input id="editedAddress{{id}}" type="text" value="{{senderAddress}}"
               class="displayNone"></td>
-          <td>
-            <ul class="dropdown menu" data-dropdown-menu>
-              <li>
-                <a>{{#if thankYou}}Sent{{else}}Not Sent{{/if}}</a>
-                <ul class="menu">
-                  <li><a data-id="{{id}}" class="thankYouBtn">{{#unless thankYou}}Sent{{else}}Not Sent{{/unless}}</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+          <td><span>{{#if thankYou}}Sent{{else}}Not Sent{{/if}}</span>
+            <input class="displayNone" type="radio" name="thankYou" value=true id="sent" required><label
+              class="displayNone" for="Sent">Y</label>
+            <input class="displayNone" type="radio" name="thankYou" value=false id="notSent"><label class="displayNone"
+              for="Not Sent">N</label>
+
           </td>
           <td><button data-id="{{id}}" type="button" class="editbtn small button success">edit</button>
             <button data-id="{{id}}" type="button" class="deletebtn small button alert">delete</button></td>
@@ -80,10 +77,12 @@
           tableRow[i].children[0].setAttribute("class", "displayNone");
           tableRow[i].children[1].removeAttribute("class");
         }
-
+        tableRow[5].children[0].setAttribute("class", "displayNone");
+        for (let j = 1; j < 5; j++) {
+          tableRow[5].children[j].removeAttribute("class");
+        }
       } else if ($(this).text() === "submit") {
         $(this).text("edit");
-            if ()
         console.log("Submit Button Worked");
 
         const id = $(this).data("id");
@@ -97,10 +96,10 @@
           giftReceived: $("#editedGift" + id).val(),
           occasion: $("#editedOccasion" + id).val(),
           dateReceived: $("#editedDate" + id).val(),
-          thankYou: true,
+          thankYou: $('input[name="thankYou"]:checked').val(),
         };
         console.log(editedGift)
-        $.ajax("/api/edit/received", { type: "PUT", data: editedGift}).then(() => { location.reload() });
+        $.ajax("/api/edit/received", { type: "PUT", data: editedGift }).then(() => { location.reload() });
       }
     });
 
@@ -119,3 +118,14 @@
 
   });
 </script>
+
+
+{{!-- <ul class="dropdown menu" data-dropdown-menu>
+              <li>
+                <a>{{#if thankYou}}Sent{{else}}Not Sent{{/if}}</a>
+                <ul class="menu">
+                  <li><a data-id="{{id}}" class="thankYouBtn">{{#unless thankYou}}Sent{{else}}Not Sent{{/unless}}</a>
+                  </li>
+                </ul>
+              </li>
+            </ul> --}}
