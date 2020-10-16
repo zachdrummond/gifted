@@ -77,12 +77,12 @@
         const editedGift = {
           id: id,
           user_id: userId,
-          receiverName: $("#editedSender" + id).val(),
+          receiverName: $("#editedReceiver" + id).val(),
           receiverAddress: $("#editedAddress" + id).val(),
           giftSent: $("#editedGift" + id).val(),
           occasion: $("#editedOccasion" + id).val(),
           dateSent: $("#editedDate" + id).val(),
-          cost: $("#cost" + id).val(),
+          cost: $("#editedCost" + id).val(),
         };
         console.log(editedGift)
         $.ajax("/api/edit/received", { type: "PUT", data: editedGift }).then(() => { location.reload() });
