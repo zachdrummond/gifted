@@ -38,7 +38,11 @@
     $(document).ready(function () {
 
         $("#giftsYouReceivedImg").on("click", function(event){
-            window.location.redirect("/received");
+            window.location.href = "/received";
+        });
+
+        $("#giftsYouSentImg").on("click", function(event){
+            window.location.href = "/sent";
         });
 
         // Login Button Event Listener
