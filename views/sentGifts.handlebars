@@ -1,3 +1,11 @@
+{{!-- Added successfully modal --}}
+<div class="reveal text-center" id="exampleModal1" data-reveal>
+  <h1>Success!</h1>
+  <p class="lead">Your gift was deleted!</p>
+  <button id="modalClose" class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 <main class="grid-container">
   {{!-- Website Name --}}
   <header class="grid-x grid-padding-x align-center">
@@ -95,5 +103,9 @@
         $.ajax("/api/edit/sent", { type: "PUT", data: editedGift }).then(() => { location.reload() });
       }
     });
+    //reload page on closing of modal
+    $("#modalClose").on("click", function (event){
+      location.reload();
+    })
   });
 </script>
