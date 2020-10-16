@@ -9,11 +9,12 @@
 <form>
     <div class="grid-container">
         <div class="grid-x grid-padding-x align-center">
-            <div class="medium-4 cell text-center">
-                <label>Email
+            <div class="medium-6 cell text-center">
+                <label>
+                    <h3>Email</h3>
                     <input id="userEmail" type="email" placeholder="email@email.com" aria-describedby="email">
-                    <button id="loginBtn" class="submit button small">Login</button>
-                    <a href="/signup" class="button small success">Sign Up</a>
+                    <button id="loginBtn" class="submit button">Login</button>
+                    <a href="/signup" class="button success">Sign Up</a>
                     {{!-- Use disabled class with aria-disabled to ensure the user enters email --}}
                 </label>
             </div>
@@ -24,16 +25,20 @@
 {{!-- Gifts Buttons --}}
 <div class="grid-container">
     <div class="grid-x grid-padding-x text-center">
-        <div class="small-6 cell container">
+        <div class="small-6 cell imgBoxContainer">
             <img class="giftsYouReceivedImg"
-                data-interchange="[/images/hand.webp, small], [/images/hand.webp, medium], [/images/hand.webp, large]">
-            <div class="center giftsYouSentImg">Sent Gifts</div>
+                data-interchange="[/images/gift.png, small], [/images/gift.png, medium], [/images/gift.png, large]">
+            <div class="imgBox giftsYouReceivedImg">
+                <div class="imgText">Received Gifts</div>
+            </div>
         </div>
         <hr>
-        <div class="small-6 cell">
+        <div class="small-6 cell imgBoxContainer">
             <img class="giftsYouSentImg"
-                data-interchange="[/images/gift.png, small], [/images/gift.png, medium], [/images/gift.png, large]">
-            <div class="center middle giftsYouReceivedImg">Received Gifts</div>
+                data-interchange="[/images/hand.webp, small], [/images/hand.webp, medium], [/images/hand.webp, large]">
+            <div class="imgBox giftsYouSentImg">
+                <div class="imgText">Sent Gifts</div>
+            </div>
         </div>
     </div>
 </div>
@@ -42,10 +47,12 @@
 <script>
     $(document).ready(function () {
 
+        // Received Gifts Button
         $(".giftsYouReceivedImg").on("click", function (event) {
             window.location.href = "/received";
         });
 
+        // Sent Gifts Button
         $(".giftsYouSentImg").on("click", function (event) {
             window.location.href = "/sent";
         });
