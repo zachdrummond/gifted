@@ -58,9 +58,35 @@
     });
 // targets values when clicked, still need to figure out how to edit it
     $(".editbtn").on("click", function (event) {
-      let id = $(this).data("id");
-      console.log(id)
-      $.ajax("/api/sent/" + id,)
-    })
+
+      if ($(this).text() === "edit") {
+        $(this).text("submit");
+
+        const tableRow = $(this).parent().siblings();
+// update visible state
+        for (let i = 0; i < tableRow.length; i++) {
+          tableRow[i].children[0].setAttribute("class", "displayNone");
+          tableRow[i].children[1].removeAttribute("class");
+        }
+      } else if ($(this).text() === "submit") {
+        $(this).text("edit");
+
+        const id = $(this).data("id");
+        const userId = 1;
+
+        const editedGift = {
+          id: id,
+          user_id: userId,
+          receiverName: $("#editedSender" + id).val(),
+          receiverAddress: $("#editedAddress" + id).val(),
+          giftSent: $("#editedGift" + id).val(),
+          occasion: $("#editedOccasion" + id).val(),
+          dateSent: $("#editedDate" + id).val(),
+          cost: $("#cost" + id).val(),
+        };
+        console.log(editedGift)
+        $.ajax("/api/edit/received", { type: "PUT", data: editedGift }).then(() => { location.reload() });
+      }
+    });
   });
 </script>
