@@ -28,11 +28,16 @@
       <tbody>
         {{#each gifts}}
         <tr>
-          <td><span>{{giftReceived}}</span><input type="text" value="{{giftReceived}}" class="displayNone"></td>
-          <td><span>{{dateReceived}}</span><input type="text" value="{{dateReceived}}" class="displayNone"></td>
-          <td><span>{{occasion}}</span><input type="text" value="{{occasion}}" class="displayNone"></td>
-          <td><span>{{senderName}}</span><input type="text" value="{{senderName}}" class="displayNone"></td>
-          <td><span>{{senderAddress}}</span><input type="text" value="{{senderAddress}}" class="displayNone"></td>
+          <td><span>{{giftReceived}}</span><input id="editedGift{{id}}" type="text" value="{{giftReceived}}"
+              class="displayNone"></td>
+          <td><span>{{dateReceived}}</span><input id="editedDate{{id}}" type="text" value="{{dateReceived}}"
+              class="displayNone"></td>
+          <td><span>{{occasion}}</span><input id="editedOccasion{{id}}" type="text" value="{{occasion}}" class="displayNone">
+          </td>
+          <td><span>{{senderName}}</span><input id="editedSender{{id}}" type="text" value="{{senderName}}"
+              class="displayNone"></td>
+          <td><span>{{senderAddress}}</span><input id="editedAddress{{id}}" type="text" value="{{senderAddress}}"
+              class="displayNone"></td>
           <td>
             <ul class="dropdown menu" data-dropdown-menu>
               <li>
@@ -67,7 +72,7 @@
     $(".editbtn").on("click", function (event) {
 
       if ($(this).text() === "edit") {
-        $(this).text("Submit");
+        $(this).text("submit");
 
         const tableRow = $(this).parent().siblings();
 
@@ -77,27 +82,26 @@
         }
 
       } else if ($(this).text() === "submit") {
-        $(this).text("Edit");
-
+        $(this).text("edit");
+            if ()
         console.log("Submit Button Worked");
 
         const id = $(this).data("id");
         const userId = 1;
 
         const editedGift = {
+          id: id,
           user_id: userId,
-          senderName: $("#senderName").val(),
-          senderAddress: $("#senderAddress").val(),
-          giftReceived: $("#giftReceived").val(),
-          occasion: $("#occasionReceived").val(),
-          dateReceived: $("#dateReceived").val(),
-          thankYou: $('input[name="thankYou"]:checked').val(),
+          senderName: $("#editedSender" + id).val(),
+          senderAddress: $("#editedAddress" + id).val(),
+          giftReceived: $("#editedGift" + id).val(),
+          occasion: $("#editedOccasion" + id).val(),
+          dateReceived: $("#editedDate" + id).val(),
+          thankYou: true,
         };
-        $.ajax("/api/edit/received", { type: "PUT", data: newGift }).then($("#addReceivedForm").each(function () {
-
-        }));
+        console.log(editedGift)
+        $.ajax("/api/edit/received", { type: "PUT", data: editedGift}).then(() => { location.reload() });
       }
-
     });
 
     // Delete Button Event Listener
