@@ -4,12 +4,12 @@ $(document).ready(function () {
 
   // LOGIN PAGE
   //=================================================================
-  // Received Gifts Button
+  // Received Gifts Image Event Listener
   $(".giftsReceivedImg").on("click", function (event) {
     window.location.href = "/received";
   });
 
-  // Sent Gifts Button
+  // Sent Gifts Image Event Listener
   $(".giftsSentImg").on("click", function (event) {
     window.location.href = "/sent";
   });
@@ -59,12 +59,14 @@ $(document).ready(function () {
 
   // FUNCTIONS for RECEIVED and SENT GIFTS PAGE
   //=================================================================
+  // Deletes a gift in the database
   function deleteGift(type, id) {
     $.ajax(`/api/${type}/${id}`, {
       type: "DELETE",
     }).then(() => {});
   }
 
+  // Changes a row to forms for the user to edit
   function editGifts(tableRow) {
     for (let i = 0; i < tableRow.length; i++) {
       tableRow[i].children[0].setAttribute("class", "displayNone");
@@ -76,6 +78,7 @@ $(document).ready(function () {
     }
   }
 
+  // Updates a gift in the database
   function updateGift(type, editedGift) {
     $.ajax(`/api/edit/${type}`, { type: "PUT", data: editedGift }).then(() => {
       location.reload();
@@ -145,7 +148,43 @@ $(document).ready(function () {
     location.reload();
   });
 
-  // RECEIVED and SENT GIFTS PAGE
+  // FUNCTIONS for ADD GIFTS PAGE
   //=================================================================
-  
+  function addGift(type, newGift) {
+    $.post(`/api/add/${type}`, newGift).then();
+  }
+
+  // ADD GIFTS PAGES
+  //=================================================================
+  let userId = 1;
+  $(".addGift").on("click", function (event) {
+    event.preventDefault();
+    let type = "";
+    let newGift = {};
+
+    if (location.pathname === "/add/received") {
+      newGift = {
+        user_id: userId,
+        senderName: $("#senderName").val(),
+        senderAddress: $("#senderAddress").val(),
+        giftReceived: $("#giftReceived").val(),
+        occasion: $("#occasionReceived").val(),
+        dateReceived: $("#dateReceived").val(),
+        thankYou: $('input[name="thankYou"]:checked').val(),
+      };
+      type = "received";
+    } else if (location.pathname === "/add/sent") {
+      newGift = {
+        user_id: userId,
+        receiverName: $("#receiverName").val(),
+        receiverAddress: $("#receiverAddress").val(),
+        giftSent: $("#giftSent").val(),
+        occasion: $("#occasionSent").val(),
+        dateSent: $("#dateSent").val(),
+        cost: $("#cost").val(),
+      };
+      type = "sent";
+    }
+    addGift(type, newGift);
+  });
 });

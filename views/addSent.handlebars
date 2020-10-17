@@ -39,7 +39,7 @@
                 </label>
             </div>
             <div class="medium-4 cell">
-                <button id="submitAddSent" data-open="addModalSent" class="submit button expanded btnBlue">Add
+                <button data-open="addModalSent" class="addGift submit button expanded btnBlue">Add
                     Gift</button>
             </div>
         </div>
@@ -54,28 +54,3 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-
-<script>
-    $(document).ready(function () {
-        //code to make foundation jQuery work
-        $(document).foundation();
-        userId = 1;
-        //Click event to add new gift
-        $("#submitAddSent").on("click", function (event) {
-            event.preventDefault();
-            const newGift = {
-                user_id: userId,
-                receiverName: $("#receiverName").val(),
-                receiverAddress: $("#receiverAddress").val(),
-                giftSent: $("#giftSent").val(),
-                occasion: $("#occasionSent").val(),
-                dateSent: $("#dateSent").val(),
-                cost: $("#cost").val(),
-            };
-            // post new object and clear out form
-            $.post("/api/add/sent", newGift).then($("#addSentForm").each(function () {
-                this.reset();
-            }))
-        });
-    });
-</script>
