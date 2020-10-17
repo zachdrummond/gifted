@@ -50,59 +50,7 @@
 <div class="reveal text-center" id="modalSent" data-reveal>
   <h1>Success!</h1>
   <p class="lead">Your gift was deleted!</p>
-  <button id="sendModalClose" class="close-button" data-close aria-label="Close modal" type="button">
+  <button class="close-button modalClose" data-close aria-label="Close modal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-
-<script>
-  $(document).ready(function () {
-    $(document).foundation();
-    $(".deletebtn").on("click", function (event) {
-
-      let id = $(this).data("id");
-
-      $.ajax("/api/sent/" + id, {
-        type: "DELETE",
-      }).then(() => {
-        console.log("deleted");
-      });
-    });
-    // targets values when clicked, still need to figure out how to edit it
-    $(".editbtn").on("click", function (event) {
-
-      if ($(this).text() === "edit") {
-        $(this).text("submit");
-
-        const tableRow = $(this).parent().siblings();
-        // update visible state
-        for (let i = 0; i < tableRow.length; i++) {
-          tableRow[i].children[0].setAttribute("class", "displayNone");
-          tableRow[i].children[1].removeAttribute("class");
-        }
-      } else if ($(this).text() === "submit") {
-        $(this).text("edit");
-
-        const id = $(this).data("id");
-        const userId = 1;
-
-        const editedGift = {
-          id: id,
-          user_id: userId,
-          receiverName: $("#editedReceiver" + id).val(),
-          receiverAddress: $("#editedAddress" + id).val(),
-          giftSent: $("#editedGift" + id).val(),
-          occasion: $("#editedOccasion" + id).val(),
-          dateSent: $("#editedDate" + id).val(),
-          cost: $("#editedCost" + id).val(),
-        };
-        console.log(editedGift)
-        $.ajax("/api/edit/sent", { type: "PUT", data: editedGift }).then(() => { location.reload() });
-      }
-    });
-    //reload page on closing of modal
-    $("#sendModalClose").on("click", function (event) {
-      location.reload();
-    })
-  });
-</script>
