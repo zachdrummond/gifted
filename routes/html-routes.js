@@ -17,9 +17,17 @@ module.exports = function (app) {
   app.get("/logout", function (req, res) {
     res.render("login");
   });
-  // index route loads received gifts page
-  app.get("/received", function (req, res) {
-    db.ReceivedGifts.findAll()
+
+  //received gift function to order by
+  const orderReceived = (col, direction, res)=>{
+    db.ReceivedGifts.findAll({
+      where: {
+        user_id: userId,
+    },
+      order: [
+        [col, direction]
+      ]
+    })
       .then((allReceivedGifts) => {
         res.render("receivedGifts", { gifts: allReceivedGifts });
       })
@@ -31,13 +39,19 @@ module.exports = function (app) {
           message: "Unable to get received gifts.",
         });
       });
-  });
-  // index route loads sent gifts page
-  app.get("/sent", function (req, res) {
-    db.SentGifts.findAll()
+  }
+  //sent gift function to order by
+  const orderSent = (col, direction, res)=>{
+    db.SentGifts.findAll({
+      where: {
+        user_id: userId,
+    },
+      order: [
+        [col, direction]
+      ]
+    })
       .then((allSentGifts) => {
-        // res.json(allSentGifts);
-        res.render("sentGifts", {gifts: allSentGifts});
+        res.render("sentGifts", { gifts: allSentGifts });
       })
       .catch((err) => {
         console.log(err);
@@ -47,7 +61,48 @@ module.exports = function (app) {
           message: "Unable to get sent gifts.",
         });
       });
+  }
+    // index route loads received gifts page
+    app.get("/received", function (req, res) {
+      userId = 1
+      orderReceived("dateReceived", "DESC", res);
+    });
+    // index route loads sent gifts page
+    app.get("/sent", function (req, res) {
+      userId = 1
+      orderSent("dateSent", "DESC", res);
+    });
+// route loads sent gifts page ordered by name
+  app.get("/received/name", function (req, res) {
+    userId = 1
+    orderReceived("senderName", "ASC", res);
   });
+  // route loads sent gifts page ordered by name
+  app.get("/sent/name", function (req, res) {
+    userId = 1
+    orderSent("receiverName", "ASC", res);
+  });
+  // route loads sent gifts page ordered by gift
+  app.get("/received/gift", function (req, res) {
+    userId = 1
+    orderReceived("giftReceived", "ASC", res);
+  });
+  // route loads sent gifts page ordered by gift
+  app.get("/sent/gift", function (req, res) {
+    userId = 1
+    orderSent("giftSent", "ASC", res);
+  });
+  // route loads sent gifts page ordered by occasion
+  app.get("/received/occasion", function (req, res) {
+    userId = 1
+    orderReceived("occasion", "ASC", res);
+  });
+  // route loads sent gifts page ordered by occasion
+  app.get("/sent/occasion", function (req, res) {
+    userId = 1
+    orderSent("occasion", "ASC", res);
+  });
+
   // index route loads add received gifts page
   app.get("/add/received", function (req, res) {
     res.render("addReceived");

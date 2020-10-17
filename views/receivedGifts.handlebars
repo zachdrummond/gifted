@@ -23,6 +23,17 @@
         </tr>
       </thead>
       <tbody>
+        <div class="medium-4 cell">
+          <label>Order Gifts By:
+            <select id="order">
+              <option value="name">Sender's Name</option>
+              <option value="gift">Gift Name</option>
+              <option value="occasion">Occasion</option>
+              <option value="">Date Received</option>
+            </select>
+          </label>
+          <button id="orderGifts" class="submit button expanded btnBlue">Order</button>
+        </div>
         {{#each gifts}}
         <tr>
           <td><span>{{giftReceived}}</span><input id="editedGift{{id}}" type="text" value="{{giftReceived}}"
@@ -68,8 +79,8 @@
     // Sets up Foundation JavaScript
     $(document).foundation();
 
-    $(".thankYouBtn").on("click", function (event) {
-      console.log("Button worked");
+    $("#orderByDate").on("click", function (event) {
+      window.location.href = "/received/date"
     });
 
     // Edit Button Event Listener
@@ -121,10 +132,10 @@
         console.log("deleted");
       });
     });
-
-    //reload page on closing of modal
-    $("#modalClose").on("click", function (event) {
-      location.reload();
-    })
+// order submit button
+    $("#orderGifts").on("click", function (event) {
+      event.preventDefault();
+      window.location.href = ("/received/" + $("#order").val());
+    });
   });
 </script>
