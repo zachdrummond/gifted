@@ -39,21 +39,12 @@
                 </label>
             </div>
             <div class="medium-4 cell">
-                <button id="submitAddSent" data-open="addModalSent" class="submit button expanded btnBlue">Add
+                <button id="submitAddSent" class="submit button expanded btnBlue">Add
                     Gift</button>
             </div>
         </div>
     </div>
 </form>
-
-{{!-- Added successfully modal --}}
-<div class="reveal text-center" id="addModalSent" data-reveal>
-    <h1>Success!</h1>
-    <p class="lead">Your gift was added!</p>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
 
 <script>
     $(document).ready(function () {
@@ -73,9 +64,9 @@
                 cost: $("#cost").val(),
             };
             // post new object and clear out form
-            $.post("/api/add/sent", newGift).then($("#addSentForm").each(function () {
-                this.reset();
-            }))
+            $.post("/api/add/sent", newGift).then(()=>{
+                window.location.href = "/sent";
+            });
         });
     });
 </script>
