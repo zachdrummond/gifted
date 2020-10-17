@@ -82,7 +82,7 @@ module.exports = function (app) {
     userId = 1
     orderSent("receiverName", "ASC", res);
   });
-  // route loads sent gifts page ordered by goft
+  // route loads sent gifts page ordered by gift
   app.get("/received/gift", function (req, res) {
     userId = 1
     orderReceived("giftReceived", "ASC", res);
