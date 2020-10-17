@@ -23,6 +23,17 @@
         </tr>
       </thead>
       <tbody>
+        <div class="medium-4 cell">
+          <label>Order Gifts By:
+            <select id="order">
+              <option value="name">Sender's Name</option>
+              <option value="gift">Gift Name</option>
+              <option value="occasion">Occasion</option>
+              <option value="">Date Received</option>
+            </select>
+          </label>
+          <button id="orderGifts" class="submit button expanded btnBlue">Order</button>
+        </div>
         {{#each gifts}}
         <tr>
           <td><span>{{giftReceived}}</span><input id="editedGift{{id}}" type="text" value="{{giftReceived}}"

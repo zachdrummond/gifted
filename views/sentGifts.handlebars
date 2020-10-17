@@ -22,6 +22,17 @@
         </tr>
       </thead>
       <tbody>
+        <div class="medium-4 cell">
+          <label>Order Gifts By:
+            <select id="orderSent">
+              <option value="name">Receiver's Name</option>
+              <option value="gift">Gift Name</option>
+              <option value="occasion">Occasion</option>
+              <option value="">Date Sent</option>
+            </select>
+          </label>
+          <button id="orderGiftsSent" class="submit button expanded btnBlue">Order</button>
+        </div>
         {{#each gifts}}
         <tr>
           <td><span>{{giftSent}}</span><input id="editedGift{{id}}" type="text" value="{{giftSent}}"
@@ -54,3 +65,14 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
+
+<script>
+  $(document).ready(function () {
+
+// order submit button
+    $("#orderGiftsSent").on("click", function (event) {
+      event.preventDefault();
+      window.location.href = ("/sent/" + $("#orderSent").val());
+    });
+  });
+</script>

@@ -87,6 +87,12 @@ $(document).ready(function () {
 
   // RECEIVED and SENT GIFTS PAGE
   //=================================================================
+  // Order Submit Button Event Listener
+  $("#orderGifts").on("click", function (event) {
+    event.preventDefault();
+    window.location.href = ("/received/" + $("#order").val());
+  });
+
   // Edit Button Event Listener
   $(".editbtn").on("click", function (event) {
     if ($(this).text() === "edit") {
@@ -151,7 +157,9 @@ $(document).ready(function () {
   // FUNCTIONS for ADD GIFTS PAGE
   //=================================================================
   function addGift(type, newGift) {
-    $.post(`/api/add/${type}`, newGift).then();
+    $.post(`/api/add/${type}`, newGift).then(()=>{
+        window.location.href = `/${type}`;
+    });
   }
 
   // ADD GIFTS PAGES
