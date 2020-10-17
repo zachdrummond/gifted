@@ -25,14 +25,14 @@
       <tbody>
         <div class="medium-4 cell">
           <label>Order Gifts By:
-            <select id="order">
+            <select id="orderReceived">
               <option value="name">Sender's Name</option>
               <option value="gift">Gift Name</option>
               <option value="occasion">Occasion</option>
               <option value="">Date Received</option>
             </select>
           </label>
-          <button id="orderGifts" class="submit button expanded btnBlue">Order</button>
+          <button id="orderGiftsReceived" class="orderGifts submit button expanded btnBlue">Order</button>
         </div>
         {{#each gifts}}
         <tr>
@@ -68,74 +68,7 @@
 <div class="reveal text-center" id="modalReceived" data-reveal>
   <h1>Success!</h1>
   <p class="lead">Your gift was deleted!</p>
-  <button id="modalClose" class="close-button" data-close aria-label="Close modal" type="button">
+  <button class="close-button modalClose" data-close aria-label="Close modal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-
-<script>
-  $(document).ready(function () {
-
-    // Sets up Foundation JavaScript
-    $(document).foundation();
-
-    $("#orderByDate").on("click", function (event) {
-      window.location.href = "/received/date"
-    });
-
-    // Edit Button Event Listener
-    $(".editbtn").on("click", function (event) {
-
-      if ($(this).text() === "edit") {
-        $(this).text("submit");
-
-        const tableRow = $(this).parent().siblings();
-        // update visible state
-        for (let i = 0; i < tableRow.length - 1; i++) {
-          tableRow[i].children[0].setAttribute("class", "displayNone");
-          tableRow[i].children[1].removeAttribute("class");
-        }
-        tableRow[5].children[0].setAttribute("class", "displayNone");
-        for (let j = 1; j < 5; j++) {
-          tableRow[5].children[j].removeAttribute("class");
-        }
-      } else if ($(this).text() === "submit") {
-        $(this).text("edit");
-
-        const id = $(this).data("id");
-        const userId = 1;
-
-        const editedGift = {
-          id: id,
-          user_id: userId,
-          senderName: $("#editedSender" + id).val(),
-          senderAddress: $("#editedAddress" + id).val(),
-          giftReceived: $("#editedGift" + id).val(),
-          occasion: $("#editedOccasion" + id).val(),
-          dateReceived: $("#editedDate" + id).val(),
-          thankYou: $('input[name="thankYou"]:checked').val(),
-        };
-        console.log(editedGift)
-        $.ajax("/api/edit/received", { type: "PUT", data: editedGift }).then(() => { location.reload() });
-      }
-    });
-
-    // Delete Button Event Listener
-    $(".deletebtn").on("click", function (event) {
-
-      const id = $(this).data("id");
-
-      // AJAX Call - Delete Table Row
-      $.ajax("/api/received/" + id, {
-        type: "DELETE",
-      }).then(() => {
-        console.log("deleted");
-      });
-    });
-// order submit button
-    $("#orderGifts").on("click", function (event) {
-      event.preventDefault();
-      window.location.href = ("/received/" + $("#order").val());
-    });
-  });
-</script>
