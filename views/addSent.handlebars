@@ -39,34 +39,18 @@
                 </label>
             </div>
             <div class="medium-4 cell">
-                <button id="submitAddSent" class="submit button expanded btnBlue">Add
+                <button data-open="addModalSent" class="addGift submit button expanded btnBlue">Add
                     Gift</button>
             </div>
         </div>
     </div>
 </form>
 
-<script>
-    $(document).ready(function () {
-        //code to make foundation jQuery work
-        $(document).foundation();
-        userId = 1;
-        //Click event to add new gift
-        $("#submitAddSent").on("click", function (event) {
-            event.preventDefault();
-            const newGift = {
-                user_id: userId,
-                receiverName: $("#receiverName").val(),
-                receiverAddress: $("#receiverAddress").val(),
-                giftSent: $("#giftSent").val(),
-                occasion: $("#occasionSent").val(),
-                dateSent: $("#dateSent").val(),
-                cost: $("#cost").val(),
-            };
-            // post new object and clear out form
-            $.post("/api/add/sent", newGift).then(()=>{
-                window.location.href = "/sent";
-            });
-        });
-    });
-</script>
+{{!-- Added successfully modal --}}
+<div class="reveal text-center" id="addModalSent" data-reveal>
+    <h1>Success!</h1>
+    <p class="lead">Your gift was added!</p>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
