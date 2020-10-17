@@ -1,3 +1,11 @@
+{{!-- Added successfully modal --}}
+<div class="reveal text-center" id="modalReceived" data-reveal>
+  <h1>Success!</h1>
+  <p class="lead">Your gift was deleted!</p>
+  <button id="modalClose" class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 <main class="grid-container">
   {{!-- Website Name --}}
   <header class="grid-x grid-padding-x align-center">
@@ -47,7 +55,7 @@
 
           </td>
           <td><button data-id="{{id}}" type="button" class="editbtn small button success">edit</button>
-            <button data-id="{{id}}" type="button" class="deletebtn small button alert">delete</button></td>
+            <button data-id="{{id}}" type="button" data-open="modalReceived" class="deletebtn small button alert">delete</button></td>
         </tr>
         {{/each}}
       </tbody>
@@ -111,9 +119,13 @@
       $.ajax("/api/received/" + id, {
         type: "DELETE",
       }).then(() => {
-        location.reload();
+        console.log("deleted");
       });
     });
 
+    //reload page on closing of modal
+    $("#modalClose").on("click", function (event){
+      location.reload();
+    })
   });
 </script>

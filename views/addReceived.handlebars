@@ -8,7 +8,14 @@
         <h2 class="text-center">Add a Received Gift</h2>
     </div>
 </header>
-
+{{!-- Added successfully modal --}}
+<div class="reveal text-center" id="addModalReceived" data-reveal>
+  <h1>Success!</h1>
+  <p class="lead">Your gift was added!</p>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 {{!-- Add Gift Form --}}
 <form id="addReceivedForm">
     <div class="grid-container">
@@ -44,7 +51,7 @@
                 <input type="radio" name="thankYou" value=false id="notSent"><label for="Not Sent">Not Sent</label>
             </div>
             <div class="medium-4 cell">
-                <button id="submitAddReceived" class="submit button expanded">Add Gift</button>
+                <button id="submitAddReceived" data-open="addModalReceived" class="submit button expanded">Add Gift</button>
             </div>
         </div>
     </div>
