@@ -46,13 +46,13 @@
 </form>
 
 {{!-- Added successfully modal --}}
-<div class="reveal text-center" id="addModalReceived" data-reveal>
+{{!-- <div class="reveal text-center" id="addModalReceived" data-reveal>
     <h1>Success!</h1>
     <p class="lead">Your gift was added!</p>
     <button class="close-button" data-close aria-label="Close modal" type="button">
         <span aria-hidden="true">&times;</span>
     </button>
-</div>
+</div> --}}
 
 <script>
     $(document).ready(function () {
@@ -69,9 +69,9 @@
                 dateReceived: $("#dateReceived").val(),
                 thankYou: $('input[name="thankYou"]:checked').val(),
             };
-            $.post("/api/add/received", newGift).then($("#addReceivedForm").each(function () {
-                this.reset();
-            }));
+            $.post("/api/add/received", newGift).then(()=>{
+                window.location.href = "/received";
+            });
         });
     });
 </script>
