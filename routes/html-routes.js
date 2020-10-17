@@ -38,7 +38,11 @@ module.exports = function (app) {
   });
   // index route loads sent gifts page
   app.get("/sent", function (req, res) {
-    db.SentGifts.findAll()
+    db.SentGifts.findAll({
+      order: [
+        ["id", "DESC"]
+      ]
+    })
       .then((allSentGifts) => {
         // res.json(allSentGifts);
         res.render("sentGifts", {gifts: allSentGifts});
