@@ -72,8 +72,7 @@
     $(document).foundation();
 
     $("#orderByDate").on("click", function (event) {
-      console.log("clicked")
-      $.get("/api/received").then((data) => { console.log(data) });
+      window.location.href = "/received/date"
     });
 
     // Edit Button Event Listener
@@ -125,10 +124,5 @@
         console.log("deleted");
       });
     });
-
-    //reload page on closing of modal
-    $("#modalClose").on("click", function (event) {
-      location.reload();
-    })
   });
 </script>

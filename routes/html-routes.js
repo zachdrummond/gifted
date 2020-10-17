@@ -19,7 +19,11 @@ module.exports = function (app) {
   });
   // index route loads received gifts page
   app.get("/received", function (req, res) {
+    userId = 1
     db.ReceivedGifts.findAll({
+      where: {
+        user_id: userId,
+    },
       order: [
         ["id", "DESC"]
       ]
@@ -38,9 +42,85 @@ module.exports = function (app) {
   });
   // index route loads sent gifts page
   app.get("/sent", function (req, res) {
+    userId = 1
     db.SentGifts.findAll({
+      where: {
+        user_id: userId,
+    },
       order: [
         ["id", "DESC"]
+      ]
+    })
+      .then((allSentGifts) => {
+        // res.json(allSentGifts);
+        res.render("sentGifts", {gifts: allSentGifts});
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to get sent gifts.",
+        });
+      });
+  });
+  //received gift function to order by
+  const orderReceived = (col, direction, res)=>{
+    db.ReceivedGifts.findAll({
+      where: {
+        user_id: userId,
+    },
+      order: [
+        [col, direction]
+      ]
+    })
+      .then((allReceivedGifts) => {
+        res.render("receivedGifts", { gifts: allReceivedGifts });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to get received gifts.",
+        });
+      });
+  }
+  //sent gift function to order by
+  const orderSent = (col, direction, res)=>{
+    db.SentGifts.findAll({
+      where: {
+        user_id: userId,
+    },
+      order: [
+        [col, direction]
+      ]
+    })
+      .then((allSentGifts) => {
+        res.render("sentGifts", { gifts: allSentGifts });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to get sent gifts.",
+        });
+      });
+  }
+  app.get("/received/date", function (req, res) {
+    userId = 1
+    orderReceived("dateReceived", "DESC", res)
+  });
+  // route loads sent gifts page ordered by date
+  app.get("/sent/date", function (req, res) {
+    userId = 1
+    db.SentGifts.findAll({
+      where: {
+        user_id: userId,
+    },
+      order: [
+        ["dateSent", "DESC"]
       ]
     })
       .then((allSentGifts) => {
