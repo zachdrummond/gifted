@@ -37,6 +37,26 @@ h2 {
   font-family: "Lora", serif;
 }
 
+/* Styles all Buttons */
+.button {
+  border-radius: 7px !important;
+}
+.btnBlue {
+  background-color: #c6e6e4;
+  color: black;
+  border: 3px solid black;
+}
+.btnGreen {
+  background-color: #e7ebe0;
+  color: black;
+  border: 3px solid black;
+}
+.btnRed {
+  background-color: #fadee0;
+  color: black;
+  border: 3px solid black;
+}
+
 /* Login Page Image Styling */
 img {
   max-width: 50%;
@@ -58,7 +78,7 @@ img:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%)
+  -ms-transform: translate(-50%, -50%);
 }
 
 .imgBoxContainer {
@@ -75,6 +95,7 @@ img:hover {
   color: black;
   font-size: 20px;
   padding: 10px 16px;
+  border-radius: 7px !important;
 }
 
 .displayNone {
@@ -83,15 +104,4 @@ img:hover {
 
 footer {
   margin-bottom: 0 !important;
-}
-
-/* Styles all Buttons */
-.button {
-  border-radius: 7px !important;
-}
-
-.center {
-  position: relative;
-  font-size: 18px;
-  bottom: 80px;
 }
