@@ -102,7 +102,30 @@ module.exports = function (app) {
     userId = 1
     orderSent("occasion", "ASC", res);
   });
-
+  // route loads sent gifts page ordered by thankyou
+  app.get("/received/thankyou", function (req, res) {
+    userId = 1
+    db.ReceivedGifts.findAll({
+      where: {
+        user_id: userId,
+        thankYou: false,
+    },
+      order: [
+        ["dateReceived", "ASC"]
+      ]
+    })
+      .then((allReceivedGifts) => {
+        res.render("receivedGifts", { gifts: allReceivedGifts });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: true,
+          data: null,
+          message: "Unable to get received gifts.",
+        });
+      });
+  });
   // index route loads add received gifts page
   app.get("/add/received", function (req, res) {
     res.render("addReceived");
