@@ -23,6 +23,9 @@
         </tr>
       </thead>
       <tbody>
+        <div class="medium-4 cell">
+                <button id="orderByDate" data-open="addModalSent" class="submit button expanded btnBlue">Order By Date</button>
+            </div>
         {{#each gifts}}
         <tr>
           <td><span>{{giftReceived}}</span><input id="editedGift{{id}}" type="text" value="{{giftReceived}}"
@@ -68,8 +71,9 @@
     // Sets up Foundation JavaScript
     $(document).foundation();
 
-    $(".thankYouBtn").on("click", function (event) {
-      console.log("Button worked");
+    $("#orderByDate").on("click", function (event) {
+      console.log("clicked")
+      $.get("/api/received").then((data) => { console.log(data) });
     });
 
     // Edit Button Event Listener

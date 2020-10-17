@@ -19,7 +19,11 @@ module.exports = function (app) {
   });
   // index route loads received gifts page
   app.get("/received", function (req, res) {
-    db.ReceivedGifts.findAll()
+    db.ReceivedGifts.findAll({
+      order: [
+        ["id", "DESC"]
+      ]
+    })
       .then((allReceivedGifts) => {
         res.render("receivedGifts", { gifts: allReceivedGifts });
       })

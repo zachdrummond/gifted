@@ -1,3 +1,4 @@
+const { sequelize } = require("../models");
 const db = require("../models");
 
 // Routes
@@ -92,6 +93,7 @@ module.exports = function (app) {
 
   // get all received gifts
   app.get("/api/received", (req, res) => {
+    // console.log(res.body.giftReceived)
     db.ReceivedGifts.findAll()
       .then((allReceivedGifts) => {
         res.render("receivedGifts", { gifts: allReceivedGifts });
