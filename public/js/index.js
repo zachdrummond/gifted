@@ -87,27 +87,28 @@ $(document).ready(function () {
 
   // RECEIVED and SENT GIFTS PAGE
   //=================================================================
-  // Order Submit Button Event Listener
+  // Received Gifts Order Submit Button Event Listener
   $("#orderGiftsReceived").on("click", function (event) {
     event.preventDefault();
-    window.location.href = ("/received/" + $("#orderReceived").val());
+    window.location.href = "/received/" + $("#orderReceived").val();
   });
 
-  // order submit button
+  // Sent Gifts Order Submit Button Event Listener
   $("#orderGiftsSent").on("click", function (event) {
     event.preventDefault();
-    window.location.href = ("/sent/" + $("#orderSent").val());
+    window.location.href = "/sent/" + $("#orderSent").val();
   });
 
   // Edit Button Event Listener
   $(".editbtn").on("click", function (event) {
     if ($(this).text() === "edit") {
+      //Changes Edit Button to Submit
       $(this).text("submit");
 
       const tableRow = $(this).parent().siblings();
-      // update visible state
       editGifts(tableRow);
     } else if ($(this).text() === "submit") {
+      //Changes Submit Button to Edit
       $(this).text("edit");
 
       const id = $(this).data("id");
@@ -115,6 +116,7 @@ $(document).ready(function () {
       let type = "";
       let editedGift = {};
 
+      // Creates a New Received Gift
       if (location.pathname === "/received") {
         editedGift = {
           id: id,
@@ -128,6 +130,7 @@ $(document).ready(function () {
         };
         type = "received";
       } else if (location.pathname === "/sent") {
+        // Creates a New Sent Gift
         editedGift = {
           id: id,
           user_id: userId,
@@ -162,21 +165,24 @@ $(document).ready(function () {
 
   // FUNCTIONS for ADD GIFTS PAGE
   //=================================================================
+  // Adds a Gift to the Database
   function addGift(type, newGift) {
-    $.post(`/api/add/${type}`, newGift).then(()=>{
-        window.location.href = `/${type}`;
+    $.post(`/api/add/${type}`, newGift).then(() => {
+      window.location.href = `/${type}`;
     });
   }
 
   // ADD GIFTS PAGES
   //=================================================================
   let userId = 1;
+  // Add Gift Button Event Listener
   $(".addGift").on("click", function (event) {
     event.preventDefault();
     let type = "";
     let newGift = {};
 
     if (location.pathname === "/add/received") {
+      // Creates a Received Gift
       newGift = {
         user_id: userId,
         senderName: $("#senderName").val(),
@@ -188,6 +194,7 @@ $(document).ready(function () {
       };
       type = "received";
     } else if (location.pathname === "/add/sent") {
+      // Creates a Received Gift
       newGift = {
         user_id: userId,
         receiverName: $("#receiverName").val(),

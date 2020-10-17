@@ -56,6 +56,11 @@ h2 {
   color: black;
   border: 3px solid black;
 }
+.btnYellow{
+  background-color: #fae3c5;
+  color: black;
+  border: 3px solid black;
+}
 
 /* Login Page Image Styling */
 img {
