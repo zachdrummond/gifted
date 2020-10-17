@@ -19,13 +19,14 @@ $(document).ready(function () {
     event.preventDefault();
 
     // Retrieves the User's entered Email
-    const userEmail = $("#userEmail").val().trim();
+    userEmail = $("#userEmail").val().trim();
 
+    if (!userEmail) {
+      return;
+    }
     // AJAX Call - Checks to see if the user's account is valid
     $.get("/api/user/" + userEmail)
       .then(function (response) {
-        console.log(response);
-        boolean = true;
         $("#userEmail").val("");
       })
       .catch(function (error) {
@@ -45,11 +46,13 @@ $(document).ready(function () {
       email: $("#userEmail").val().trim(),
     };
 
+    if (!newUser.name || !newUser.email) {
+      return;
+    }
+
     // AJAX Call - Creates a new User Account
     $.post("/api/add/user", newUser)
       .then(function (response) {
-        console.log(response);
-
         window.location.href = "/";
       })
       .catch(function (error) {
@@ -112,9 +115,9 @@ $(document).ready(function () {
       $(this).text("edit");
 
       const id = $(this).data("id");
-      const userId = 1;
       let type = "";
       let editedGift = {};
+      userId = 1;
 
       // Creates a New Received Gift
       if (location.pathname === "/received") {
@@ -168,18 +171,20 @@ $(document).ready(function () {
   // Adds a Gift to the Database
   function addGift(type, newGift) {
     $.post(`/api/add/${type}`, newGift).then(() => {
+      console.log("Post Route Worked");
       window.location.href = `/${type}`;
     });
   }
 
   // ADD GIFTS PAGES
   //=================================================================
-  let userId = 1;
   // Add Gift Button Event Listener
   $(".addGift").on("click", function (event) {
     event.preventDefault();
     let type = "";
     let newGift = {};
+    
+    userId = 1;
 
     if (location.pathname === "/add/received") {
       // Creates a Received Gift
@@ -192,6 +197,17 @@ $(document).ready(function () {
         dateReceived: $("#dateReceived").val(),
         thankYou: $('input[name="thankYou"]:checked').val(),
       };
+
+      if (
+        !newGift.senderName ||
+        !newGift.senderAddress ||
+        !newGift.giftReceived ||
+        !newGift.occasion ||
+        !newGift.dateReceived ||
+        !newGift.thankYou
+      ) {
+        return;
+      }
       type = "received";
     } else if (location.pathname === "/add/sent") {
       // Creates a Received Gift
@@ -204,6 +220,17 @@ $(document).ready(function () {
         dateSent: $("#dateSent").val(),
         cost: $("#cost").val(),
       };
+
+      if (
+        !newGift.receiverName ||
+        !newGift.receiverAddress ||
+        !newGift.giftSent ||
+        !newGift.occasion ||
+        !newGift.dateSent ||
+        !newGift.cost
+      ) {
+        return;
+      }
       type = "sent";
     }
     addGift(type, newGift);
