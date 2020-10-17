@@ -89,6 +89,7 @@ module.exports = function (app) {
         });
       });
   });
+
   // get all received gifts
   app.get("/api/received", (req, res) => {
     db.ReceivedGifts.findAll()
