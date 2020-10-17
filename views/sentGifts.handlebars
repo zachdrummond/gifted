@@ -65,14 +65,3 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-
-<script>
-  $(document).ready(function () {
-
-// order submit button
-    $("#orderGiftsSent").on("click", function (event) {
-      event.preventDefault();
-      window.location.href = ("/sent/" + $("#orderSent").val());
-    });
-  });
-</script>

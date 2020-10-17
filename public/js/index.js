@@ -88,9 +88,15 @@ $(document).ready(function () {
   // RECEIVED and SENT GIFTS PAGE
   //=================================================================
   // Order Submit Button Event Listener
-  $("#orderGifts").on("click", function (event) {
+  $("#orderGiftsReceived").on("click", function (event) {
     event.preventDefault();
-    window.location.href = ("/received/" + $("#order").val());
+    window.location.href = ("/received/" + $("#orderReceived").val());
+  });
+
+  // order submit button
+  $("#orderGiftsSent").on("click", function (event) {
+    event.preventDefault();
+    window.location.href = ("/sent/" + $("#orderSent").val());
   });
 
   // Edit Button Event Listener
