@@ -1,16 +1,4 @@
-{{!-- Added successfully modal --}}
-<div class="reveal text-center" id="modalSent" data-reveal>
-  <h1>Success!</h1>
-  <p class="lead">Your gift was deleted!</p>
-  <button id="sendModalClose" class="close-button" data-close aria-label="Close modal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
 <main class="grid-container">
-  {{!-- Website Name --}}
-  <header class="grid-x grid-padding-x align-center">
-    <h1>Gifted</h1>
-  </header>
   {{!-- Page Title --}}
   <div class="grid-x grid-padding-x align-center">
     <h2 class="text-center">Gifts Sent</h2>
@@ -38,25 +26,34 @@
         <tr>
           <td><span>{{giftSent}}</span><input id="editedGift{{id}}" type="text" value="{{giftSent}}"
               class="displayNone"></td>
-          <td><span>{{dateSent}}</span><input id="editedDate{{id}}" type="text" value={{dateSent}}
-              class="displayNone"></td>
+          <td><span>{{dateSent}}</span><input id="editedDate{{id}}" type="text" value={{dateSent}} class="displayNone">
+          </td>
           <td><span>{{occasion}}</span><input id="editedOccasion{{id}}" type="text" value="{{occasion}}"
               class="displayNone">
           </td>
-          <td><span>${{cost}}</span><input id="editedCost{{id}}" type="text" value="{{cost}}"
-              class="displayNone"></td>
+          <td><span>${{cost}}</span><input id="editedCost{{id}}" type="text" value="{{cost}}" class="displayNone"></td>
           <td><span>{{receiverName}}</span><input id="editedReceiver{{id}}" type="text" value="{{receiverName}}"
               class="displayNone"></td>
           <td><span>{{receiverAddress}}</span><input id="editedAddress{{id}}" type="text" value="{{receiverAddress}}"
               class="displayNone"></td>
           <td><button data-id="{{id}}" type="button" class="editbtn small button btnGreen">edit</button>
-            <button data-id="{{id}}" type="button" data-open="modalSent" class="deletebtn small button btnRed">delete</button></td>
+            <button data-id="{{id}}" type="button" data-open="modalSent"
+              class="deletebtn small button btnRed">delete</button></td>
         </tr>
         {{/each}}
       </tbody>
     </table>
   </section>
 </main>
+
+{{!-- Added successfully modal --}}
+<div class="reveal text-center" id="modalSent" data-reveal>
+  <h1>Success!</h1>
+  <p class="lead">Your gift was deleted!</p>
+  <button id="sendModalClose" class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 
 <script>
   $(document).ready(function () {
@@ -71,14 +68,14 @@
         console.log("deleted");
       });
     });
-// targets values when clicked, still need to figure out how to edit it
+    // targets values when clicked, still need to figure out how to edit it
     $(".editbtn").on("click", function (event) {
 
       if ($(this).text() === "edit") {
         $(this).text("submit");
 
         const tableRow = $(this).parent().siblings();
-// update visible state
+        // update visible state
         for (let i = 0; i < tableRow.length; i++) {
           tableRow[i].children[0].setAttribute("class", "displayNone");
           tableRow[i].children[1].removeAttribute("class");
@@ -104,7 +101,7 @@
       }
     });
     //reload page on closing of modal
-    $("#sendModalClose").on("click", function (event){
+    $("#sendModalClose").on("click", function (event) {
       location.reload();
     })
   });

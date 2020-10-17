@@ -1,16 +1,4 @@
-{{!-- Added successfully modal --}}
-<div class="reveal text-center" id="modalReceived" data-reveal>
-  <h1>Success!</h1>
-  <p class="lead">Your gift was deleted!</p>
-  <button id="modalClose" class="close-button" data-close aria-label="Close modal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
 <main class="grid-container">
-  {{!-- Website Name --}}
-  <header class="grid-x grid-padding-x align-center">
-    <h1>Gifted</h1>
-  </header>
   {{!-- Page Title --}}
   <div class="grid-x grid-padding-x align-center">
     {{!-- <img data-interchange="[/images/banner1.png, small], [/images/banner1.png, medium], [/images/banner1.png, large]"> --}}
@@ -56,13 +44,23 @@
 
           </td>
           <td><button data-id="{{id}}" type="button" class="editbtn small button btnGreen">edit</button>
-            <button data-id="{{id}}" type="button" data-open="modalReceived" class="deletebtn small button btnRed">delete</button></td>
+            <button data-id="{{id}}" type="button" data-open="modalReceived"
+              class="deletebtn small button btnRed">delete</button></td>
         </tr>
         {{/each}}
       </tbody>
     </table>
   </section>
 </main>
+
+{{!-- Added successfully modal --}}
+<div class="reveal text-center" id="modalReceived" data-reveal>
+  <h1>Success!</h1>
+  <p class="lead">Your gift was deleted!</p>
+  <button id="modalClose" class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 
 <script>
   $(document).ready(function () {
@@ -125,7 +123,7 @@
     });
 
     //reload page on closing of modal
-    $("#modalClose").on("click", function (event){
+    $("#modalClose").on("click", function (event) {
       location.reload();
     })
   });
