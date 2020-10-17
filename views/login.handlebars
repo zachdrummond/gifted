@@ -13,7 +13,7 @@
                 <label>
                     <h4>Add your Email to Login to your Account</h4>
                     <input id="userEmail" type="email" placeholder="email@email.com" aria-describedby="email">
-                    <button id="loginBtn" class="submit button btnBlue">Login</button>
+                    <button id="loginBtn" data-open="modalLogin" class="submit button btnBlue">Login</button>
                     <a href="/signup" class="button btnGreen">Sign Up</a>
                     {{!-- Use disabled class with aria-disabled to ensure the user enters email --}}
                 </label>
@@ -21,6 +21,15 @@
         </div>
     </div>
 </form>
+
+{{!-- logged in modal --}}
+<div class="reveal text-center" id="modalLogin" data-reveal>
+  <h1>Logged in!</h1>
+  <p class="lead">Click one of the gifts below to begin.</p>
+  <button id="sendModalClose" class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 
 {{!-- Gifts Buttons --}}
 <div class="grid-container">
@@ -68,6 +77,7 @@
             $.get("/api/user/" + userEmail).then(function (response) {
                 console.log(response);
                 boolean = true;
+                $("#userEmail").val("");
             }).catch(function (error) {
                 console.log(error);
             });
