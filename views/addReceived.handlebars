@@ -38,40 +38,9 @@
                 <input type="radio" name="thankYou" value=false id="notSent"><label for="Not Sent">Not Sent</label>
             </div>
             <div class="medium-4 cell">
-                <button id="submitAddReceived" data-open="addModalReceived" class="submit button expanded btnBlue">Add
+                <button data-open="addModalReceived" class="addGift submit button expanded btnBlue">Add
                     Gift</button>
             </div>
         </div>
     </div>
 </form>
-
-{{!-- Added successfully modal --}}
-<div class="reveal text-center" id="addModalReceived" data-reveal>
-    <h1>Success!</h1>
-    <p class="lead">Your gift was added!</p>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-
-<script>
-    $(document).ready(function () {
-        $(document).foundation();
-        userId = 1;
-        $("#submitAddReceived").on("click", function (event) {
-            event.preventDefault();
-            const newGift = {
-                user_id: userId,
-                senderName: $("#senderName").val(),
-                senderAddress: $("#senderAddress").val(),
-                giftReceived: $("#giftReceived").val(),
-                occasion: $("#occasionReceived").val(),
-                dateReceived: $("#dateReceived").val(),
-                thankYou: $('input[name="thankYou"]:checked').val(),
-            };
-            $.post("/api/add/received", newGift).then($("#addReceivedForm").each(function () {
-                this.reset();
-            }));
-        });
-    });
-</script>

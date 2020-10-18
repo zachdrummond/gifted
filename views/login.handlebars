@@ -45,35 +45,3 @@
     </div>
 </div>
 {{!-- Use disabled class with aria-disabled to ensure the user enters email --}}
-
-<script>
-    $(document).ready(function () {
-
-        // Received Gifts Button
-        $(".giftsReceivedImg").on("click", function (event) {
-            window.location.href = "/received";
-        });
-
-        // Sent Gifts Button
-        $(".giftsSentImg").on("click", function (event) {
-            window.location.href = "/sent";
-        });
-
-        // Login Button Event Listener
-        $("#loginBtn").on("click", function (event) {
-            event.preventDefault();
-
-            // Retrieves the User's entered Email
-            const userEmail = $("#userEmail").val().trim();
-
-            // AJAX Call - Checks to see if the user's account is valid
-            $.get("/api/user/" + userEmail).then(function (response) {
-                console.log(response);
-                boolean = true;
-                $("#userEmail").val("");
-            }).catch(function (error) {
-                console.log(error);
-            });
-        });
-    });
-</script>

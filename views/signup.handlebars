@@ -20,28 +20,3 @@
         </div>
     </div>
 </form>
-
-<script>
-    $(document).ready(function () {
-
-        // Create Account Button Event Listener
-        $("#createAccountBtn").on("click", function (event) {
-            event.preventDefault();
-
-            // Retrieves the User's entered Name and Email
-            const newUser = {
-                name: $("#userName").val().trim(),
-                email: $("#userEmail").val().trim()
-            }
-
-            // AJAX Call - Creates a new User Account
-            $.post("/api/add/user", newUser).then(function (response) {
-                console.log(response);
-
-                window.location.href = "/";
-            }).catch(function (error) {
-                console.log(error);
-            });
-        });
-    });
-</script>
