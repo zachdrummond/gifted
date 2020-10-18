@@ -3,16 +3,15 @@
 ## Table of Contents
 
 - [Description](#Description)
+- [Links](#Links)
 - [Design Elements](#Design-Elements)
 - [App Preview](#App-Preview)
 - [Future Development Ideas](#Future-Development-Ideas)
-- [Links](#Links)
 - [Credits](#Credits)
 - [License](#License)
 
 ## Description
--An app that keeps track of the people you give gifts to. Birthdays, and such.  It could include the name, date, address, an array of gifts given, an array of gifts received, a description of the things they like.  We could find an npm package for calendar display of the upcoming week or month.  
-
+This is an app that tracks all of your gifts in one organized place. No need for sticky notes or spreadsheets any longer! There is a table that organizes all of the gifts you receive from others and a table that organizes all of the gifts that you send to others. You can add new gifts, or edit/delete current gifts.
 
 ### _Usage_
 -When on the homepage, user can either sign up or log in.
@@ -23,7 +22,6 @@
 -Infomation is then stored for future refence.
 
 ## Links
-
 - Website: http://gifted-project2.herokuapp.com/
 - GitHub Repository: https://github.com/zachdrummond/gifted
 
