@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
   // Sets up Foundation JavaScript
   $(document).foundation();
@@ -59,7 +60,7 @@ $(document).ready(function () {
         console.log(error);
       });
   });
-
+  
   // FUNCTIONS for RECEIVED and SENT GIFTS PAGE
   //=================================================================
   // Deletes a gift in the database
