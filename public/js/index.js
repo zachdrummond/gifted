@@ -18,8 +18,6 @@ $(document).ready(function () {
     // AJAX Call - Checks to see if the user's account is valid
     $.get("/api/user/" + userEmail)
       .then(function (response) {
-        window.name = response[0].id;
-        console.log(window.name);
         $("#userEmail").val("");
       })
       .catch(function (error) {
@@ -29,14 +27,7 @@ $(document).ready(function () {
 
   // Received Gifts Image Event Listener
   $(".giftsReceivedImg").on("click", function (event) {
-    console.log(window.name);
-    $.get("/received", { userId: window.name })
-      .then(function (response) {
-        window.location.href = "/received";
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    window.location.href = "/received";
   });
 
   // Sent Gifts Image Event Listener
@@ -135,13 +126,13 @@ $(document).ready(function () {
       const id = $(this).data("id");
       let type = "";
       let editedGift = {};
-      console.log(window.name);
+      const userId = 1;
 
       // Creates a New Received Gift
       if (location.pathname === "/received") {
         editedGift = {
           id: id,
-          user_id: window.name,
+          user_id: userId,
           senderName: $("#editedSender" + id).val(),
           senderAddress: $("#editedAddress" + id).val(),
           giftReceived: $("#editedGift" + id).val(),
@@ -154,7 +145,7 @@ $(document).ready(function () {
         // Creates a New Sent Gift
         editedGift = {
           id: id,
-          user_id: window.name,
+          user_id: userId,
           receiverName: $("#editedReceiver" + id).val(),
           receiverAddress: $("#editedAddress" + id).val(),
           giftSent: $("#editedGift" + id).val(),
@@ -205,13 +196,12 @@ $(document).ready(function () {
     event.preventDefault();
     let type = "";
     let newGift = {};
-
-    console.log(window.name);
+    const userId = 1;
 
     if (location.pathname === "/add/received") {
       // Creates a Received Gift
       newGift = {
-        user_id: window.name,
+        user_id: userId,
         senderName: $("#senderName").val(),
         senderAddress: $("#senderAddress").val(),
         giftReceived: $("#giftReceived").val(),
@@ -234,7 +224,7 @@ $(document).ready(function () {
     } else if (location.pathname === "/add/sent") {
       // Creates a Received Gift
       newGift = {
-        user_id: window.name,
+        user_id: userId,
         receiverName: $("#receiverName").val(),
         receiverAddress: $("#receiverAddress").val(),
         giftSent: $("#giftSent").val(),

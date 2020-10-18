@@ -61,8 +61,7 @@ module.exports = function (app) {
   
   // index route loads received gifts page
   app.get("/received", function (req, res) {
-    userId = req.query.userId;
-    console.log(userId);
+    userId = 1;
     orderReceived("dateReceived", "DESC", res);
   });
   // index route loads sent gifts page
