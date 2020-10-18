@@ -5,9 +5,11 @@ const db = require("../models");
 
 module.exports = function (app) {
   // USER ROUTES
+  //=========================================================
 
   // route to add a new user
   app.post("/api/add/user", (req, res) => {
+    console.log(req.body);
     db.User.create(req.body)
       .then((newUser) => {
         res.json(newUser);
@@ -57,6 +59,7 @@ module.exports = function (app) {
   });
 
   // GIFT ROUTES
+  //=========================================================
 
   // route to add a new received gift
   app.post("/api/add/received", (req, res) => {

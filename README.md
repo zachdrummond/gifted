@@ -1,9 +1,5 @@
 # project-2
 
-# Find-Your-Adventure
-
-Thank you very much for taking the time to view our web-app! We hope you are able to swiftly navigate through the interface and get to your National Park Site of choice as soon as possible! Make sure you pack your gear, supplies, and clothing according to the conditions at the specific park site, especially for longer trips. Have a great time and enjoy your adventure!
-
 ## Table of Contents
 
 - [Description](#Description)

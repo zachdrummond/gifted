@@ -1,19 +1,9 @@
-
 $(document).ready(function () {
   // Sets up Foundation JavaScript
   $(document).foundation();
 
   // LOGIN PAGE
   //=================================================================
-  // Received Gifts Image Event Listener
-  $(".giftsReceivedImg").on("click", function (event) {
-    window.location.href = "/received";
-  });
-
-  // Sent Gifts Image Event Listener
-  $(".giftsSentImg").on("click", function (event) {
-    window.location.href = "/sent";
-  });
 
   // Login Button Event Listener
   $("#loginBtn").on("click", function (event) {
@@ -35,6 +25,23 @@ $(document).ready(function () {
       .catch(function (error) {
         console.log(error);
       });
+  });
+
+  // Received Gifts Image Event Listener
+  $(".giftsReceivedImg").on("click", function (event) {
+    // console.log(window.name);
+    // $.get("/received", { userId: window.name })
+    //   .then(function (response) {
+        window.location.href = "/received";
+      // })
+      // .catch(function (error) {
+      //   console.log(error);
+      // });
+  });
+
+  // Sent Gifts Image Event Listener
+  $(".giftsSentImg").on("click", function (event) {
+    window.location.href = "/sent";
   });
 
   // SIGN UP PAGE
@@ -62,7 +69,7 @@ $(document).ready(function () {
         console.log(error);
       });
   });
-  
+
   // FUNCTIONS for RECEIVED and SENT GIFTS PAGE
   //=================================================================
   // Deletes a gift in the database
@@ -120,7 +127,6 @@ $(document).ready(function () {
       const id = $(this).data("id");
       let type = "";
       let editedGift = {};
-      //userId = 1;
       console.log(window.name);
 
       // Creates a New Received Gift
@@ -187,8 +193,7 @@ $(document).ready(function () {
     event.preventDefault();
     let type = "";
     let newGift = {};
-    
-    //userId = 1;
+
     console.log(window.name);
 
     if (location.pathname === "/add/received") {
