@@ -29,7 +29,14 @@ h1 {
   text-shadow: 4px 4px #c6e6e4;
 }
 
+/* Styles the Page Header */
 h2 {
+  font-family: "Lora", serif;
+  margin-bottom: 30px;
+}
+
+/* Styles the order By Header */
+h4 {
   font-family: "Lora", serif;
 }
 

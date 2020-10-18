@@ -1,19 +1,9 @@
-
 $(document).ready(function () {
   // Sets up Foundation JavaScript
   $(document).foundation();
 
   // LOGIN PAGE
   //=================================================================
-  // Received Gifts Image Event Listener
-  $(".giftsReceivedImg").on("click", function (event) {
-    window.location.href = "/received";
-  });
-
-  // Sent Gifts Image Event Listener
-  $(".giftsSentImg").on("click", function (event) {
-    window.location.href = "/sent";
-  });
 
   // Login Button Event Listener
   $("#loginBtn").on("click", function (event) {
@@ -33,6 +23,16 @@ $(document).ready(function () {
       .catch(function (error) {
         console.log(error);
       });
+  });
+
+  // Received Gifts Image Event Listener
+  $(".giftsReceivedImg").on("click", function (event) {
+    window.location.href = "/received";
+  });
+
+  // Sent Gifts Image Event Listener
+  $(".giftsSentImg").on("click", function (event) {
+    window.location.href = "/sent";
   });
 
   // SIGN UP PAGE
@@ -60,14 +60,18 @@ $(document).ready(function () {
         console.log(error);
       });
   });
-  
+
   // FUNCTIONS for RECEIVED and SENT GIFTS PAGE
   //=================================================================
   // Deletes a gift in the database
   function deleteGift(type, id) {
     $.ajax(`/api/${type}/${id}`, {
       type: "DELETE",
-    }).then(() => {});
+    })
+      .then(() => {})
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   // Changes a row to forms for the user to edit
@@ -84,9 +88,13 @@ $(document).ready(function () {
 
   // Updates a gift in the database
   function updateGift(type, editedGift) {
-    $.ajax(`/api/edit/${type}`, { type: "PUT", data: editedGift }).then(() => {
-      location.reload();
-    });
+    $.ajax(`/api/edit/${type}`, { type: "PUT", data: editedGift })
+      .then(() => {
+        location.reload();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   // RECEIVED and SENT GIFTS PAGE
@@ -118,7 +126,7 @@ $(document).ready(function () {
       const id = $(this).data("id");
       let type = "";
       let editedGift = {};
-      userId = 1;
+      const userId = 1;
 
       // Creates a New Received Gift
       if (location.pathname === "/received") {
@@ -171,10 +179,14 @@ $(document).ready(function () {
   //=================================================================
   // Adds a Gift to the Database
   function addGift(type, newGift) {
-    $.post(`/api/add/${type}`, newGift).then(() => {
-      console.log("Post Route Worked");
-      window.location.href = `/${type}`;
-    });
+    $.post(`/api/add/${type}`, newGift)
+      .then(() => {
+        console.log("Post Route Worked");
+        window.location.href = `/${type}`;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   // ADD GIFTS PAGES
@@ -184,8 +196,7 @@ $(document).ready(function () {
     event.preventDefault();
     let type = "";
     let newGift = {};
-    
-    userId = 1;
+    const userId = 1;
 
     if (location.pathname === "/add/received") {
       // Creates a Received Gift

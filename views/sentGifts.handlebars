@@ -3,9 +3,25 @@
   <div class="grid-x grid-padding-x align-center">
     <h2 class="text-center">Gifts Sent</h2>
   </div>
-  {{!-- Add Button --}}
+
   <div class="grid-x grid-padding-x align-center">
-    <a href="/add/sent" class="button btnBlue">Add a New Gift</a>
+    <div class="medium-4 cell">
+      {{!-- Order Gifts Button --}}
+      <label>
+        <h4 class="text-center">Order Gifts By</h4>
+        <select id="orderSent">
+          <option value="name">Receiver's Name</option>
+          <option value="gift">Gift Name</option>
+          <option value="occasion">Occasion</option>
+          <option value="">Date Sent</option>
+        </select>
+      </label>
+      <button id="orderGiftsSent" class="submit button expanded btnYellow">Order</button>
+    </div>
+    {{!-- Add Button --}}
+    <div class="medium-6 cell text-center">
+      <a href="/add/sent" class="button btnBlue">Add a New Gift</a>
+    </div>
   </div>
   {{!-- Table --}}
   <section class="grid-x grid-padding-x align-center">
@@ -22,17 +38,6 @@
         </tr>
       </thead>
       <tbody>
-        <div class="medium-4 cell">
-          <label>Order Gifts By:
-            <select id="orderSent">
-              <option value="name">Receiver's Name</option>
-              <option value="gift">Gift Name</option>
-              <option value="occasion">Occasion</option>
-              <option value="">Date Sent</option>
-            </select>
-          </label>
-          <button id="orderGiftsSent" class="submit button expanded btnYellow">Order</button>
-        </div>
         {{#each gifts}}
         <tr>
           <td><span>{{giftSent}}</span><input id="editedGift{{id}}" type="text" value="{{giftSent}}"
