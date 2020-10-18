@@ -29,14 +29,14 @@ $(document).ready(function () {
 
   // Received Gifts Image Event Listener
   $(".giftsReceivedImg").on("click", function (event) {
-    // console.log(window.name);
-    // $.get("/received", { userId: window.name })
-    //   .then(function (response) {
+    console.log(window.name);
+    $.get("/received", { userId: window.name })
+      .then(function (response) {
         window.location.href = "/received";
-      // })
-      // .catch(function (error) {
-      //   console.log(error);
-      // });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   });
 
   // Sent Gifts Image Event Listener
@@ -76,7 +76,11 @@ $(document).ready(function () {
   function deleteGift(type, id) {
     $.ajax(`/api/${type}/${id}`, {
       type: "DELETE",
-    }).then(() => {});
+    })
+      .then(() => {})
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   // Changes a row to forms for the user to edit
@@ -93,9 +97,13 @@ $(document).ready(function () {
 
   // Updates a gift in the database
   function updateGift(type, editedGift) {
-    $.ajax(`/api/edit/${type}`, { type: "PUT", data: editedGift }).then(() => {
-      location.reload();
-    });
+    $.ajax(`/api/edit/${type}`, { type: "PUT", data: editedGift })
+      .then(() => {
+        location.reload();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   // RECEIVED and SENT GIFTS PAGE
@@ -180,10 +188,14 @@ $(document).ready(function () {
   //=================================================================
   // Adds a Gift to the Database
   function addGift(type, newGift) {
-    $.post(`/api/add/${type}`, newGift).then(() => {
-      console.log("Post Route Worked");
-      window.location.href = `/${type}`;
-    });
+    $.post(`/api/add/${type}`, newGift)
+      .then(() => {
+        console.log("Post Route Worked");
+        window.location.href = `/${type}`;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   // ADD GIFTS PAGES
