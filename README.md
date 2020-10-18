@@ -1,4 +1,4 @@
-# project-2
+# Gifted
 
 ## Table of Contents
 
@@ -11,32 +11,43 @@
 - [License](#License)
 
 ## Description
-
+-An app that keeps track of the people you give gifts to. Birthdays, and such.  It could include the name, date, address, an array of gifts given, an array of gifts received, a description of the things they like.  We could find an npm package for calendar display of the upcoming week or month.  
 
 
 ### _Usage_
-
-- 
+-When on the homepage, user can either sign up or log in.
+-When successfuly logged in, user ca then add to either tables of gifts received or gifts sent by clicking on either icon.
+-User can add gifts received by adding: Senders name, sender address,  gift received, occasion, date received, thank you  note sent?(yes/no).
+-User can the add gifts sent by adding: Receiver's name, receiver's address, gift Sent, cost , occasion, date Sent.
+-User is to update either table by edeting or deleting any infomation.
+-Infomation is then stored for future refence.
 
 ## Links
 
-- Website: 
-- GitHub Repository: 
+- Website: http://gifted-project2.herokuapp.com/
+- GitHub Repository: https://github.com/zachdrummond/gifted
 
-## Design Elements
-
-
+## Design Elements 
 
 ### _JavaScript_
-
-- 
+-API Routes
+-API calls
+-Models
+-Servers
 
 ### _HTML_
 
-- 
+- HTML routes
 
 ### _CSS_
+-Formatting
+-Styling
+-Borders(please change)
+
+
 - 
+### _foundation_
+- Framework
 
 ## App Preview
 
@@ -46,12 +57,29 @@
 
 ## Future Development Ideas
 
-- 
+- Customizable Themes
+-Wish List.
+-Links to Gifts/Gift Registries.
+-Gift Suggestion Search Bar.
+-Calendar - Birthday Reminder.
+-Create an Account with Password.
+-Edit Account Email and/or Password.
 
 ## Credits
 
 ### _Sources_
--
+
+https://getbootstrap.com/
+https://get.foundation/
+https://jquery.com/
+https://www.javascript.com/
+https://handlebarsjs.com/
+https://nodejs.org/en/
+https://www.npmjs.com/package/express
+https://www.npmjs.com/package/config
+https://www.npmjs.com/package/sequelize
+https://www.mysql.com/
+https://momentjs.com/
 
 
 ### _Collaborators_
