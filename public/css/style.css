@@ -7,17 +7,13 @@ nav {
   color: white;
 }
 
-body {
-  font-family: "Lora", serif;
-}
-
 /* Adds the Background Image after the body */
-body::after {
+body {
   content: "";
+  font-family: "Lora", serif;
   background-image: url(../images/background.jpg);
   background-position: center;
   background-color: rgb(245, 243, 247);
-  opacity: 0.3; /* 0 = Full Invisible & 1 = Fully Visibile */
   top: 0;
   left: 0;
   bottom: 0;
