@@ -9,18 +9,26 @@
                     <button id="loginBtn" data-open="modalLogin" class="submit button btnBlue">Login</button>
                     <a href="/signup" class="button btnGreen">Create an Account</a>
                 </label>
+                {{!-- Invalid Account Callout --}}
+                <div id="invalidEmailCallout" class="callout btnRed text-center displayNone" data-closable>
+                    <h4>Invalid Email</h4>
+                    <p>Please login to continue.</p>
+                    <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </form>
 
 {{!-- logged in modal --}}
-<div class="reveal text-center" id="modalLogin" data-reveal>
-  <h1>Logged in!</h1>
-  <p class="lead">Click one of the gifts below to begin.</p>
-  <button id="sendModalClose" class="close-button" data-close aria-label="Close modal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
+<div class="reveal text-center displayNone" id="modalLogin" data-reveal>
+    <h1>Logged in!</h1>
+    <p class="lead">Click one of the gifts below to begin.</p>
+    <button id="sendModalClose" class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
 </div>
 
 {{!-- Gifts Buttons --}}
