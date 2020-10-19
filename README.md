@@ -29,6 +29,10 @@ This is an app that tracks all of your gifts in one organized place. No need for
   3. Click the "View Sent Gifts" button to go to the sent gifts page.
   4. Click the "Add Sent Gifts" button to go to the add sent gift page.
 
+- Logout Button
+
+  1. Click the "Logout" button to go back to the login page.
+
 - Sign Up Page
 
   1. Add your first and last name to the first form.
@@ -55,12 +59,15 @@ This is an app that tracks all of your gifts in one organized place. No need for
 
 ### _JavaScript_
 
+- Node.js
 - Node Package Manager - Express, Express-Handlebars, MySQL
+- jQuery
 - Model View Controller Architecture
-- Object Relational Mapper
+- Sequelize Object Relational Mapper
+- Models with Validation
 - Routing
 - Middleware Functions
-- View Engine Template
+- View Engine Templates
 - Server-Side Rendering
 - JSON
 - Modules
@@ -72,12 +79,14 @@ This is an app that tracks all of your gifts in one organized place. No need for
 - Methods
 - Functions
 - PORTs & Environment Variables
+- For Loops
 - If...else statements
 - Comments
 
 ### _MySQL_
 
 - Database
+- Schema
 - Tables
 - Columns and Rows
 
@@ -91,12 +100,28 @@ This is an app that tracks all of your gifts in one organized place. No need for
 
 ### _CSS_
 
-- Font
-- Width
+- Selectors
+- Background Image and Color
+- Image Animations
+- Hover
+- Cursor
+- Position
+- Padding and Margin
+- Border Radius and Color
+- Google Fonts
+- Font Colors, Shadow, Sizes
+- Comments
 
 ### _Foundation_
 
-- Grid System
+- Flex Grid System
+- Mobile Responsive
+- Tables
+- Forms
+- Title Bar
+- Dropdown Menu
+- Interchange
+- Reveal Modals
 - Buttons
 - Alignment
 - Colors
@@ -104,16 +129,27 @@ This is an app that tracks all of your gifts in one organized place. No need for
 ## App Preview
 
 ### Home Page
+
 ![Home Page](public/images/LoginPage.png)
+
 ### Sign Up Page
+
 ![Sign Up Page](public/images/SignUpPage.png)
+
 ### Gifts Received Page
+
 ![Gifts Received Page](public/images/giftsReceivedPage.png)
+
 ### Add Gift Received Page
+
 ![Add Gift Received Page](public/images/addReceivedPage.png)
+
 ### Gifts Sent Page
+
 ![Gifts Sent Page](public/images/sentGiftsPage.png)
+
 ### Add Gift Sent Page
+
 ![Add Gift Sent Page](public/images/addSentPage.png)
 
 ## Future Development Ideas
