@@ -122,6 +122,7 @@ This is an app that tracks all of your gifts in one organized place. No need for
 - Dropdown Menu
 - Interchange
 - Reveal Modals
+- Callouts
 - Buttons
 - Alignment
 - Colors

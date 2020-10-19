@@ -18,5 +18,13 @@
                 <button id="createAccountBtn" type="button" class="button expanded btnBlue">Create Account</button>
             </div>
         </div>
+        {{!-- Invalid Account Callout --}}
+        <div id="invalidAccountCallout" class="callout btnRed text-center displayNone" data-closable>
+            <h4>Invalid Name or Email</h4>
+            <p>Please enter a valid name and/or email.</p>
+            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     </div>
 </form>

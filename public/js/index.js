@@ -1,6 +1,17 @@
 $(document).ready(function () {
   // Sets up Foundation JavaScript
   $(document).foundation();
+  let userEmail;
+
+  // FUNCTIONS for LOGIN PAGE
+  //=================================================================
+  // Displays the Callout if it is not displaying
+  function invalidEmail() {
+    if ($("#invalidEmailCallout").attr("style") === "display: none;") {
+      $("#invalidEmailCallout").removeAttr("style");
+    }
+    $("#invalidEmailCallout").removeClass("displayNone");
+  }
 
   // LOGIN PAGE
   //=================================================================
@@ -19,20 +30,28 @@ $(document).ready(function () {
     $.get("/api/user/" + userEmail)
       .then(function (response) {
         $("#userEmail").val("");
-
-        // Received Gifts Image Event Listener
-        $(".giftsReceivedImg").on("click", function (event) {
-          window.location.href = "/received";
-        });
-
-        // Sent Gifts Image Event Listener
-        $(".giftsSentImg").on("click", function (event) {
-          window.location.href = "/sent";
-        });
       })
       .catch(function (error) {
         console.log(error);
       });
+  });
+
+  // Received Gifts Image Event Listener
+  $(".giftsReceivedImg").on("click", function (event) {
+    if (!userEmail) {
+      invalidEmail();
+      return;
+    }
+    window.location.href = "/received";
+  });
+
+  // Sent Gifts Image Event Listener
+  $(".giftsSentImg").on("click", function (event) {
+    if (!userEmail) {
+      invalidEmail();
+      return;
+    }
+    window.location.href = "/sent";
   });
 
   // SIGN UP PAGE
@@ -48,6 +67,10 @@ $(document).ready(function () {
     };
 
     if (!newUser.name || !newUser.email) {
+      if ($("#invalidAccountCallout").attr("style") === "display: none;") {
+        $("#invalidAccountCallout").removeAttr("style");
+      }
+      $("#invalidAccountCallout").removeClass("displayNone");
       return;
     }
 
@@ -189,6 +212,16 @@ $(document).ready(function () {
       });
   }
 
+  // FUNCTIONS for ADD GIFTS PAGES
+  //=================================================================
+  // Displays the Callout if it is not displaying
+  function invalidGift() {
+    if ($(".invalidGiftCallout").attr("style") === "display: none;") {
+      $(".invalidGiftCallout").removeAttr("style");
+    }
+    $(".invalidGiftCallout").removeClass("displayNone");
+  }
+
   // ADD GIFTS PAGES
   //=================================================================
   // Add Gift Button Event Listener
@@ -218,6 +251,7 @@ $(document).ready(function () {
         !newGift.dateReceived ||
         !newGift.thankYou
       ) {
+        invalidGift();
         return;
       }
       type = "received";
@@ -241,6 +275,7 @@ $(document).ready(function () {
         !newGift.dateSent ||
         !newGift.cost
       ) {
+        invalidGift();
         return;
       }
       type = "sent";
