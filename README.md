@@ -11,74 +11,174 @@
 - [License](#License)
 
 ## Description
+
 This is an app that tracks all of your gifts in one organized place. No need for sticky notes or spreadsheets any longer! There is a table that organizes all of the gifts you receive from others and a table that organizes all of the gifts that you send to others. You can add new gifts, or edit/delete current gifts.
 
 ### _Usage_
--When on the homepage, user can either sign up or log in.
--When successfuly logged in, user ca then add to either tables of gifts received or gifts sent by clicking on either icon.
--User can add gifts received by adding: Senders name, sender address,  gift received, occasion, date received, thank you  note sent?(yes/no).
--User can the add gifts sent by adding: Receiver's name, receiver's address, gift Sent, cost , occasion, date Sent.
--User is to update either table by edeting or deleting any infomation.
--Infomation is then stored for future refence.
+
+- Home Page
+
+  1. Click the "Create an Account" button to create an account.
+  2. If you have an account, add your email to the form and click the "Login" button.
+  3. Once you are logged in, click one of the gift images at the bottom of the screen.
+
+- Navigate Dropdown Menu
+
+  1. Click the "View Received Gifts" button to go to the received gifts page.
+  2. Click the "Add Received Gift" button to go to the add received gift page.
+  3. Click the "View Sent Gifts" button to go to the sent gifts page.
+  4. Click the "Add Sent Gifts" button to go to the add sent gift page.
+
+- Logout Button
+
+  1. Click the "Logout" button to go back to the login page.
+
+- Sign Up Page
+
+  1. Add your first and last name to the first form.
+  2. Add your email address to the second form.
+  3. Click the "Create Account" button.
+
+- Received Gifts / Sent Gifts Page
+
+  1. Click the "Order Gifts By" dropdown button to order the table in a different fashion.
+  2. Click the "Add a New Gift" button to add a gift to the table.
+  3. Click the "edit" button to edit one of the rows in the table. Make sure you click the "submit" button afterwards to update the row.
+  4. Click the "delete" button to delete a row from the table.
+
+- Add a New Gift Page
+  1. Fill all of the forms with data/information.
+  2. Click the "Add Gift" button to add the gift to the specified table.
 
 ## Links
+
 - Website: http://gifted-project2.herokuapp.com/
 - GitHub Repository: https://github.com/zachdrummond/gifted
 
-## Design Elements 
+## Design Elements
 
 ### _JavaScript_
--API Routes
--API calls
--Models
--Servers
 
-### _HTML_
+- Node.js
+- Node Package Manager - Express, Express-Handlebars, MySQL
+- jQuery
+- Model View Controller Architecture
+- Sequelize Object Relational Mapper
+- Models with Validation
+- Routing
+- Middleware Functions
+- View Engine Templates
+- Server-Side Rendering
+- JSON
+- Modules
+- Promises
+- DOM Manipulation
+- AJAX
+- Event Listeners
+- Objects
+- Methods
+- Functions
+- PORTs & Environment Variables
+- For Loops
+- If...else statements
+- Comments
 
-- HTML routes
+### _MySQL_
+
+- Database
+- Schema
+- Tables
+- Columns and Rows
+
+### _Handlebars_
+
+- Partials
+- Triple Stash
+- Double Stash
+- Built-in Helpers
+- Comments
 
 ### _CSS_
--Formatting
--Styling
--Borders(please change)
 
+- Selectors
+- Background Image and Color
+- Image Animations
+- Hover
+- Cursor
+- Position
+- Padding and Margin
+- Border Radius and Color
+- Google Fonts
+- Font Colors, Shadow, Sizes
+- Comments
 
-- 
-### _foundation_
-- Framework
+### _Foundation_
+
+- Flex Grid System
+- Mobile Responsive
+- Tables
+- Forms
+- Title Bar
+- Dropdown Menu
+- Interchange
+- Reveal Modals
+- Buttons
+- Alignment
+- Colors
 
 ## App Preview
 
 ### Home Page
 
-![Screenshot](assets/images/FindYourAdventure1.png)
+![Home Page](public/images/LoginPage.png)
+
+### Sign Up Page
+
+![Sign Up Page](public/images/SignUpPage.png)
+
+### Gifts Received Page
+
+![Gifts Received Page](public/images/giftsReceivedPage.png)
+
+### Add Gift Received Page
+
+![Add Gift Received Page](public/images/addReceivedPage.png)
+
+### Gifts Sent Page
+
+![Gifts Sent Page](public/images/sentGiftsPage.png)
+
+### Add Gift Sent Page
+
+![Add Gift Sent Page](public/images/addSentPage.png)
 
 ## Future Development Ideas
 
 - Customizable Themes
--Wish List.
--Links to Gifts/Gift Registries.
--Gift Suggestion Search Bar.
--Calendar - Birthday Reminder.
--Create an Account with Password.
--Edit Account Email and/or Password.
+- Wish List
+- Links to Gifts/Gift Registries
+- Gift Suggestion Search Bar
+- Calendar: Birthday Reminder
+- Create an Account with Password
+- Edit Account Email and/or Password
 
 ## Credits
 
 ### _Sources_
 
-https://getbootstrap.com/
-https://get.foundation/
-https://jquery.com/
-https://www.javascript.com/
-https://handlebarsjs.com/
-https://nodejs.org/en/
-https://www.npmjs.com/package/express
-https://www.npmjs.com/package/config
-https://www.npmjs.com/package/sequelize
-https://www.mysql.com/
-https://momentjs.com/
-
+- https://nodejs.org/en/
+- https://www.javascript.com/
+- https://jquery.com/
+- https://handlebarsjs.com/
+- https://www.mysql.com/
+- https://www.npmjs.com/package/express
+- https://www.npmjs.com/package/config
+- https://www.npmjs.com/package/sequelize
+- https://www.npmjs.com/package/mysql
+- https://www.npmjs.com/package/nodemon
+- https://get.foundation/
+- https://momentjs.com/
+- https://www.heroku.com/
 
 ### _Collaborators_
 
