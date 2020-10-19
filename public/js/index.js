@@ -19,20 +19,20 @@ $(document).ready(function () {
     $.get("/api/user/" + userEmail)
       .then(function (response) {
         $("#userEmail").val("");
+
+        // Received Gifts Image Event Listener
+        $(".giftsReceivedImg").on("click", function (event) {
+          window.location.href = "/received";
+        });
+
+        // Sent Gifts Image Event Listener
+        $(".giftsSentImg").on("click", function (event) {
+          window.location.href = "/sent";
+        });
       })
       .catch(function (error) {
         console.log(error);
       });
-  });
-
-  // Received Gifts Image Event Listener
-  $(".giftsReceivedImg").on("click", function (event) {
-    window.location.href = "/received";
-  });
-
-  // Sent Gifts Image Event Listener
-  $(".giftsSentImg").on("click", function (event) {
-    window.location.href = "/sent";
   });
 
   // SIGN UP PAGE
