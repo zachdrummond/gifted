@@ -8,7 +8,6 @@ module.exports = function (app) {
 
   // route to add a new user
   app.post("/api/add/user", (req, res) => {
-    console.log(req.body);
     db.User.create(req.body)
       .then((newUser) => {
         res.json(newUser);
@@ -95,7 +94,6 @@ module.exports = function (app) {
 
   // get all received gifts
   app.get("/api/received", (req, res) => {
-    // console.log(res.body.giftReceived)
     db.ReceivedGifts.findAll()
       .then((allReceivedGifts) => {
         res.render("receivedGifts", { gifts: allReceivedGifts });
@@ -135,7 +133,6 @@ module.exports = function (app) {
     })
       .then((sentGift) => {
         // res.json(allSentGifts);
-        console.log(sentGift)
       })
       .catch((err) => {
         console.log(err);
@@ -148,7 +145,6 @@ module.exports = function (app) {
   });
   // PUT route for updating received gifts
   app.put("/api/edit/received", (req, res) => {
-    console.log(req.body)
     db.ReceivedGifts.update(req.body, {
       where: {
         id: req.body.id,
