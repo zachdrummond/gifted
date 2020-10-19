@@ -189,9 +189,9 @@ $(document).ready(function () {
   $(".deletebtn").on("click", function () {
     const id = $(this).data("id");
 
-    if (location.pathname === "/received") {
+    if (location.pathname.includes("received")) {
       deleteGift("received", id);
-    } else if (location.pathname === "/sent") {
+    } else if (location.pathname.includes("sent")) {
       deleteGift("sent", id);
     }
   });
