@@ -102,10 +102,13 @@ $(document).ready(function () {
     for (let i = 0; i < tableRow.length; i++) {
       tableRow[i].children[0].setAttribute("class", "displayNone");
       tableRow[i].children[1].removeAttribute("class");
-    }
-    tableRow[5].children[0].setAttribute("class", "displayNone");
-    for (let j = 1; j < 5; j++) {
-      tableRow[5].children[j].removeAttribute("class");
+
+      // Updates the Thank You Section in the Received Gifts Table
+      if (tableRow[i].children[1].name === "thankYou") {
+        for (let j = 2; j < 5; j++) {
+          tableRow[5].children[j].removeAttribute("class");
+        }
+      }
     }
   }
 
@@ -152,7 +155,7 @@ $(document).ready(function () {
       const userId = 1;
 
       // Creates a New Received Gift
-      if (location.pathname === "/received") {
+      if (location.pathname.includes("received")) {
         editedGift = {
           id: id,
           user_id: userId,
@@ -164,7 +167,7 @@ $(document).ready(function () {
           thankYou: $('input[name="thankYou"]:checked').val(),
         };
         type = "received";
-      } else if (location.pathname === "/sent") {
+      } else if (location.pathname.includes("sent")) {
         // Creates a New Sent Gift
         editedGift = {
           id: id,
@@ -204,7 +207,6 @@ $(document).ready(function () {
   function addGift(type, newGift) {
     $.post(`/api/add/${type}`, newGift)
       .then(() => {
-        console.log("Post Route Worked");
         window.location.href = `/${type}`;
       })
       .catch(function (error) {
