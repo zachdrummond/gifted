@@ -14,6 +14,11 @@
 
 This is an app that tracks all of your gifts in one organized place. No need for sticky notes or spreadsheets any longer! There is a table that organizes all of the gifts you receive from others and a table that organizes all of the gifts that you send to others. You can add new gifts, or edit/delete current gifts.
 
+## Links
+
+- Website: http://gifted-project2.herokuapp.com/
+- GitHub Repository: https://github.com/zachdrummond/gifted
+
 ### _Usage_
 
 - Home Page
@@ -49,11 +54,6 @@ This is an app that tracks all of your gifts in one organized place. No need for
 - Add a New Gift Page
   1. Fill all of the forms with data/information.
   2. Click the "Add Gift" button to add the gift to the specified table.
-
-## Links
-
-- Website: http://gifted-project2.herokuapp.com/
-- GitHub Repository: https://github.com/zachdrummond/gifted
 
 ## Design Elements
 
