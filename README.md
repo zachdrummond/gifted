@@ -56,76 +56,19 @@ This is an app that tracks all of your gifts in one organized place. No need for
   2. Click the "Add Gift" button to add the gift to the specified table.
 
 ## Design Elements
+### _Front End_
+* JavaScript
+* jQuery
+* Express-Handlebars
+* Foundation
+* CSS
+### _Back End_
+* JavaScript
+* Node.js
+* Express.js
+* Sequelize
+* MySQL
 
-### _JavaScript_
-
-- Node.js
-- Node Package Manager - Express, Express-Handlebars, MySQL
-- jQuery
-- Model View Controller Architecture
-- Sequelize Object Relational Mapper
-- Models with Validation
-- Routing
-- Middleware Functions
-- View Engine Templates
-- Server-Side Rendering
-- JSON
-- Modules
-- Promises
-- DOM Manipulation
-- AJAX
-- Event Listeners
-- Objects
-- Methods
-- Functions
-- PORTs & Environment Variables
-- For Loops
-- If...else statements
-- Comments
-
-### _MySQL_
-
-- Database
-- Schema
-- Tables
-- Columns and Rows
-
-### _Handlebars_
-
-- Partials
-- Triple Stash
-- Double Stash
-- Built-in Helpers
-- Comments
-
-### _CSS_
-
-- Selectors
-- Background Image and Color
-- Image Animations
-- Hover
-- Cursor
-- Position
-- Padding and Margin
-- Border Radius and Color
-- Google Fonts
-- Font Colors, Shadow, Sizes
-- Comments
-
-### _Foundation_
-
-- Flex Grid System
-- Mobile Responsive
-- Tables
-- Forms
-- Title Bar
-- Dropdown Menu
-- Interchange
-- Reveal Modals
-- Callouts
-- Buttons
-- Alignment
-- Colors
 
 ## App Preview
 

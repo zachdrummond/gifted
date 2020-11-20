@@ -3,7 +3,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const handlebars = require("handlebars");
 const {
-  allowInsecurePrototypeAccess
+  allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
 
 const db = require("./models");
@@ -23,7 +23,6 @@ app.engine(
     defaultLayout: "main",
 
     handlebars: allowInsecurePrototypeAccess(handlebars),
-
   })
 );
 app.set("view engine", "handlebars");
